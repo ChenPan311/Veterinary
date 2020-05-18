@@ -25,7 +25,6 @@ public class Test {
         VeterinaryMainView frame = new VeterinaryMainView("Veti");
         //frame.add(new AddAppointmentView());
         //giitttg what?
-
         RegisterCustomerController controller2=new RegisterCustomerController(personManager,frame.getRegisterCustomerView());
         MedicineController medicineController=new MedicineController(medicineManager,frame.getMedicineView());
         AddPetToCustomerController controller1 = new AddPetToCustomerController(personManager, frame.getPetToCustomerView());
