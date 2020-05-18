@@ -24,7 +24,7 @@ public class Test {
         //JFrame frame = new JFrame("title test");
         VeterinaryMainView frame = new VeterinaryMainView("Veti");
         //frame.add(new AddAppointmentView());
-        // blame yuval
+        //giitttg what?
         RegisterCustomerController controller2=new RegisterCustomerController(personManager,frame.getRegisterCustomerView());
         MedicineController medicineController=new MedicineController(medicineManager,frame.getMedicineView());
         AddPetToCustomerController controller1 = new AddPetToCustomerController(personManager, frame.getPetToCustomerView());
