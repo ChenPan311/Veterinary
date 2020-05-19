@@ -6,7 +6,10 @@ public class AppointmentSummary {
     private ArrayList<Medicine> medicines;
     private String treatmentSummary,recommendations;
 
-    public AppointmentSummary( String treatmentSummary, String recommendations) {
+    public AppointmentSummary() {
+    }
+
+    public AppointmentSummary(String treatmentSummary, String recommendations) {
         this.medicines =new ArrayList<>();
         this.treatmentSummary = treatmentSummary;
         this.recommendations = recommendations;
