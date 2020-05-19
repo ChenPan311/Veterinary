@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Appointment {
     private Date date = new Date();
     private String treatment,treatmentDescription,petId,customerId,vetId;
-    private AppointmentSummary summary;
+    private AppointmentSummary summary = new AppointmentSummary();
 
     public Appointment() {}
 
