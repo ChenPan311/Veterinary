@@ -33,19 +33,12 @@ public class RegisterCustomerController {
                         model.addPerson(customer);
                         System.out.println(customer);
                         view.clearFields();
+                        JOptionPane.showMessageDialog(view, "Success");
                     }
-
-                    JOptionPane.showMessageDialog(view, "Success");
                 } else JOptionPane.showMessageDialog(view,"Fill All Fields!");
             }
         });
 
-        view.getShowBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(model.getPersons().toString());
-            }
-        });
     }
 
 

@@ -1,9 +1,6 @@
 package Model;
 
-import Controller.AddAppointmentController;
-import Controller.AddPetToCustomerController;
-import Controller.MedicineController;
-import Controller.RegisterCustomerController;
+import Controller.*;
 import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.MedicineTableModel;
 import Model.TablesModels.PersonTableModel;
@@ -29,9 +26,12 @@ public class Test {
         //JFrame frame = new JFrame("title test");
         VeterinaryMainView frame = new VeterinaryMainView("Veti");
         TablePanel personsTablePanel=new TablePanel(new MedicineTableModel());
+        PersonsView personsView = new PersonsView();
+        personsView.getTablePanel().setPersonsData(personManager.getPersons());
+        PersonsController controller=new PersonsController(personsView,personManager);
         personsTablePanel.setMedicineData(medicineManager.getMedicinesAndQuantity());
         //personsTablePanel.refresh();
-        frame.add(personsTablePanel);
+        frame.add(personsView);
 
         //giitttg what?
         //RegisterCustomerController controller2=new RegisterCustomerController(personManager,frame.getRegisterCustomerView());

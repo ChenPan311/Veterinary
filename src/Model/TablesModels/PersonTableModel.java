@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PersonTableModel extends AbstractTableModel {
     private List<Person> persons;
-    private String [] colNames={"Id","Name", "Phone Number","Email","Address","Customer Number","Licence"};
+    private String[] colNames = {"Id", "Name", "Phone Number", "Email", "Address", "Customer Number", "Licence"};
 
     public PersonTableModel() {
     }
@@ -59,4 +59,5 @@ public class PersonTableModel extends AbstractTableModel {
         return null;
 
     }
+
 }

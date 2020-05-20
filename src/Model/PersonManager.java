@@ -21,17 +21,33 @@ public class PersonManager {
     public void addPerson(Person person) {
         persons.add(person);
     }
-   /* public Vet getVet(Person person){
-        for (Person p:persons){
-            if(p instanceof Vet&&p.equals(person))
-                return (Vet)p;
 
-        }
-    }*/
+   public void removeCustomer(int index){
+       persons.remove(index);
+   }
 
     public ArrayList<Person> getPersons() {
         return persons;
     }
+
+    public ArrayList<Customer> getCustomers(){
+       ArrayList<Customer> customers = new ArrayList<>();
+       for(Person person : persons){
+           if(person instanceof Customer)
+               customers.add((Customer)person);
+       }
+       return customers;
+    }
+
+    public ArrayList<Customer> getVets(){
+        ArrayList<Customer> vets = new ArrayList<>();
+        for(Person person : persons){
+            if(person instanceof Vet)
+                vets.add((Customer)person);
+        }
+        return vets;
+    }
+
 
     public Random getRandom() {
         return random;
@@ -56,6 +72,10 @@ public class PersonManager {
                     return true;
         }
         return false;
+    }
+
+    public Customer getCustomerByRowIndex(int row){
+        return (Customer)persons.get(row);
     }
     // missing methods from class diagram
 }

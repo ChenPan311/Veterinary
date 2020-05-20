@@ -10,6 +10,7 @@ import Model.TablesModels.PersonTableModel;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,6 +24,10 @@ public class TablePanel extends JPanel {
 
         setLayout(new BorderLayout());
         add(new JScrollPane(table), BorderLayout.CENTER);
+    }
+
+    public JTable getTable() {
+        return table;
     }
 
     public void setPersonsData(ArrayList<Person> persons) {
@@ -43,6 +48,10 @@ public class TablePanel extends JPanel {
     public void refresh() {
         tableModel.fireTableDataChanged();
 
+    }
+
+    public void addSelectedRowListener(MouseListener mouseListener){
+        table.addMouseListener(mouseListener);
     }
 
 
