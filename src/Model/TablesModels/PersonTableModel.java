@@ -5,10 +5,11 @@ import Model.Person;
 import Model.Vet;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersonTableModel extends AbstractTableModel {
-    private List<Person> persons;
+    private List<Person> persons = new ArrayList<>();
     private String[] colNames = {"Id", "Name", "Phone Number", "Email", "Address", "Customer Number", "Licence"};
 
     public PersonTableModel() {

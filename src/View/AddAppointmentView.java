@@ -11,7 +11,7 @@ public class AddAppointmentView extends JPanel {
     private JLabel customerId_tv, petId_tv, vetId_tv, dateAndTime_tv, treatment_tv, treatmentDescription_tv;
     private JTextField customerId_tf, petId_tf, vetId_tf, treatment_tf, treatmentDescription_tf;
     private DateTimePicker dateTimePicker;
-    private JButton addBtn;
+    private JButton addBtn,deleteBtn,updateBtn;
 
     public AddAppointmentView() {
         customerId_tv = new JLabel("Customer Id: ");
@@ -30,6 +30,8 @@ public class AddAppointmentView extends JPanel {
         dateTimePicker = new DateTimePicker();
 
         addBtn = new JButton("Add");
+        deleteBtn = new JButton("Delete");
+        updateBtn = new JButton("Update");
 
         setBackground(Color.ORANGE);
         setLayout(new GridBagLayout());
@@ -80,6 +82,12 @@ public class AddAppointmentView extends JPanel {
         gbc.gridy = 6;
         gbc.gridx=1;
         add(addBtn,gbc);
+
+        gbc.gridy = 7;
+        add(deleteBtn,gbc);
+
+        gbc.gridy = 8;
+        add(updateBtn,gbc);
     }
 
     public JTextField getCustomerId_tf() {
@@ -122,5 +130,13 @@ public class AddAppointmentView extends JPanel {
 
     public void addAppointmentListener(ActionListener actionListener){
         addBtn.addActionListener(actionListener);
+    }
+
+    public void deleteAppointmentListener(ActionListener actionListener){
+        deleteBtn.addActionListener(actionListener);
+    }
+
+    public void updateAppointmentListener(ActionListener actionListener){
+        updateBtn.addActionListener(actionListener);
     }
 }

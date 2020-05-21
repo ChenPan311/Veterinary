@@ -9,7 +9,7 @@ public class AddMedicineView extends JPanel {
     private JTextField id_tf, name_tf, quantity_tf;
     private JComboBox<String> type_cb;
     private String[] medicineType = {"Antibiotics", "Opioid pain relievers", "Steroids", "Antiparasitics", "Behavior-modifying drugs and sedatives"};
-    private JButton addBtn;
+    private JButton addBtn,deleteBtn,updateBtn;
 
     public AddMedicineView() {
         id_tv = new JLabel("Medicine Id: ");
@@ -24,6 +24,8 @@ public class AddMedicineView extends JPanel {
         type_cb = new JComboBox<>(medicineType);
 
         addBtn = new JButton("Add");
+        deleteBtn = new JButton("Delete");
+        updateBtn = new JButton("Update");
 
         setBackground(Color.ORANGE);
         setLayout(new GridBagLayout());
@@ -60,10 +62,24 @@ public class AddMedicineView extends JPanel {
         gbc.fill = GridBagConstraints.CENTER;
         gbc.gridy = 4;
         add(addBtn, gbc);
+
+        gbc.gridy = 5;
+        add(deleteBtn, gbc);
+
+        gbc.gridy = 6;
+        add(updateBtn, gbc);
     }
 
     public void addMedicineToInventory(ActionListener actionListener) {
         addBtn.addActionListener(actionListener);
+    }
+
+    public void deleteMedicineFromInventory(ActionListener actionListener){
+        deleteBtn.addActionListener(actionListener);
+    }
+
+    public void updateMedicineInInventory(ActionListener actionListener){
+        updateBtn.addActionListener(actionListener);
     }
 
     public Boolean validateFields() {

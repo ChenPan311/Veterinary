@@ -1,15 +1,14 @@
 package Model;
 
 public abstract class Pet {
-    private String petId,ownerId,name,dateOfBirth,color,gender;
+    private String petId,name,dateOfBirth,color,gender;
     private double weight;
 
     public Pet() {
     }
 
-    public Pet(String petId, String ownerId, String name, String dateOfBirth, String color, String gender, double weight) {
+    public Pet(String petId, String name, String dateOfBirth, String color, String gender, double weight) {
         this.petId = petId;
-        this.ownerId = ownerId;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.color = color;
@@ -23,14 +22,6 @@ public abstract class Pet {
 
     public void setPetId(String petId) {
         this.petId = petId;
-    }
-
-    public String getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
     }
 
     public String getName() {
@@ -77,7 +68,6 @@ public abstract class Pet {
     public String toString() {
         return "Pet{" +
                 "petId='" + petId + '\'' +
-                ", ownerId='" + ownerId + '\'' +
                 ", name='" + name + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", color='" + color + '\'' +

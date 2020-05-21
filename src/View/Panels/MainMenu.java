@@ -7,9 +7,9 @@ public class MainMenu extends JPanel {
     JButton addCustomer,addMedicine,addPet;
 
     public MainMenu() {
-        addCustomer=new JButton("Add a Customer");
-        addMedicine=new JButton("Add Medicine");
-        addPet=new JButton("Add Pet");
+        addCustomer=new JButton("Customers");
+        addMedicine=new JButton("Medicines");
+        addPet=new JButton("Appointments");
 
         setLayout(new GridBagLayout());
         setBackground(Color.DARK_GRAY);

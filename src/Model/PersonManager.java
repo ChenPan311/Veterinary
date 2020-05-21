@@ -1,13 +1,7 @@
 package Model;
 
-import Model.*;
-import View.AddPetToCustomerView;
-import View.RegisterCustomerView;
 
-
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
 
 public class PersonManager {
@@ -77,5 +71,11 @@ public class PersonManager {
     public Customer getCustomerByRowIndex(int row){
         return (Customer)persons.get(row);
     }
+
+    public void addPetToCustomerPetList(int index,Pet pet){
+        Customer customer=(Customer)persons.get(index);
+        customer.addPetToList(pet);
+    }
+
     // missing methods from class diagram
 }

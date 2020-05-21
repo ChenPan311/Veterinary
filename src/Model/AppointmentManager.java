@@ -24,5 +24,8 @@ public class AppointmentManager {
         return appointments;
     }
 
+    public Appointment getAppointmentByRowIndex(int index){
+        return appointments.get(index);
+    }
     // need to add here 2 more methods from class diagram
 }

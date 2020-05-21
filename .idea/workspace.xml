@@ -3,12 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="7d68178c-2a09-4d72-a890-83474b14611b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AddAppointmentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MedicineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedicineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterCustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/AppointmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AppointmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MedicineManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MedicineManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Other.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Other.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/PersonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PersonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/TablesModels/AppointmentTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/TablesModels/AppointmentTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/TablesModels/MedicineTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/TablesModels/MedicineTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/TablesModels/PersonTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/TablesModels/PersonTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AddAppointmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddAppointmentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AddMedicineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddMedicineView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/AddPetToCustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Dialogs/AddPetToCustomerDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Panels/CatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Panels/CatPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Panels/DogPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Panels/DogPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Panels/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Panels/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Panels/OtherPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Panels/OtherPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Panels/TablePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Panels/TablePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/PersonsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PersonsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +61,8 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Test (1)">
+    <configuration name="Test (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Test" />
       <module name="model" />
       <extension name="coverage">
@@ -53,11 +75,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Test" />
-      </list>
-    </recent_temporary>
+    <configuration name="Test" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="View.Model.Test" />
+      <module name="model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -81,10 +111,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1589558126366" />
-    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser" timestamp="1589976058486">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590080885891">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1589976058486" />
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1590080885891" />
+    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser" timestamp="1590083643330">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1590083643330" />
     <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589133167282" />
     <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589548046318">
       <screen x="0" y="0" width="1280" height="680" />
@@ -106,25 +140,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1589783158307" />
-    <state width="1237" height="184" key="GridCell.Tab.0.bottom" timestamp="1589983553386">
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom" timestamp="1590087700660">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="184" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589983553386" />
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1590087700660" />
     <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="184" key="GridCell.Tab.0.center" timestamp="1589983553386">
+    <state width="1237" height="184" key="GridCell.Tab.0.center" timestamp="1590087700660">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="184" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1589983553386" />
+    <state width="1237" height="184" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1590087700660" />
     <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="184" key="GridCell.Tab.0.left" timestamp="1589983553386">
+    <state width="1237" height="184" key="GridCell.Tab.0.left" timestamp="1590087700660">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="184" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1589983553386" />
+    <state width="1237" height="184" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1590087700660" />
     <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="184" key="GridCell.Tab.0.right" timestamp="1589983553386">
+    <state width="1237" height="184" key="GridCell.Tab.0.right" timestamp="1590087700660">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="184" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1589983553386" />
+    <state width="1237" height="184" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1590087700660" />
     <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
     <state width="1237" height="205" key="GridCell.Tab.1.bottom" timestamp="1589783565292">
       <screen x="0" y="0" width="1280" height="680" />
@@ -146,10 +180,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1589783165359" />
-    <state x="398" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1589964888884">
+    <state x="398" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1590007452619">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="398" y="197" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1589964888884" />
+    <state x="398" y="197" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590007452619" />
     <state x="477" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588863187739" />
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589884055663">
       <screen x="0" y="0" width="1280" height="680" />

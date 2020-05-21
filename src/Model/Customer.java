@@ -11,6 +11,7 @@ public class Customer extends Person {
     private ArrayList<Pet> petList;
 
     public Customer() {
+        petList=new ArrayList<>();
     }
 
     public Customer(String name, String phoneNumber, String email, String address, String id) {
@@ -36,6 +37,9 @@ public class Customer extends Person {
     public void addPetToList(Pet pet){
         petList.add(pet);
     }
+    public void removePetFromList(int index){
+        petList.remove(index);
+    }
 
     public boolean searchPetById(String id){
         for(Pet pet:petList) {
@@ -43,6 +47,10 @@ public class Customer extends Person {
                 return true;
         }
         return false;
+    }
+
+    public Pet getPetFromList(int index){
+        return petList.get(index);
     }
     // missing methods from class diagram
 

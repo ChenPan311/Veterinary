@@ -19,6 +19,10 @@ public class MedicineManager {
             medicinesAndQuantity.put(medicine,quantity);
         }
     }
+
+    public void removeMedicine(Medicine medicine){
+        medicinesAndQuantity.remove(medicine);
+    }
     public int getMedicineQuantity(Medicine medicine){
         return medicinesAndQuantity.getOrDefault(medicine,0);
     }

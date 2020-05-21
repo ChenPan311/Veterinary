@@ -4,14 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CatPanel extends JPanel {
-    private JLabel customerId_tv, petId_tv, name_tv, dateOfBirth_tv, color_tv, gender_tv, weight_tv, breed_tv, isCastrated_tv;
-    private JTextField customerId_tf, petId_tf, name_tf, dateOfBirth_tf, color_tf, weight_tf, breed_tf;
+    private JLabel petId_tv, name_tv, dateOfBirth_tv, color_tv, gender_tv, weight_tv, breed_tv, isCastrated_tv;
+    private JTextField petId_tf, name_tf, dateOfBirth_tf, color_tf, weight_tf, breed_tf;
     private ButtonGroup isCastrated_bg,gender_bg;
     private JRadioButton yes_ic, no_ic,male,female;
     private JPanel  castratedPanel,genderPanel;
 
     public CatPanel() {
-        customerId_tv = new JLabel("Customer Id:");
         petId_tv = new JLabel("Pet Id:");
         name_tv = new JLabel("Name:");
         dateOfBirth_tv = new JLabel("Date of birth:");
@@ -22,7 +21,6 @@ public class CatPanel extends JPanel {
         isCastrated_tv = new JLabel("Is castrated?:");
 
 
-        customerId_tf = new JTextField(20);
         petId_tf = new JTextField(20);
         name_tf = new JTextField(20);
         dateOfBirth_tf = new JTextField(20);
@@ -56,13 +54,6 @@ public class CatPanel extends JPanel {
         gbc.ipady = 3;
         gbc.ipadx = 3;
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        add(customerId_tv, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        add(customerId_tf, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -124,14 +115,6 @@ public class CatPanel extends JPanel {
         gbc.gridx = 1;
         add(castratedPanel, gbc);
 
-    }
-
-    public JTextField getCustomerId_tf() {
-        return customerId_tf;
-    }
-
-    public void setCustomerId_tf(JTextField customerId_tf) {
-        this.customerId_tf = customerId_tf;
     }
 
     public JTextField getPetId_tf() {

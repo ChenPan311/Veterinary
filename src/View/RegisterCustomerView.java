@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class RegisterCustomerView extends JPanel {
     private JLabel name_tv, phoneNumber_tv, email_tv, address_tv, id_tv;
     private JTextField name_tf, phoneNumber_tf, email_tf, address_tf, id_tf;
-    private JButton addBtn, deleteBtn, updateBtn, clearBtn;
+    private JButton addBtn, deleteBtn, updateBtn, clearBtn, addPetBtn;
 
     public RegisterCustomerView() {
         name_tv = new JLabel("Name:");
@@ -26,6 +26,7 @@ public class RegisterCustomerView extends JPanel {
         deleteBtn = new JButton("Delete");
         updateBtn = new JButton("Update");
         clearBtn = new JButton("Clear");
+        addPetBtn = new JButton("Manage Pets");
 
         setBackground(Color.ORANGE);
         setLayout(new GridBagLayout());
@@ -79,17 +80,17 @@ public class RegisterCustomerView extends JPanel {
         gbc.gridy = 5;
         add(addBtn, gbc);
 
-        gbc.fill = GridBagConstraints.CENTER;
         gbc.gridy = 6;
         add(deleteBtn, gbc);
 
-        gbc.fill = GridBagConstraints.CENTER;
         gbc.gridy = 7;
         add(updateBtn, gbc);
 
-        gbc.fill = GridBagConstraints.CENTER;
         gbc.gridy = 8;
         add(clearBtn, gbc);
+
+        gbc.gridy = 9;
+        add(addPetBtn, gbc);
 
     }
 
@@ -134,18 +135,6 @@ public class RegisterCustomerView extends JPanel {
     }
 
 
-    public JButton getAddBtn() {
-        return addBtn;
-    }
-
-    public JButton getDeleteBtn() {
-        return deleteBtn;
-    }
-
-    public JButton getUpdateBtn() {
-        return updateBtn;
-    }
-
     public void addNewCustomerListener(ActionListener actionListener) {
         addBtn.addActionListener(actionListener);
     }
@@ -156,6 +145,10 @@ public class RegisterCustomerView extends JPanel {
 
     public void updateCustomerListener(ActionListener actionListener) {
         updateBtn.addActionListener(actionListener);
+    }
+
+    public void petManageOfCustomerListener(ActionListener actionListener) {
+        addPetBtn.addActionListener(actionListener);
     }
 
     public void clearFieldsListener(ActionListener actionListener) {

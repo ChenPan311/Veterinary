@@ -4,14 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class OtherPanel extends JPanel {
-    private JLabel customerId_tv, petId_tv, name_tv, dateOfBirth_tv, color_tv, gender_tv, weight_tv, typeOfPet_tv, info_tv;
-    private JTextField customerId_tf, petId_tf, name_tf, dateOfBirth_tf, color_tf, weight_tf, typeOfPet_tf, info_tf;
+    private JLabel petId_tv, name_tv, dateOfBirth_tv, color_tv, gender_tv, weight_tv, typeOfPet_tv, info_tv;
+    private JTextField petId_tf, name_tf, dateOfBirth_tf, color_tf, weight_tf, typeOfPet_tf, info_tf;
     private JPanel genderPanel;
     private ButtonGroup gender_bg;
     private JRadioButton male, female;
 
     public OtherPanel() {
-        customerId_tv = new JLabel("Customer Id:");
         petId_tv = new JLabel("Pet Id:");
         name_tv = new JLabel("Name:");
         dateOfBirth_tv = new JLabel("Date of birth:");
@@ -21,7 +20,6 @@ public class OtherPanel extends JPanel {
         typeOfPet_tv = new JLabel("Type of pet:");
         info_tv = new JLabel("More info:");
 
-        customerId_tf = new JTextField(20);
         petId_tf = new JTextField(20);
         name_tf = new JTextField(20);
         dateOfBirth_tf = new JTextField(20);
@@ -49,14 +47,6 @@ public class OtherPanel extends JPanel {
         gbc.insets = new Insets(3, 3, 3, 3);
         gbc.ipady = 3;
         gbc.ipadx = 3;
-
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        add(customerId_tv, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        add(customerId_tf, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -117,14 +107,6 @@ public class OtherPanel extends JPanel {
         add(info_tv, gbc);
         gbc.gridx = 1;
         add(info_tf, gbc);
-    }
-
-    public JTextField getCustomerId_tf() {
-        return customerId_tf;
-    }
-
-    public void setCustomerId_tf(JTextField customerId_tf) {
-        this.customerId_tf = customerId_tf;
     }
 
     public JTextField getPetId_tf() {

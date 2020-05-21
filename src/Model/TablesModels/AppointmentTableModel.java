@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentTableModel extends AbstractTableModel {
-    private List<Appointment> appointmentList;
+    private List<Appointment> appointmentList = new ArrayList<>();
     private String [] colNames={"Customer Id","Pet Id","Vet Id","Date","Time","Treatment","Treatment Description","Summary","Recommendations","Medicines"};
 
     public AppointmentTableModel() {

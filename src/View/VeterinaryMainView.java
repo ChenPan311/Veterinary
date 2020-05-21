@@ -1,5 +1,6 @@
 package View;
 
+import Model.Appointment;
 import View.Panels.MainMenu;
 
 import javax.swing.*;
@@ -10,12 +11,12 @@ import java.awt.event.ActionListener;
 public class VeterinaryMainView extends JFrame {
     private MainMenu mainMenu;
     private JPanel panel;
-    private AddMedicineView medicineView;
-    private AddPetToCustomerView petToCustomerView;
-    private RegisterCustomerView registerCustomerView;
-    static final String CUSTOMER="Add Customer";
-    static final String PET="Add Pet";
-    static final String MEDICINE="Add Medicine";
+    private MedicinesView medicineView;
+    private PersonsView personsView;
+    private AppointmentsView appointmentsView;
+    static final String CUSTOMER="Customers";
+    static final String APPOINTMENT="Appointments";
+    static final String MEDICINE="Medicines";
 
     public VeterinaryMainView(String title) throws HeadlessException {
         super(title);
@@ -23,13 +24,13 @@ public class VeterinaryMainView extends JFrame {
         mainMenu = new MainMenu();
         add(mainMenu, BorderLayout.LINE_START);
 
-        medicineView = new AddMedicineView();
-        petToCustomerView = new AddPetToCustomerView();
-        registerCustomerView = new RegisterCustomerView();
+        medicineView = new MedicinesView();
+        personsView = new PersonsView();
+        appointmentsView = new AppointmentsView();
 
         panel = new JPanel(new CardLayout());
-        panel.add(registerCustomerView,CUSTOMER);
-        panel.add(petToCustomerView,PET);
+        panel.add(personsView,CUSTOMER);
+        panel.add(appointmentsView, APPOINTMENT);
         panel.add(medicineView,MEDICINE);
 
         add(panel,BorderLayout.CENTER);
@@ -46,7 +47,7 @@ public class VeterinaryMainView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
-                cl.show(panel, PET);
+                cl.show(panel, APPOINTMENT);
             }
         });
 
@@ -72,15 +73,15 @@ public class VeterinaryMainView extends JFrame {
         mainMenu.getAddPet().addActionListener(actionListener);
     }
 
-    public AddMedicineView getMedicineView() {
+    public MedicinesView getMedicineView() {
         return medicineView;
     }
 
-    public AddPetToCustomerView getPetToCustomerView() {
-        return petToCustomerView;
+    public PersonsView getPersonsView() {
+        return personsView;
     }
 
-    public RegisterCustomerView getRegisterCustomerView() {
-        return registerCustomerView;
+    public AppointmentsView getAppointmentsView() {
+        return appointmentsView;
     }
 }

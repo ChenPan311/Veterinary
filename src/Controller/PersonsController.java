@@ -1,15 +1,12 @@
 package Controller;
 
-import Model.Customer;
-import Model.PersonManager;
+import Model.*;
 import Model.TablesModels.PersonTableModel;
+import View.Dialogs.AddPetToCustomerDialog;
 import View.PersonsView;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class PersonsController {
     private PersonsView view;
@@ -18,12 +15,28 @@ public class PersonsController {
     public PersonsController(PersonsView view, PersonManager model) {
         this.view = view;
         this.model = model;
-        RegisterCustomerController registerCustomerController = new RegisterCustomerController(model, view.getView());
+        view.getTablePanel().setPersonsData(model.getPersons());
+
         view.getView().addNewCustomerListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.getTablePanel().refresh();
-
+                if (view.getView().validateFields()) {
+                    if (model.searchById(view.getView().getId_tf().getText())) {
+                        JOptionPane.showMessageDialog(view, "Customer Already Exist!");
+                    } else {
+                        Customer customer = new Customer();
+                        customer.setId(view.getView().getId_tf().getText());
+                        customer.setName(view.getView().getName_tf().getText());
+                        customer.setAddress(view.getView().getAddress_tf().getText());
+                        customer.setPhoneNumber(view.getView().getPhoneNumber_tf().getText());
+                        customer.setEmail(view.getView().getEmail_tf().getText());
+                        customer.setCustomerNumber(model.getRandom().nextInt(31));
+                        model.addPerson(customer);
+                        view.getView().clearFields();
+                        view.getTablePanel().refresh();
+                        JOptionPane.showMessageDialog(view, "Success");
+                    }
+                } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
             }
         });
 
@@ -88,10 +101,24 @@ public class PersonsController {
                         customer.setAddress(view.getView().getAddress_tf().getText());
                         view.getTablePanel().refresh();
                         JOptionPane.showMessageDialog(view, "Updated!");
-                    } else JOptionPane.showMessageDialog(view,"Fill All Fields!");
+                    } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
                 }
             }
 
+        });
+
+        view.getView().petManageOfCustomerListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowSelected = view.getTablePanel().getTable().getSelectedRow();
+                if ( rowSelected != -1) {
+                    AddPetToCustomerDialog view = new AddPetToCustomerDialog();
+                    Customer customer=model.getCustomerByRowIndex(rowSelected);
+                    view.getTablePanel().setPetDataForCustomer(model.getCustomerByRowIndex(rowSelected).getPetList());
+                    new AddPetToCustomerController(model,view,customer);
+                }
+                else JOptionPane.showMessageDialog(view, "Select Customer First!");
+            }
         });
 
 

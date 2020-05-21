@@ -1,21 +1,21 @@
 package View;
 
-import Model.Customer;
+import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.PersonTableModel;
 import View.Panels.TablePanel;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
-public class PersonsView extends JPanel {
+public class AppointmentsView extends JPanel {
     private TablePanel tablePanel;
-    private RegisterCustomerView view;
+    private AddAppointmentView view;
 
-    public PersonsView() {
-        view = new RegisterCustomerView();
-        tablePanel=new TablePanel(new PersonTableModel());
+    public AppointmentsView() {
+        view = new AddAppointmentView();
+        tablePanel=new TablePanel(new AppointmentTableModel());
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -43,11 +43,23 @@ public class PersonsView extends JPanel {
         return tablePanel;
     }
 
-    public RegisterCustomerView getView() {
+    public AddAppointmentView getView() {
         return view;
     }
 
     public void addSelectedRowListener(MouseListener mouseListener){
         tablePanel.getTable().addMouseListener(mouseListener);
+    }
+
+    public void addAppointmentListener(ActionListener actionListener){
+        view.addAppointmentListener(actionListener);
+    }
+
+    public void deleteAppointmentListener(ActionListener actionListener){
+        view.deleteAppointmentListener(actionListener);
+    }
+
+    public void updateAppointmentListener(ActionListener actionListener){
+        view.updateAppointmentListener(actionListener);
     }
 }

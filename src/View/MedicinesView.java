@@ -1,21 +1,21 @@
 package View;
 
-import Model.Customer;
-import Model.TablesModels.PersonTableModel;
+import Model.TablesModels.MedicineTableModel;
 import View.Panels.TablePanel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
-public class PersonsView extends JPanel {
+public class MedicinesView extends JPanel {
     private TablePanel tablePanel;
-    private RegisterCustomerView view;
+    private AddMedicineView view;
 
-    public PersonsView() {
-        view = new RegisterCustomerView();
-        tablePanel=new TablePanel(new PersonTableModel());
+    public MedicinesView() {
+        tablePanel=new TablePanel(new MedicineTableModel());
+        view=new AddMedicineView();
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -43,11 +43,23 @@ public class PersonsView extends JPanel {
         return tablePanel;
     }
 
-    public RegisterCustomerView getView() {
+    public AddMedicineView getView() {
         return view;
     }
 
     public void addSelectedRowListener(MouseListener mouseListener){
         tablePanel.getTable().addMouseListener(mouseListener);
+    }
+
+    public void addMedicineToInventory(ActionListener actionListener) {
+        view.addMedicineToInventory(actionListener);
+    }
+
+    public void deleteMedicineFromInventory(ActionListener actionListener){
+        view.deleteMedicineFromInventory(actionListener);
+    }
+
+    public void updateMedicineInInventory(ActionListener actionListener){
+        view.updateMedicineInInventory(actionListener);
     }
 }

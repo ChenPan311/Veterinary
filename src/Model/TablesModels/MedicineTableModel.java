@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MedicineTableModel extends AbstractTableModel {
-    private HashMap<Medicine,Integer> medicines;
+    private HashMap<Medicine,Integer> medicines = new HashMap<>();
     private String[] colNames={"Medicine Id","Name","Type","Quantity"};
 
     public MedicineTableModel() {
