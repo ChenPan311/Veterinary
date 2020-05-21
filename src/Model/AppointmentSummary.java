@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AppointmentSummary {
+public class AppointmentSummary implements Serializable {
     private ArrayList<Medicine> medicines;
     private String treatmentSummary,recommendations;
 

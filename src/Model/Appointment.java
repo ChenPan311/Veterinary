@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Appointment {
+public class Appointment implements Serializable {
     private Date date = new Date();
     private String treatment,treatmentDescription,petId,customerId,vetId;
     private AppointmentSummary summary = new AppointmentSummary();

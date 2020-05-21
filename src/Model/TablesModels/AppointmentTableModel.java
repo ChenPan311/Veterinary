@@ -5,16 +5,17 @@ import Model.Appointment;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class AppointmentTableModel extends AbstractTableModel {
-    private List<Appointment> appointmentList = new ArrayList<>();
+    private Set<Appointment> appointmentSet;
     private String [] colNames={"Customer Id","Pet Id","Vet Id","Date","Time","Treatment","Treatment Description","Summary","Recommendations","Medicines"};
 
     public AppointmentTableModel() {
     }
 
-    public void setData(ArrayList<Appointment> appointments){
-        this.appointmentList=appointments;
+    public void setData(Set<Appointment> appointments){
+        this.appointmentSet=appointments;
     }
 
     @Override
@@ -24,7 +25,7 @@ public class AppointmentTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return appointmentList.size();
+        return appointmentSet.size();
     }
 
     @Override
@@ -34,7 +35,8 @@ public class AppointmentTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Appointment appointment = appointmentList.get(rowIndex);
+        ArrayList<Appointment> appointmentArrayList = new ArrayList<Appointment>(appointmentSet);
+        Appointment appointment = appointmentArrayList.get(rowIndex);
         switch (columnIndex){
             case 0:
                 return appointment.getCustomerId();

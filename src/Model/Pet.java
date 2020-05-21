@@ -1,6 +1,8 @@
 package Model;
 
-public abstract class Pet {
+import java.io.Serializable;
+
+public abstract class Pet{
     private String petId,name,dateOfBirth,color,gender;
     private double weight;
 

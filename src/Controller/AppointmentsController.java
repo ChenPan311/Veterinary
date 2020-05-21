@@ -1,11 +1,10 @@
 package Controller;
 
+import Exceptions.AppointmentNotExistException;
+import Exceptions.ApponitmentAlreadyExistsException;
 import Model.Appointment;
-import Model.AppointmentManager;
-import Model.Customer;
 import Model.CustomersAppointmentsModelView;
 import Model.TablesModels.AppointmentTableModel;
-import Model.TablesModels.PersonTableModel;
 import View.AppointmentsView;
 
 import javax.swing.*;
@@ -21,7 +20,7 @@ public class AppointmentsController {
     public AppointmentsController(AppointmentsView view, CustomersAppointmentsModelView model) {
         this.view = view;
         this.model = model;
-        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getAppointments());
+        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
 
         view.addAppointmentListener(new ActionListener() {
             @Override
@@ -33,13 +32,17 @@ public class AppointmentsController {
                                 Appointment appointment = new Appointment();
                                 appointment.setCustomerId(view.getView().getCustomerId_tf().getText());
                                 appointment.setPetId(view.getView().getPetId_tf().getText());
-                                appointment.setVetId(view.getView().getPetId_tf().getText());
+                                appointment.setVetId(view.getView().getVetId_tf().getText());
                                 appointment.getDate().setDay(view.getView().getDateTimePicker().getDatePicker().getText());
                                 appointment.getDate().setHour(view.getView().getDateTimePicker().getTimePicker().getText());
                                 appointment.setTreatment(view.getView().getTreatment_tf().getText());
                                 appointment.setTreatmentDescription(view.getView().getTreatmentDescription_tf().getText());
-                                model.getAppointmentManager().addAppointment(appointment);
-                                view.getTablePanel().refresh();
+                                try {
+                                    model.getAppointmentManager().addAppointment(appointment);
+                                    view.getTablePanel().refresh();
+                                } catch (ApponitmentAlreadyExistsException ex) {
+                                    ex.printStackTrace();
+                                }
                                 JOptionPane.showMessageDialog(view, "Added");
                             } else JOptionPane.showMessageDialog(view, "There Is No Such Vet With That Id!");
                         } else JOptionPane.showMessageDialog(view, "There Is No Such Pet For That Customer!");
@@ -54,8 +57,14 @@ public class AppointmentsController {
             public void actionPerformed(ActionEvent e) {
                 if (view.getTablePanel().getTable().getSelectedRow() != -1) {
                     int row = view.getTablePanel().getTable().getSelectedRow();
-                    model.getAppointmentManager().getAppointments().remove(row);
-                    view.getTablePanel().refresh();
+                    Appointment appointment=model.getAppointmentManager().getAppointments().get(row);
+                    try {
+                        model.getAppointmentManager().removeAppointment(appointment);
+                        view.getTablePanel().refresh();
+                    } catch (AppointmentNotExistException ex) {
+                        ex.printStackTrace();
+                    }
+
                 }
             }
         });
@@ -65,7 +74,7 @@ public class AppointmentsController {
             public void actionPerformed(ActionEvent e) {
                 if (view.getTablePanel().getTable().getSelectedRow() != -1) {
                     int row = view.getTablePanel().getTable().getSelectedRow();
-                    Appointment appointment = model.getAppointmentManager().getAppointmentByRowIndex(row);
+                    Appointment appointment = model.getAppointmentManager().getAppointments().get(row);
                     if (view.getView().validateFields()) {
                         appointment.setCustomerId(view.getView().getCustomerId_tf().getText());
                         if(model.getPersonManager().searchPetForCustomer(appointment.getCustomerId(),view.getView().getPetId_tf().getText())) {
@@ -91,7 +100,7 @@ public class AppointmentsController {
                 int selectedRowIndex = view.getTablePanel().getTable().getSelectedRow();
                 view.getView().getCustomerId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,0).toString());
                 view.getView().getPetId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,1).toString());
-                view.getView().getPetId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,2).toString());
+                view.getView().getVetId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,2).toString());
                 view.getView().getDateTimePicker().getDatePicker().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,3).toString());
                 view.getView().getDateTimePicker().getTimePicker().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,4).toString());
                 view.getView().getTreatment_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,5).toString());
