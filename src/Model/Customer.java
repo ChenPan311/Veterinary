@@ -34,9 +34,11 @@ public class Customer extends Person {
     public void setPetList(ArrayList<Pet> petList) {
         this.petList = petList;
     }
+
     public void addPetToList(Pet pet){
         petList.add(pet);
     }
+
     public void removePetFromList(int index){
         petList.remove(index);
     }

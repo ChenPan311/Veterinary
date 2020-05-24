@@ -2,7 +2,7 @@ package Model;
 
 import java.io.Serializable;
 
-public abstract class Pet{
+public abstract class Pet implements Serializable{
     private String petId,name,dateOfBirth,color,gender;
     private double weight;
 

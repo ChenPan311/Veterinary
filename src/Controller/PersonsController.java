@@ -1,5 +1,7 @@
 package Controller;
 
+import Exceptions.PersonAlreadyExistException;
+import Exceptions.PersonNotExistException;
 import Model.*;
 import Model.TablesModels.PersonTableModel;
 import View.Dialogs.AddPetToCustomerDialog;
@@ -25,14 +27,19 @@ public class PersonsController {
                         JOptionPane.showMessageDialog(view, "Customer Already Exist!");
                     } else {
                         Customer customer = new Customer();
-                        customer.setId(view.getView().getId_tf().getText());
-                        customer.setName(view.getView().getName_tf().getText());
-                        customer.setAddress(view.getView().getAddress_tf().getText());
-                        customer.setPhoneNumber(view.getView().getPhoneNumber_tf().getText());
-                        customer.setEmail(view.getView().getEmail_tf().getText());
-                        customer.setCustomerNumber(model.getRandom().nextInt(31));
-                        model.addPerson(customer);
+                        customer.setId(view.getId());
+                        customer.setName(view.getName());
+                        customer.setAddress(view.getAddress());
+                        customer.setPhoneNumber(view.getPhoneNumber());
+                        customer.setEmail(view.getEmail());
+                        customer.setCustomerNumber(model.getRandom().nextInt(1024));
+                        try {
+                            model.addPerson(customer);
+                        } catch (PersonAlreadyExistException ex) {
+                            ex.printStackTrace();
+                        }
                         view.getView().clearFields();
+                        view.getTablePanel().setPersonsData(model.getPersons());
                         view.getTablePanel().refresh();
                         JOptionPane.showMessageDialog(view, "Success");
                     }
@@ -45,7 +52,16 @@ public class PersonsController {
             public void actionPerformed(ActionEvent e) {
                 if (view.getTablePanel().getTable().getSelectedRow() != -1) {
                     int row = view.getTablePanel().getTable().getSelectedRow();
-                    model.removeCustomer(row);
+                    String id = (String) view.getTablePanel().getTable().getValueAt(row, 0);
+                    for(Person person:model.getPersons())
+                        if(person.getId().equals(id)) {
+                            try {
+                                model.removePerson(person);
+                            } catch (PersonNotExistException ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+                    view.getTablePanel().setPersonsData(model.getPersons());
                     view.getTablePanel().refresh();
                 }
             }
@@ -63,11 +79,11 @@ public class PersonsController {
             public void mouseClicked(MouseEvent e) {
                 PersonTableModel model = (PersonTableModel) view.getTablePanel().getTable().getModel();
                 int selectedRowIndex = view.getTablePanel().getTable().getSelectedRow();
-                view.getView().getId_tf().setText(model.getValueAt(selectedRowIndex, 0).toString());
-                view.getView().getName_tf().setText(model.getValueAt(selectedRowIndex, 1).toString());
-                view.getView().getPhoneNumber_tf().setText(model.getValueAt(selectedRowIndex, 2).toString());
-                view.getView().getEmail_tf().setText(model.getValueAt(selectedRowIndex, 3).toString());
-                view.getView().getAddress_tf().setText(model.getValueAt(selectedRowIndex, 4).toString());
+                view.setId(model.getValueAt(selectedRowIndex, 0).toString());
+                view.setName(model.getValueAt(selectedRowIndex, 1).toString());
+                view.setPhoneNumber(model.getValueAt(selectedRowIndex, 2).toString());
+                view.setEmail(model.getValueAt(selectedRowIndex, 3).toString());
+                view.setAddress(model.getValueAt(selectedRowIndex, 4).toString());
             }
 
             @Override
@@ -94,11 +110,13 @@ public class PersonsController {
                     int row = view.getTablePanel().getTable().getSelectedRow();
                     Customer customer = model.getCustomerByRowIndex(row);
                     if (view.getView().validateFields()) {
-                        customer.setId(view.getView().getId_tf().getText());
-                        customer.setName(view.getView().getName_tf().getText());
-                        customer.setPhoneNumber(view.getView().getPhoneNumber_tf().getText());
-                        customer.setEmail(view.getView().getEmail_tf().getText());
-                        customer.setAddress(view.getView().getAddress_tf().getText());
+                        customer.setId(view.getId());
+                        customer.setName(view.getName());
+                        customer.setPhoneNumber(view.getPhoneNumber());
+                        customer.setEmail(view.getEmail());
+                        customer.setAddress(view.getAddress());
+                        model.updatePerson(customer);
+                        view.getTablePanel().setPersonsData(model.getPersons());
                         view.getTablePanel().refresh();
                         JOptionPane.showMessageDialog(view, "Updated!");
                     } else JOptionPane.showMessageDialog(view, "Fill All Fields!");

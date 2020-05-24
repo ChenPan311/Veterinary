@@ -62,4 +62,32 @@ public class AppointmentsView extends JPanel {
     public void updateAppointmentListener(ActionListener actionListener){
         view.updateAppointmentListener(actionListener);
     }
+
+    public String getCustomerId(){
+        return view.getCustomerId_tf().getText();
+    }
+
+    public String getPetId(){
+        return view.getPetId_tf().getText();
+    }
+
+    public String getVetId(){
+        return view.getVetId_tf().getText();
+    }
+
+    public String getDateFromDatePicker(){
+        return view.getDateTimePicker().getDatePicker().getText();
+    }
+
+    public String getTimeFromDatePicker(){
+        return view.getDateTimePicker().getTimePicker().getText();
+    }
+
+    public String getTreatment(){
+        return view.getTreatment_tf().getText();
+    }
+
+    public String getTreatmentDescription(){
+        return view.getTreatmentDescription_tf().getText();
+    }
 }

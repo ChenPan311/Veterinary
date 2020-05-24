@@ -30,15 +30,16 @@ public class AppointmentsController {
                         if (model.getPersonManager().searchPetForCustomer(view.getView().getCustomerId_tf().getText(), view.getView().getPetId_tf().getText())) {
                             if (model.getPersonManager().searchById(view.getView().getVetId_tf().getText())) {
                                 Appointment appointment = new Appointment();
-                                appointment.setCustomerId(view.getView().getCustomerId_tf().getText());
-                                appointment.setPetId(view.getView().getPetId_tf().getText());
-                                appointment.setVetId(view.getView().getVetId_tf().getText());
-                                appointment.getDate().setDay(view.getView().getDateTimePicker().getDatePicker().getText());
-                                appointment.getDate().setHour(view.getView().getDateTimePicker().getTimePicker().getText());
-                                appointment.setTreatment(view.getView().getTreatment_tf().getText());
-                                appointment.setTreatmentDescription(view.getView().getTreatmentDescription_tf().getText());
+                                appointment.setCustomerId(view.getCustomerId());
+                                appointment.setPetId(view.getPetId());
+                                appointment.setVetId(view.getVetId());
+                                appointment.getDate().setDay(view.getDateFromDatePicker());
+                                appointment.getDate().setHour(view.getTimeFromDatePicker());
+                                appointment.setTreatment(view.getTreatment());
+                                appointment.setTreatmentDescription(view.getTreatmentDescription());
                                 try {
                                     model.getAppointmentManager().addAppointment(appointment);
+                                    view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
                                     view.getTablePanel().refresh();
                                 } catch (ApponitmentAlreadyExistsException ex) {
                                     ex.printStackTrace();
@@ -57,9 +58,10 @@ public class AppointmentsController {
             public void actionPerformed(ActionEvent e) {
                 if (view.getTablePanel().getTable().getSelectedRow() != -1) {
                     int row = view.getTablePanel().getTable().getSelectedRow();
-                    Appointment appointment=model.getAppointmentManager().getAppointments().get(row);
+                    Appointment appointment=model.getAppointmentManager().getArrayAppointments().get(row);
                     try {
                         model.getAppointmentManager().removeAppointment(appointment);
+                        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
                         view.getTablePanel().refresh();
                     } catch (AppointmentNotExistException ex) {
                         ex.printStackTrace();
@@ -74,17 +76,18 @@ public class AppointmentsController {
             public void actionPerformed(ActionEvent e) {
                 if (view.getTablePanel().getTable().getSelectedRow() != -1) {
                     int row = view.getTablePanel().getTable().getSelectedRow();
-                    Appointment appointment = model.getAppointmentManager().getAppointments().get(row);
+                    Appointment appointment = model.getAppointmentManager().getArrayAppointments().get(row);
                     if (view.getView().validateFields()) {
-                        appointment.setCustomerId(view.getView().getCustomerId_tf().getText());
-                        if(model.getPersonManager().searchPetForCustomer(appointment.getCustomerId(),view.getView().getPetId_tf().getText())) {
-                            appointment.setPetId(view.getView().getPetId_tf().getText());
+                        appointment.setCustomerId(view.getCustomerId());
+                        if(model.getPersonManager().searchPetForCustomer(appointment.getCustomerId(),view.getPetId())) {
+                            appointment.setPetId(view.getPetId());
                         }
-                        appointment.setVetId(view.getView().getPetId_tf().getText());
-                        appointment.getDate().setDay(view.getView().getDateTimePicker().getDatePicker().getText());
-                        appointment.getDate().setHour(view.getView().getDateTimePicker().getTimePicker().getText());
-                        appointment.setTreatment(view.getView().getTreatment_tf().getText());
-                        appointment.setTreatmentDescription(view.getView().getTreatmentDescription_tf().getText());
+                        appointment.setVetId(view.getVetId());
+                        appointment.getDate().setDay(view.getDateFromDatePicker());
+                        appointment.getDate().setHour(view.getTimeFromDatePicker());
+                        appointment.setTreatment(view.getTreatment());
+                        appointment.setTreatmentDescription(view.getTreatmentDescription());
+                        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
                         view.getTablePanel().refresh();
                         JOptionPane.showMessageDialog(view, "Updated!");
                     } else JOptionPane.showMessageDialog(view,"Fill All Fields!");

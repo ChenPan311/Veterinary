@@ -14,7 +14,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
-public class AddPetToCustomerDialog extends JFrame {
+public class AddPetToCustomerDialog extends JDialog {
     private JComboBox<String> petChooser_cb;
     private JButton addBtn, deleteBtn, updateBtn;
     private JPanel petPanel, comboBoxPetPanel, addPetPanel;
@@ -178,6 +178,7 @@ public class AddPetToCustomerDialog extends JFrame {
         return false;
 
     }
+
 
 
 }

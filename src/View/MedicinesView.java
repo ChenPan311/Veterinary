@@ -62,4 +62,29 @@ public class MedicinesView extends JPanel {
     public void updateMedicineInInventory(ActionListener actionListener){
         view.updateMedicineInInventory(actionListener);
     }
+
+    public String getId(){
+        return view.getId_tf().getText();
+    }
+    public String getName(){
+        return view.getName_tf().getText();
+    }
+    public String getType(){
+        return view.getType_cb().getSelectedItem().toString();
+    }
+    public String getQuantity(){
+        return view.getQuantity_tf().getText();
+    }
+
+    public void setId(String id){
+        view.getId_tf().setText(id);
+    }
+    public void setName(String name){
+        view.getName_tf().setText(name);
+    }
+    public void setType(String type){
+        view.getType_cb().setSelectedItem(type);
+    }
+    public void setQuantity(String quantity){ view.getQuantity_tf().setText(quantity); }
+
 }

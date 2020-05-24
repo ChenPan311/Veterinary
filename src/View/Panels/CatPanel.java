@@ -121,48 +121,24 @@ public class CatPanel extends JPanel {
         return petId_tf;
     }
 
-    public void setPetId_tf(JTextField petId_tf) {
-        this.petId_tf = petId_tf;
-    }
-
     public JTextField getName_tf() {
         return name_tf;
-    }
-
-    public void setName_tf(JTextField name_tf) {
-        this.name_tf = name_tf;
     }
 
     public JTextField getDateOfBirth_tf() {
         return dateOfBirth_tf;
     }
 
-    public void setDateOfBirth_tf(JTextField dateOfBirth_tf) {
-        this.dateOfBirth_tf = dateOfBirth_tf;
-    }
-
     public JTextField getColor_tf() {
         return color_tf;
-    }
-
-    public void setColor_tf(JTextField color_tf) {
-        this.color_tf = color_tf;
     }
 
     public JTextField getWeight_tf() {
         return weight_tf;
     }
 
-    public void setWeight_tf(JTextField weight_tf) {
-        this.weight_tf = weight_tf;
-    }
-
     public JTextField getBreed_tf() {
         return breed_tf;
-    }
-
-    public void setBreed_tf(JTextField breed_tf) {
-        this.breed_tf = breed_tf;
     }
 
     public ButtonGroup getIsCastrated_bg() {
@@ -177,55 +153,47 @@ public class CatPanel extends JPanel {
         return yes_ic;
     }
 
-    public void setYes_ic(JRadioButton yes_ic) {
-        this.yes_ic = yes_ic;
-    }
-
     public JRadioButton getNo_ic() {
         return no_ic;
     }
 
-    public void setNo_ic(JRadioButton no_ic) {
-        this.no_ic = no_ic;
-    }
-
-    public JRadioButton getMale() {
+    public JRadioButton getMale_rb() {
         return male;
     }
 
-    public void setMale(JRadioButton male) {
-        this.male = male;
-    }
-
-    public JRadioButton getFemale() {
+    public JRadioButton getFemale_rb() {
         return female;
-    }
-
-    public void setFemale(JRadioButton female) {
-        this.female = female;
     }
 
     public JPanel getGenderPanel() {
         return genderPanel;
     }
 
-    public void setGenderPanel(JPanel genderPanel) {
-        this.genderPanel = genderPanel;
-    }
-
-    public void setIsCastrated_bg(ButtonGroup isCastrated_bg) {
-        this.isCastrated_bg = isCastrated_bg;
-    }
-
     public JPanel getCastratedPanel() {
         return castratedPanel;
-    }
-
-    public void setCastratedPanel(JPanel castratedPanel) {
-        this.castratedPanel = castratedPanel;
     }
 
     public Boolean isSelected(){
         return (!yes_ic.isSelected() && !no_ic.isSelected()) || (!male.isSelected() && !female.isSelected());
     }
+
+    public String getId(){return getPetId_tf().getText();}
+    public String getName(){return getName_tf().getText();}
+    public String getDateOfBirth(){return getDateOfBirth_tf().getText();}
+    public String getColor(){return getColor_tf().getText();}
+    public String getWeight(){return getWeight_tf().getText();}
+    public String getBreed(){return getBreed_tf().getText();}
+    public boolean getYesCast(){return getYes_ic().isSelected();}
+    public boolean getMale(){return getMale_rb().isSelected();}
+
+    public void setId(String id){getPetId_tf().setText(id);}
+    public void setName(String name){getName_tf().setText(name);}
+    public void setDateOfBirth(String date){getDateOfBirth_tf().setText(date);}
+    public void setColor(String color){getColor_tf().setText(color);}
+    public void setWeight(double weight){getWeight_tf().setText(Double.toString(weight));}
+    public void setBreed(String breed){getBreed_tf().setText(breed);}
+    public void setYesCast(boolean bool){getYes_ic().setSelected(bool);}
+    public void setMale(boolean gender){getMale_rb().setSelected(gender);}
+
+
 }

@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 public class AppointmentManager implements AppointmentManageInterface {
-    //private ArrayList<Appointment> appointments;
     private static AppointmentManager appointmentManager;
     private Set<Appointment> appointments;
     private final String fileName = "appointments2.dat";
@@ -52,17 +51,6 @@ public class AppointmentManager implements AppointmentManageInterface {
     }
 
 
-//    public void addAppointment(Appointment appointment){
-//        appointments.add(appointment);
-//    }
-//    @Override
-//    public String toString() {
-//        StringBuilder stringBuilderResult=new StringBuilder();
-//        for(Appointment appointment:appointments)
-//            stringBuilderResult.append(appointment.toString());
-//        return stringBuilderResult.toString();
-//    }
-
     public void addAppointment(Appointment appointment) throws ApponitmentAlreadyExistsException {
         if (!appointments.contains(appointment)) {
             appointments.add(appointment);
@@ -80,21 +68,13 @@ public class AppointmentManager implements AppointmentManageInterface {
         }
     }
 
-    public ArrayList<Appointment> getAppointments(){
+    public ArrayList<Appointment> getArrayAppointments(){
         return new ArrayList<Appointment>(appointments);
     }
 
     public Set<Appointment> getSetAppointments(){
-        return appointments;
+        return new HashSet<>(appointments);
     }
 }
 
-//    public ArrayList<Appointment> getAppointments() {
-//        return appointments;
-//    }
 
-//    public Appointment getAppointmentByRowIndex(int index) {
-//        return appointments.get(index);
-//    }
-//    // need to add here 2 more methods from class diagram
-//}

@@ -50,4 +50,16 @@ public class PersonsView extends JPanel {
     public void addSelectedRowListener(MouseListener mouseListener){
         tablePanel.getTable().addMouseListener(mouseListener);
     }
+
+    public String getId(){return view.getId_tf().getText();}
+    public String getName(){return view.getName_tf().getText();}
+    public String getAddress(){return view.getAddress_tf().getText();}
+    public String getPhoneNumber(){return view.getPhoneNumber_tf().getText();}
+    public String getEmail(){return view.getEmail_tf().getText();}
+
+    public void setId(String id){ view.getId_tf().setText(id);}
+    public void setName(String  name){view.getName_tf().setText(name);}
+    public void setAddress(String address){view.getAddress_tf().setText(address);}
+    public void setPhoneNumber(String phoneNumber){view.getPhoneNumber_tf().setText(phoneNumber);}
+    public void setEmail(String email){view.getEmail_tf().setText(email);}
 }

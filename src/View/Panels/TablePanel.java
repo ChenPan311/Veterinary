@@ -16,6 +16,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class TablePanel extends JPanel {
@@ -38,7 +39,7 @@ public class TablePanel extends JPanel {
         return tableModel;
     }
 
-    public void setPersonsData(ArrayList<Person> persons) {
+    public void setPersonsData(Set<Person> persons) {
         ((PersonTableModel) tableModel).setData(persons);
 
     }
@@ -48,7 +49,7 @@ public class TablePanel extends JPanel {
 
     }
 
-    public void setMedicineData(HashMap<Medicine,Integer> medicines){
+    public void setMedicineData(Map<Medicine,Integer> medicines){
         ((MedicineTableModel)tableModel).setData(medicines);
 
     }
