@@ -36,7 +36,7 @@ public class Test {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(loginDialog.getVet_rb().isSelected()){
-                    if(Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) &&loginDialog.getUsername_tf().getText().equals("custo")){
+                    if(Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) &&loginDialog.getUsername_tf().getText().equals("vet")){
                         JOptionPane.showMessageDialog(loginDialog,"Success!");
                         frame.setLocationRelativeTo(null);
                         loginDialog.dispose();

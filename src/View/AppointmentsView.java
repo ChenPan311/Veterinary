@@ -75,9 +75,7 @@ public class AppointmentsView extends JPanel {
         return view.getVetId_tf().getText();
     }
 
-    public String getDateFromDatePicker(){
-        return view.getDateTimePicker().getDatePicker().getText();
-    }
+    public String getDateFromDatePicker(){return view.getDateTimePicker().getDatePicker().getText();}
 
     public String getTimeFromDatePicker(){
         return view.getDateTimePicker().getTimePicker().getText();
@@ -89,5 +87,31 @@ public class AppointmentsView extends JPanel {
 
     public String getTreatmentDescription(){
         return view.getTreatmentDescription_tf().getText();
+    }
+
+    public void setCustomerId(String id){
+         view.getCustomerId_tf().setText(id);
+    }
+
+    public void setPetId(String id){
+        view.getPetId_tf().setText(id);
+    }
+
+    public void setVetId(String id){
+        view.getVetId_tf().setText(id);
+    }
+
+    public void setDateFromDatePicker(String date){view.getDateTimePicker().getDatePicker().setText(date);}
+
+    public void setTimeFromDatePicker(String time){
+        view.getDateTimePicker().getTimePicker().setText(time);
+    }
+
+    public void setTreatment(String treatment){
+        view.getTreatment_tf().setText(treatment);
+    }
+
+    public void setTreatmentDescription(String treatmentDescription){
+        view.getTreatmentDescription_tf().setText(treatmentDescription);
     }
 }

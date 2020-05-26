@@ -23,7 +23,7 @@ public class PersonsController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (view.getView().validateFields()) {
-                    if (model.searchById(view.getView().getId_tf().getText())) {
+                    if (model.searchById(view.getId())) {
                         JOptionPane.showMessageDialog(view, "Customer Already Exist!");
                     } else {
                         Customer customer = new Customer();

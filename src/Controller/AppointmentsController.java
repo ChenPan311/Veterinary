@@ -26,9 +26,9 @@ public class AppointmentsController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (view.getView().validateFields()) {
-                    if (model.getPersonManager().searchById(view.getView().getCustomerId_tf().getText())) {
-                        if (model.getPersonManager().searchPetForCustomer(view.getView().getCustomerId_tf().getText(), view.getView().getPetId_tf().getText())) {
-                            if (model.getPersonManager().searchById(view.getView().getVetId_tf().getText())) {
+                    if (model.getPersonManager().searchById(view.getCustomerId())) {
+                        if (model.getPersonManager().searchPetForCustomer(view.getCustomerId(), view.getPetId())) {
+                            if (model.getPersonManager().searchById(view.getVetId())) {
                                 Appointment appointment = new Appointment();
                                 appointment.setCustomerId(view.getCustomerId());
                                 appointment.setPetId(view.getPetId());
@@ -87,6 +87,13 @@ public class AppointmentsController {
                         appointment.getDate().setHour(view.getTimeFromDatePicker());
                         appointment.setTreatment(view.getTreatment());
                         appointment.setTreatmentDescription(view.getTreatmentDescription());
+                        try {
+                            model.getAppointmentManager().updateAppointment(appointment);
+                        } catch (AppointmentNotExistException ex) {
+                            ex.printStackTrace();
+                        } catch (ApponitmentAlreadyExistsException ex) {
+                            ex.printStackTrace();
+                        }
                         view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
                         view.getTablePanel().refresh();
                         JOptionPane.showMessageDialog(view, "Updated!");
@@ -101,13 +108,13 @@ public class AppointmentsController {
             public void mouseClicked(MouseEvent e) {
                 AppointmentTableModel model = (AppointmentTableModel) view.getTablePanel().getTable().getModel();
                 int selectedRowIndex = view.getTablePanel().getTable().getSelectedRow();
-                view.getView().getCustomerId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,0).toString());
-                view.getView().getPetId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,1).toString());
-                view.getView().getVetId_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,2).toString());
-                view.getView().getDateTimePicker().getDatePicker().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,3).toString());
-                view.getView().getDateTimePicker().getTimePicker().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,4).toString());
-                view.getView().getTreatment_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,5).toString());
-                view.getView().getTreatmentDescription_tf().setText(view.getTablePanel().getTable().getValueAt(selectedRowIndex,6).toString());
+                view.setCustomerId(view.getTablePanel().getTable().getValueAt(selectedRowIndex,0).toString());
+                view.setPetId(view.getTablePanel().getTable().getValueAt(selectedRowIndex,1).toString());
+                view.setVetId(view.getTablePanel().getTable().getValueAt(selectedRowIndex,2).toString());
+                view.setDateFromDatePicker(view.getTablePanel().getTable().getValueAt(selectedRowIndex,3).toString());
+                view.setTimeFromDatePicker(view.getTablePanel().getTable().getValueAt(selectedRowIndex,4).toString());
+                view.setTreatment(view.getTablePanel().getTable().getValueAt(selectedRowIndex,5).toString());
+                view.setTreatmentDescription(view.getTablePanel().getTable().getValueAt(selectedRowIndex,6).toString());
             }
 
             @Override

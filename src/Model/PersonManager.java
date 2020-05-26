@@ -41,9 +41,9 @@ public class PersonManager {
         }
     }
 
-    private void writePersonToFile(){
+    private void writePersonToFile() {
         try (OutputStream fileOutputStream = new FileOutputStream(fileName);
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
             objectOutputStream.writeObject(persons);
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,12 +51,11 @@ public class PersonManager {
     }
 
     public void addPerson(Person person) throws PersonAlreadyExistException {
-        if(!persons.contains(person)) {
+        if (!persons.contains(person)) {
             persons.add(person);
             writePersonToFile();
-        }
-        else
-            throw new PersonAlreadyExistException(person.toString()+" Already Exist ");
+        } else
+            throw new PersonAlreadyExistException(person.toString() + " Already Exist ");
     }
 
     public void removePerson(Person person) throws PersonNotExistException {
@@ -99,22 +98,27 @@ public class PersonManager {
     }
 
     public Customer getCustomerByRowIndex(int row) {
-        return (Customer)getArrayListPersons().get(row);
+        return (Customer) getArrayListPersons().get(row);
     }
 
-    public void addPetToList(Customer customer,Pet pet){
+    public void addPetToList(Customer customer, Pet pet) {
         customer.addPetToList(pet);
         writePersonToFile();
     }
 
-    public void removePetFromList(Customer customer,int petIndex){
+    public void removePetFromList(Customer customer, int petIndex) {
         customer.removePetFromList(petIndex);
         writePersonToFile();
     }
 
+    public void updatePetFromList(Customer customer, Pet pet, int petIndex) {
+        customer.updatePetFromList(pet,petIndex);
+        writePersonToFile();
+    }
+
     public void updatePerson(Customer customer) {
-        for(Person person:persons){
-            if(person.getId().equals(customer.getId())){
+        for (Person person : persons) {
+            if (person.getId().equals(customer.getId())) {
                 person.setId(customer.getId());
                 person.setName(customer.getName());
                 person.setAddress(customer.getAddress());

@@ -148,30 +148,30 @@ public class AddPetToCustomerDialog extends JDialog {
     public Boolean validateFields() {
         String string = (String) petChooser_cb.getSelectedItem();
         if (string.equals("Dog")) {
-            return !(dogPanel.getPetId_tf().getText().trim().equals("") ||
-                    dogPanel.getName_tf().getText().trim().equals("") ||
-                    dogPanel.getDateOfBirth_tf().getText().trim().equals("") ||
-                    dogPanel.getColor_tf().getText().trim().equals("") ||
-                    dogPanel.getWeight_tf().getText().trim().equals("") ||
-                    dogPanel.getBreed_tf().getText().trim().equals("") ||
-                    dogPanel.getSize_tf().getText().trim().equals("") ||
+            return !(dogPanel.getId().equals("") ||
+                    dogPanel.getName().equals("") ||
+                    dogPanel.getDateOfBirth().equals("") ||
+                    dogPanel.getColor().equals("") ||
+                    dogPanel.getWeight().equals("") ||
+                    dogPanel.getBreed().equals("") ||
+                    dogPanel.getSizeOfPet().equals("") ||
                     dogPanel.isSelected());
         } else if (string.equals("Cat")) {
-            return !(catPanel.getPetId_tf().getText().equals("") ||
-                    catPanel.getName_tf().getText().equals("") ||
-                    catPanel.getDateOfBirth_tf().getText().equals("") ||
-                    catPanel.getColor_tf().getText().equals("") ||
-                    catPanel.getWeight_tf().getText().equals("") ||
-                    catPanel.getBreed_tf().getText().equals("") ||
+            return !(catPanel.getId().equals("") ||
+                    catPanel.getName().equals("") ||
+                    catPanel.getDateOfBirth().equals("") ||
+                    catPanel.getColor().equals("") ||
+                    catPanel.getWeight().equals("") ||
+                    catPanel.getBreed().equals("") ||
                     catPanel.isSelected());
         } else if (string.equals("Other")) {
-            return !(otherPanel.getPetId_tf().getText().equals("") ||
-                    otherPanel.getName_tf().getText().equals("") ||
-                    otherPanel.getDateOfBirth_tf().getText().equals("") ||
-                    otherPanel.getColor_tf().getText().equals("") ||
-                    otherPanel.getWeight_tf().getText().equals("") ||
-                    otherPanel.getTypeOfPet_tf().getText().equals("") ||
-                    otherPanel.getInfo_tf().getText().equals("") ||
+            return !(otherPanel.getId().equals("") ||
+                    otherPanel.getName().equals("") ||
+                    otherPanel.getDateOfBirth().equals("") ||
+                    otherPanel.getColor().equals("") ||
+                    otherPanel.getWeight().equals("") ||
+                    otherPanel.getTypeOfPet().equals("") ||
+                    otherPanel.getInfo().equals("") ||
                     otherPanel.isSelected());
 
         }

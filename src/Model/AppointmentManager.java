@@ -68,6 +68,11 @@ public class AppointmentManager implements AppointmentManageInterface {
         }
     }
 
+    public void updateAppointment(Appointment appointment) throws AppointmentNotExistException, ApponitmentAlreadyExistsException {
+        removeAppointment(appointment);
+        addAppointment(appointment);
+    }
+
     public ArrayList<Appointment> getArrayAppointments(){
         return new ArrayList<Appointment>(appointments);
     }
@@ -75,6 +80,8 @@ public class AppointmentManager implements AppointmentManageInterface {
     public Set<Appointment> getSetAppointments(){
         return new HashSet<>(appointments);
     }
+
+
 }
 
 

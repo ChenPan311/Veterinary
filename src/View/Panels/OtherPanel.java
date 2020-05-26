@@ -109,91 +109,27 @@ public class OtherPanel extends JPanel {
         add(info_tf, gbc);
     }
 
-    public JTextField getPetId_tf() {
-        return petId_tf;
-    }
-
-    public void setPetId_tf(JTextField petId_tf) {
-        this.petId_tf = petId_tf;
-    }
-
-    public JTextField getName_tf() {
-        return name_tf;
-    }
-
-    public void setName_tf(JTextField name_tf) {
-        this.name_tf = name_tf;
-    }
-
-    public JTextField getDateOfBirth_tf() {
-        return dateOfBirth_tf;
-    }
-
-    public void setDateOfBirth_tf(JTextField dateOfBirth_tf) {
-        this.dateOfBirth_tf = dateOfBirth_tf;
-    }
-
-    public JTextField getColor_tf() {
-        return color_tf;
-    }
-
-    public void setColor_tf(JTextField color_tf) {
-        this.color_tf = color_tf;
-    }
-
-    public JTextField getWeight_tf() {
-        return weight_tf;
-    }
-
-    public void setWeight_tf(JTextField weight_tf) {
-        this.weight_tf = weight_tf;
-    }
-
-    public JTextField getTypeOfPet_tf() {
-        return typeOfPet_tf;
-    }
-
-    public void setTypeOfPet_tf(JTextField typeOfPet_tf) {
-        this.typeOfPet_tf = typeOfPet_tf;
-    }
-
-    public JTextField getInfo_tf() {
-        return info_tf;
-    }
-
-    public void setInfo_tf(JTextField info_tf) {
-        this.info_tf = info_tf;
-    }
-
-    public JPanel getGenderPanel() {
-        return genderPanel;
-    }
-
-    public ButtonGroup getGender_bg() {
-        return gender_bg;
-    }
-
-    public void setGenderPanel(JPanel genderPanel) {
-        this.genderPanel = genderPanel;
-    }
-
-    public JRadioButton getMale() {
-        return male;
-    }
-
-    public void setMale(JRadioButton male) {
-        this.male = male;
-    }
-
-    public JRadioButton getFemale() {
-        return female;
-    }
-
-    public void setFemale(JRadioButton female) {
-        this.female = female;
-    }
 
     public Boolean isSelected() {
         return (!male.isSelected() && !female.isSelected());
     }
+
+    public String getId(){return petId_tf.getText();}
+    public String getName(){return name_tf.getText();}
+    public String getDateOfBirth(){return dateOfBirth_tf.getText();}
+    public String getColor(){return color_tf.getText();}
+    public String getWeight(){return weight_tf.getText();}
+    public boolean getMale(){return male.isSelected();}
+    public String getTypeOfPet(){return typeOfPet_tf.getText();}
+    public String getInfo(){return info_tf.getText();}
+
+    public void setId(String id){petId_tf.setText(id);}
+    public void setName(String name){name_tf.setText(name);}
+    public void setDateOfBirth(String date){dateOfBirth_tf.setText(date);}
+    public void setColor(String color){color_tf.setText(color);}
+    public void setWeight(String weight){weight_tf.setText(weight);}
+    public void setMale(boolean gender){male.setSelected(gender);}
+    public void setFemale(boolean gender){female.setSelected(gender);}
+    public void setTypeOfPet(String type){typeOfPet_tf.setText(type);}
+    public void setInfo(String info){info_tf.setText(info);}
 }

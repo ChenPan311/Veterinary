@@ -24,27 +24,27 @@ public class AddPetToCustomerController {
             public void actionPerformed(ActionEvent e) {
                 if (view.validateFields()) {
                     if (Objects.equals(view.getPetChooser_cb().getSelectedItem(), "Dog")) {
-                        if (customer.searchPetById(view.getDogPanel().getPetId_tf().getText())) {
+                        if (customer.searchPetById(view.getDogPanel().getId())) {
                             JOptionPane.showMessageDialog(view, "Pet Already Exist!");
                         } else {
                             Dog pet = new Dog();
-                            pet.setPetId(view.getDogPanel().getPetId_tf().getText());
-                            pet.setName(view.getDogPanel().getName_tf().getText());
-                            pet.setDateOfBirth(view.getDogPanel().getDateOfBirth_tf().getText());
-                            pet.setColor(view.getDogPanel().getColor_tf().getText());
-                            pet.setGender(view.getDogPanel().getMale().isSelected() ? "Male" : "Female");
-                            pet.setWeight(Double.parseDouble(view.getDogPanel().getWeight_tf().getText()));
-                            pet.setBreed(view.getDogPanel().getBreed_tf().getText());
-                            pet.setSize(view.getDogPanel().getSize_tf().getText());
-                            pet.setCastrated(view.getDogPanel().getYes_ic().isSelected());
-                            pet.setGuidenceDog(view.getDogPanel().getYes_ig().isSelected());
+                            pet.setPetId(view.getDogPanel().getId());
+                            pet.setName(view.getDogPanel().getName());
+                            pet.setDateOfBirth(view.getDogPanel().getDateOfBirth());
+                            pet.setColor(view.getDogPanel().getColor());
+                            pet.setGender(view.getDogPanel().getMale() ? "Male" : "Female");
+                            pet.setWeight(Double.parseDouble(view.getDogPanel().getWeight()));
+                            pet.setBreed(view.getDogPanel().getBreed());
+                            pet.setSize(view.getDogPanel().getSizeOfPet());
+                            pet.setCastrated(view.getDogPanel().getYesCast());
+                            pet.setGuidenceDog(view.getDogPanel().getYesGuid());
                             model.addPetToList(customer,pet);
                             view.getTablePanel().refresh();
 
                             JOptionPane.showMessageDialog(view, "Success");
                         }
                     } else if (Objects.equals(view.getPetChooser_cb().getSelectedItem(), "Cat")) {
-                        if (customer.searchPetById(view.getCatPanel().getPetId_tf().getText())) {
+                        if (customer.searchPetById(view.getCatPanel().getId())) {
                             JOptionPane.showMessageDialog(view, "Pet Already Exist!");
                         } else {
                             Cat pet = new Cat();
@@ -61,18 +61,18 @@ public class AddPetToCustomerController {
                             JOptionPane.showMessageDialog(view, "Success");
                         }
                     } else if (Objects.equals(view.getPetChooser_cb().getSelectedItem(), "Other")) {
-                        if (customer.searchPetById(view.getOtherPanel().getPetId_tf().getText())) {
+                        if (customer.searchPetById(view.getOtherPanel().getId())) {
                             JOptionPane.showMessageDialog(view, "Pet Already Exist!");
                         } else {
                             Other pet = new Other();
-                            pet.setPetId(view.getOtherPanel().getPetId_tf().getText());
-                            pet.setName(view.getOtherPanel().getName_tf().getText());
-                            pet.setDateOfBirth(view.getOtherPanel().getDateOfBirth_tf().getText());
-                            pet.setColor(view.getOtherPanel().getColor_tf().getText());
-                            pet.setGender(view.getOtherPanel().getMale().isSelected() ? "Male" : "Female");
-                            pet.setWeight(Double.parseDouble(view.getOtherPanel().getWeight_tf().getText()));
-                            pet.setTypeOfPet(view.getOtherPanel().getTypeOfPet_tf().getText());
-                            pet.setInfo(view.getOtherPanel().getInfo_tf().getText());
+                            pet.setPetId(view.getOtherPanel().getId());
+                            pet.setName(view.getOtherPanel().getName());
+                            pet.setDateOfBirth(view.getOtherPanel().getDateOfBirth());
+                            pet.setColor(view.getOtherPanel().getColor());
+                            pet.setGender(view.getOtherPanel().getMale()? "Male" : "Female");
+                            pet.setWeight(Double.parseDouble(view.getOtherPanel().getWeight()));
+                            pet.setTypeOfPet(view.getOtherPanel().getTypeOfPet());
+                            pet.setInfo(view.getOtherPanel().getInfo());
                             model.addPetToList(customer,pet);
                             view.getTablePanel().refresh();
                             JOptionPane.showMessageDialog(view, "Success");
@@ -102,16 +102,17 @@ public class AddPetToCustomerController {
                     Pet pet = customer.getPetFromList(row);
                     if (pet instanceof Dog) {
                         if (view.validateFields()) {
-                            pet.setPetId(view.getDogPanel().getPetId_tf().getText());
-                            pet.setName(view.getDogPanel().getName_tf().getText());
-                            pet.setDateOfBirth(view.getDogPanel().getDateOfBirth_tf().getText());
-                            pet.setColor(view.getDogPanel().getColor_tf().getText());
-                            pet.setGender(view.getDogPanel().getMale().isSelected() ? "Male" : "Female");
-                            pet.setWeight(Double.parseDouble(view.getDogPanel().getWeight_tf().getText()));
-                            ((Dog) pet).setBreed(view.getDogPanel().getBreed_tf().getText());
-                            ((Dog) pet).setSize(view.getDogPanel().getSize_tf().getText());
-                            ((Dog) pet).setCastrated(view.getDogPanel().getYes_ic().isSelected());
-                            ((Dog) pet).setGuidenceDog(view.getDogPanel().getYes_ig().isSelected());
+                            pet.setPetId(view.getDogPanel().getId());
+                            pet.setName(view.getDogPanel().getName());
+                            pet.setDateOfBirth(view.getDogPanel().getDateOfBirth());
+                            pet.setColor(view.getDogPanel().getColor());
+                            pet.setGender(view.getDogPanel().getMale() ? "Male" : "Female");
+                            pet.setWeight(Double.parseDouble(view.getDogPanel().getWeight()));
+                            ((Dog) pet).setBreed(view.getDogPanel().getBreed());
+                            ((Dog) pet).setSize(view.getDogPanel().getSizeOfPet());
+                            ((Dog) pet).setCastrated(view.getDogPanel().getYesCast());
+                            ((Dog) pet).setGuidenceDog(view.getDogPanel().getYesGuid());
+                            model.updatePetFromList(customer,pet,row);
                             view.getTablePanel().refresh();
                             JOptionPane.showMessageDialog(view, "Updated!");
                         } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
@@ -126,19 +127,21 @@ public class AddPetToCustomerController {
                             pet.setWeight(Double.parseDouble(view.getCatPanel().getWeight()));
                             ((Cat) pet).setBreed(view.getCatPanel().getBreed());
                             ((Cat) pet).setCastrated(view.getCatPanel().getYesCast());
+                            model.updatePetFromList(customer,pet,row);
                             view.getTablePanel().refresh();
                             JOptionPane.showMessageDialog(view, "Updated!");
                         } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
                     } else if (pet instanceof Other) {
                         if (view.validateFields()) {
-                            pet.setPetId(view.getOtherPanel().getPetId_tf().getText());
-                            pet.setName(view.getOtherPanel().getName_tf().getText());
-                            pet.setDateOfBirth(view.getOtherPanel().getDateOfBirth_tf().getText());
-                            pet.setColor(view.getOtherPanel().getColor_tf().getText());
-                            pet.setGender(view.getOtherPanel().getMale().isSelected() ? "Male" : "Female");
-                            pet.setWeight(Double.parseDouble(view.getOtherPanel().getWeight_tf().getText()));
-                            ((Other) pet).setTypeOfPet(view.getOtherPanel().getTypeOfPet_tf().getText());
-                            ((Other) pet).setInfo(view.getOtherPanel().getInfo_tf().getText());
+                            pet.setPetId(view.getOtherPanel().getId());
+                            pet.setName(view.getOtherPanel().getName());
+                            pet.setDateOfBirth(view.getOtherPanel().getDateOfBirth());
+                            pet.setColor(view.getOtherPanel().getColor());
+                            pet.setGender(view.getOtherPanel().getMale() ? "Male" : "Female");
+                            pet.setWeight(Double.parseDouble(view.getOtherPanel().getWeight()));
+                            ((Other) pet).setTypeOfPet(view.getOtherPanel().getTypeOfPet());
+                            ((Other) pet).setInfo(view.getOtherPanel().getInfo());
+                            model.updatePetFromList(customer,pet,row);
                             view.getTablePanel().refresh();
                             JOptionPane.showMessageDialog(view, "Updated!");
                         }
@@ -155,57 +158,57 @@ public class AddPetToCustomerController {
                 Pet pet = customer.getPetFromList(selectedRowIndex);
                 if (pet instanceof Dog) {
                     view.getPetChooser_cb().setSelectedItem("Dog");
-                    view.getDogPanel().getPetId_tf().setText(pet.getPetId());
-                    view.getDogPanel().getName_tf().setText(pet.getName());
-                    view.getDogPanel().getDateOfBirth_tf().setText(pet.getDateOfBirth());
-                    view.getDogPanel().getColor_tf().setText(pet.getColor());
+                    view.getDogPanel().setId(pet.getPetId());
+                    view.getDogPanel().setName(pet.getName());
+                    view.getDogPanel().setDateOfBirth(pet.getDateOfBirth());
+                    view.getDogPanel().setColor(pet.getColor());
                     if (pet.getGender() == "Male") {
-                        view.getDogPanel().getMale().setSelected(true);
+                        view.getDogPanel().setMale(true);
                     } else {
-                        view.getDogPanel().getFemale().setSelected(true);
+                        view.getDogPanel().setFemale(true);
                     }
-                    view.getDogPanel().getWeight_tf().setText(String.valueOf(pet.getWeight()));
-                    view.getDogPanel().getBreed_tf().setText(((Dog) pet).getBreed());
-                    view.getDogPanel().getSize_tf().setText(((Dog) pet).getSize());
+                    view.getDogPanel().setWeight(String.valueOf(pet.getWeight()));
+                    view.getDogPanel().setBreed(((Dog) pet).getBreed());
+                    view.getDogPanel().setSizeOfPet(((Dog) pet).getSize());
                     if (((Dog) pet).getCastrated())
-                        view.getDogPanel().getYes_ic().setSelected(true);
-                    else view.getDogPanel().getNo_ic().setSelected(true);
+                        view.getDogPanel().setYesCast(true);
+                    else view.getDogPanel().setNoCast(true);
                     if (((Dog) pet).getGuidenceDog())
-                        view.getDogPanel().getYes_ig().setSelected(true);
-                    else view.getDogPanel().getNo_ig().setSelected(true);
+                        view.getDogPanel().setYesGuid(true);
+                    else view.getDogPanel().setNoGuid(true);
 
                 }
                 if (pet instanceof Cat) {
                     view.getPetChooser_cb().setSelectedItem("Cat");
-                    view.getCatPanel().getPetId_tf().setText(pet.getPetId());
-                    view.getCatPanel().getName_tf().setText(pet.getName());
-                    view.getCatPanel().getDateOfBirth_tf().setText(pet.getDateOfBirth());
-                    view.getCatPanel().getColor_tf().setText(pet.getColor());
+                    view.getCatPanel().setId(pet.getPetId());
+                    view.getCatPanel().setName(pet.getName());
+                    view.getCatPanel().setDateOfBirth(pet.getDateOfBirth());
+                    view.getCatPanel().setColor(pet.getColor());
                     if (pet.getGender() == "Male") {
-                        view.getCatPanel().getMale_rb().setSelected(true);
+                        view.getCatPanel().setMale(true);
                     } else {
-                        view.getCatPanel().getFemale_rb().setSelected(true);
+                        view.getCatPanel().setFemale(true);
                     }
-                    view.getCatPanel().getWeight_tf().setText(String.valueOf(pet.getWeight()));
-                    view.getCatPanel().getBreed_tf().setText(((Cat) pet).getBreed());
+                    view.getCatPanel().setWeight(String.valueOf(pet.getWeight()));
+                    view.getCatPanel().setBreed(((Cat) pet).getBreed());
                     if (((Cat) pet).getCastrated())
-                        view.getCatPanel().getYes_ic().setSelected(true);
-                    else view.getCatPanel().getNo_ic().setSelected(true);
+                        view.getCatPanel().setYesCast(true);
+                    else view.getCatPanel().setNoCast(true);
                 }
                 if (pet instanceof Other) {
                     view.getPetChooser_cb().setSelectedItem("Other");
-                    view.getOtherPanel().getPetId_tf().setText(pet.getPetId());
-                    view.getOtherPanel().getName_tf().setText(pet.getName());
-                    view.getOtherPanel().getDateOfBirth_tf().setText(pet.getDateOfBirth());
-                    view.getOtherPanel().getColor_tf().setText(pet.getColor());
+                    view.getOtherPanel().setId(pet.getPetId());
+                    view.getOtherPanel().setName(pet.getName());
+                    view.getOtherPanel().setDateOfBirth(pet.getDateOfBirth());
+                    view.getOtherPanel().setColor(pet.getColor());
                     if (pet.getGender() == "Male") {
-                        view.getOtherPanel().getMale().setSelected(true);
+                        view.getOtherPanel().setMale(true);
                     } else {
-                        view.getOtherPanel().getFemale().setSelected(true);
+                        view.getOtherPanel().setFemale(true);
                     }
-                    view.getOtherPanel().getWeight_tf().setText(String.valueOf(pet.getWeight()));
-                    view.getOtherPanel().getTypeOfPet_tf().setText(((Other) pet).getTypeOfPet());
-                    view.getOtherPanel().getInfo_tf().setText(((Other) pet).getInfo());
+                    view.getOtherPanel().setWeight(String.valueOf(pet.getWeight()));
+                    view.getOtherPanel().setTypeOfPet(((Other) pet).getTypeOfPet());
+                    view.getOtherPanel().setInfo(((Other) pet).getInfo());
                 }
             }
 
