@@ -4,30 +4,23 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AppointmentSummary implements Serializable {
-    private ArrayList<Medicine> medicines;
-    private String treatmentSummary,recommendations;
+    private String treatmentSummary,recommendations, medicines;
 
     public AppointmentSummary() {
     }
 
-    public AppointmentSummary(String treatmentSummary, String recommendations) {
-        this.medicines =new ArrayList<>();
+    public AppointmentSummary(String treatmentSummary, String recommendations, String medicine) {
+        this.medicines = medicine;
         this.treatmentSummary = treatmentSummary;
         this.recommendations = recommendations;
     }
 
 
-    public AppointmentSummary(ArrayList<Medicine> medicines, String treatmentSummary, String recommendations) {
-        this.medicines = medicines;
-        this.treatmentSummary = treatmentSummary;
-        this.recommendations = recommendations;
-    }
-
-    public ArrayList<Medicine> getMedicines() {
+    public String getMedicines() {
         return medicines;
     }
 
-    public void setMedicines(ArrayList<Medicine> medicines) {
+    public void setMedicines(String medicines) {
         this.medicines = medicines;
     }
 
@@ -47,12 +40,9 @@ public class AppointmentSummary implements Serializable {
         this.recommendations = recommendations;
     }
 
-    public void addMedicines(ArrayList<Medicine> medicinesToAdd ){ // add list of medicines
-        this.medicines.addAll(medicinesToAdd);
+    public void addMedicines(String medicinesToAdd ){ // add list of medicines
+        this.medicines = medicinesToAdd;
     }
-    public void addMedicine(Medicine medicine ){
-        this.medicines.add(medicine);
-    } // add one medicine
 
 
     @Override

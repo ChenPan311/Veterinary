@@ -1,13 +1,15 @@
 package Model.TablesModels;
 
 import Model.Appointment;
+import com.privatejgoodies.common.bean.ObservableBean;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.Set;
 
-public class AppointmentTableModel extends AbstractTableModel {
+public class AppointmentTableModel extends AbstractTableModel  {
     private Set<Appointment> appointmentSet;
     private String [] colNames={"Customer Id","Pet Id","Vet Id","Date","Time","Treatment","Treatment Description","Summary","Recommendations","Medicines"};
 

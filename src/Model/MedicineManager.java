@@ -5,12 +5,9 @@ import Exceptions.MedicineQuantityInsufficient;
 import Model.InterfaceModels.MedicineManagerInterface;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class MedicineManager implements MedicineManagerInterface {
+public class MedicineManager implements MedicineManagerInterface,Observer {
     private Map<Medicine,Integer> medicinesAndQuantity;
     private static MedicineManager medicineManager=null;
     private static final String fileName="medicines.dat";
@@ -66,6 +63,7 @@ public class MedicineManager implements MedicineManagerInterface {
     public void removeMedicine(Medicine medicine){
         medicinesAndQuantity.remove(medicine);
         writeMedicineToFile();
+
     }
 
 
@@ -117,5 +115,8 @@ public class MedicineManager implements MedicineManagerInterface {
         return false;
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
 
+    }
 }

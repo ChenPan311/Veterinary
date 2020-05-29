@@ -9,6 +9,8 @@ import View.PersonsView;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Observable;
+import java.util.Observer;
 
 public class PersonsController {
     private PersonsView view;
@@ -141,4 +143,6 @@ public class PersonsController {
 
 
     }
+
+
 }

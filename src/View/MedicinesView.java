@@ -8,8 +8,10 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.Observable;
+import java.util.Observer;
 
-public class MedicinesView extends JPanel {
+public class MedicinesView extends JPanel implements Observer {
     private TablePanel tablePanel;
     private AddMedicineView view;
 
@@ -87,4 +89,8 @@ public class MedicinesView extends JPanel {
     }
     public void setQuantity(String quantity){ view.getQuantity_tf().setText(quantity); }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        tablePanel.refresh();
+    }
 }

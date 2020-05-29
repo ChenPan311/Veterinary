@@ -73,11 +73,33 @@ public class AppointmentManager implements AppointmentManageInterface {
         addAppointment(appointment);
     }
 
-    public ArrayList<Appointment> getArrayAppointments(){
+    public void addAppointmentSummary(Appointment appointment, AppointmentSummary appointmentSummary) {
+        for (Appointment appointment1 : appointments) {
+            if (appointment1.equals(appointment)) {
+                appointment1.setSummary(appointmentSummary);
+                break;
+            }
+        }
+        writeAppointmentToFile();
+    }
+
+    public void removeAppointmentSummary(Appointment appointment) {
+        for (Appointment appointment1 : appointments) {
+            if (appointment1.equals(appointment)) {
+                appointment1.getSummary().setRecommendations("");
+                appointment1.getSummary().setTreatmentSummary("");
+                appointment1.getSummary().setMedicines("");
+                break;
+            }
+        }
+        writeAppointmentToFile();
+    }
+
+    public ArrayList<Appointment> getArrayAppointments() {
         return new ArrayList<Appointment>(appointments);
     }
 
-    public Set<Appointment> getSetAppointments(){
+    public Set<Appointment> getSetAppointments() {
         return new HashSet<>(appointments);
     }
 

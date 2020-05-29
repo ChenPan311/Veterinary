@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
 public class MedicineController {
     private MedicineManager model;
@@ -44,8 +47,10 @@ public class MedicineController {
                     int row = view.getTablePanel().getTable().getSelectedRow();
                     String id = (String) view.getTablePanel().getTable().getValueAt(row, 0);
                     for (Medicine medicine : model.getMedicinesAndQuantity().keySet()) {
-                        if (medicine.getId().equals(id))
+                        if (medicine.getId().equals(id)) {
                             model.removeMedicine(medicine);
+                            break;
+                        }
                         view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
                         view.getTablePanel().refresh();
                     }
@@ -104,7 +109,6 @@ public class MedicineController {
             }
         });
     }
-
 
 }
 

@@ -14,10 +14,7 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.MouseListener;
 import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class TablePanel extends JPanel {
     private JTable table;
@@ -67,7 +64,6 @@ public class TablePanel extends JPanel {
     public void addSelectedRowListener(MouseListener mouseListener){
         table.addMouseListener(mouseListener);
     }
-
 
 
 }

@@ -20,7 +20,7 @@ public class Test {
         PersonManager personManager = PersonManager.singletonPersonManager();
         AppointmentManager appointmentManager = AppointmentManager.singletonAppointmentManager();
 
-        CustomersAppointmentsModelView model = new CustomersAppointmentsModelView(personManager, appointmentManager);
+        CustomersAppointmentsModelView model = new CustomersAppointmentsModelView(personManager, appointmentManager,medicineManager);
 
         PersonsController controller = new PersonsController(frame.getPersonsView(), personManager);
         MedicineController medicineController = new MedicineController(frame.getMedicineView(), medicineManager);

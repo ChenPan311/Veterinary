@@ -2,8 +2,12 @@ package Controller;
 
 import Exceptions.AppointmentNotExistException;
 import Exceptions.ApponitmentAlreadyExistsException;
+import Exceptions.MedicineNotExistException;
+import Exceptions.MedicineQuantityInsufficient;
 import Model.Appointment;
+import Model.AppointmentSummary;
 import Model.CustomersAppointmentsModelView;
+import Model.Medicine;
 import Model.TablesModels.AppointmentTableModel;
 import View.AppointmentsView;
 
@@ -12,8 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
 
-public class AppointmentsController {
+public class AppointmentsController{
     private AppointmentsView view;
     private CustomersAppointmentsModelView model;
 
@@ -21,6 +26,7 @@ public class AppointmentsController {
         this.view = view;
         this.model = model;
         view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
+        view.getView().setMedicines((HashMap<Medicine, Integer>) model.getMedicineManager().getMedicinesAndQuantity());
 
         view.addAppointmentListener(new ActionListener() {
             @Override
@@ -103,6 +109,52 @@ public class AppointmentsController {
 
         });
 
+        view.addAppointmentSummaryListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (view.getTablePanel().getTable().getSelectedRow() != -1) {
+                    int row = view.getTablePanel().getTable().getSelectedRow();
+                    Appointment appointment = model.getAppointmentManager().getArrayAppointments().get(row);
+                    if (view.getView().validateSummaryFields()) {
+                        AppointmentSummary appointmentSummary = new AppointmentSummary();
+                        appointmentSummary.setTreatmentSummary(view.getTreatmentSummary());
+                        appointmentSummary.setRecommendations(view.getRecommendations());
+                        appointmentSummary.setMedicines(view.getMedicine());
+                        for (Medicine medicine : model.getMedicineManager().getMedicinesAndQuantity().keySet()) {
+                            if (medicine.getName().equals(view.getMedicine()))
+                                if (model.getMedicineManager().getMedicinesAndQuantity().get(medicine) - Integer.parseInt(view.getQuantity()) >= 0) {
+                                    try {
+                                        model.getMedicineManager().decreaseQuantityFromMedicineStock(medicine, Integer.parseInt(view.getQuantity()));
+                                        model.getAppointmentManager().addAppointmentSummary(appointment, appointmentSummary);
+                                        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
+                                        view.getTablePanel().refresh();
+                                        JOptionPane.showMessageDialog(view, "Added!");
+                                        break;
+                                    } catch (MedicineNotExistException | MedicineQuantityInsufficient medicineNotExistException) {
+                                        medicineNotExistException.printStackTrace();
+                                    }
+                                } else JOptionPane.showMessageDialog(view, "Quantity Insufficient");
+
+                        }
+                    } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
+
+                }
+            }
+        });
+
+        view.deleteAppointmentSummaryListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (view.getTablePanel().getTable().getSelectedRow() != -1) {
+                    int row = view.getTablePanel().getTable().getSelectedRow();
+                    Appointment appointment = model.getAppointmentManager().getArrayAppointments().get(row);
+                    model.getAppointmentManager().removeAppointmentSummary(appointment);
+                    view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
+                    view.getTablePanel().refresh();
+                }
+            }
+        });
+
         view.addSelectedRowListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -115,6 +167,11 @@ public class AppointmentsController {
                 view.setTimeFromDatePicker(view.getTablePanel().getTable().getValueAt(selectedRowIndex,4).toString());
                 view.setTreatment(view.getTablePanel().getTable().getValueAt(selectedRowIndex,5).toString());
                 view.setTreatmentDescription(view.getTablePanel().getTable().getValueAt(selectedRowIndex,6).toString());
+                view.setTreatmentSummary(view.getTablePanel().getTable().getValueAt(selectedRowIndex,7).toString());
+                view.setRecommendations(view.getTablePanel().getTable().getValueAt(selectedRowIndex,8).toString());
+                view.setMedicine(view.getTablePanel().getTable().getValueAt(selectedRowIndex,9).toString());
+
+
             }
 
             @Override
@@ -134,4 +191,5 @@ public class AppointmentsController {
             }
         });
     }
+
 }

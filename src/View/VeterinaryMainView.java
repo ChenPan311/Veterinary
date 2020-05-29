@@ -40,6 +40,7 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, CUSTOMER);
+
             }
         });
 
@@ -48,6 +49,7 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, APPOINTMENT);
+
             }
         });
 
@@ -56,6 +58,7 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, MEDICINE);
+
             }
         });
 

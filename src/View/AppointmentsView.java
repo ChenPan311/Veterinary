@@ -1,21 +1,29 @@
 package View;
 
+import Model.Medicine;
 import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.PersonTableModel;
+import View.Dialogs.AddAppointmentSummary;
 import View.Panels.TablePanel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
-public class AppointmentsView extends JPanel {
+public class AppointmentsView extends JPanel{
     private TablePanel tablePanel;
     private AddAppointmentView view;
+
+
 
     public AppointmentsView() {
         view = new AddAppointmentView();
         tablePanel=new TablePanel(new AppointmentTableModel());
+
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -24,7 +32,7 @@ public class AppointmentsView extends JPanel {
 
         gbc.ipady=120;
         gbc.ipadx=3;
-        gbc.weightx=4;
+        gbc.weightx=8;
         gbc.weighty=5;
         gbc.gridx=0;
         gbc.gridy=0;
@@ -35,6 +43,11 @@ public class AppointmentsView extends JPanel {
         gbc.weighty=1;
         gbc.gridy=1;
         add(view,gbc);
+
+
+
+
+
 
         setBackground(Color.ORANGE);
     }
@@ -63,6 +76,15 @@ public class AppointmentsView extends JPanel {
         view.updateAppointmentListener(actionListener);
     }
 
+    public void addAppointmentSummaryListener(ActionListener actionListener){
+        view.addAppointmentSummaryListener(actionListener);
+    }
+
+    public void deleteAppointmentSummaryListener(ActionListener actionListener){
+        view.deleteAppointmentSummaryListener(actionListener);
+    }
+
+
     public String getCustomerId(){
         return view.getCustomerId_tf().getText();
     }
@@ -89,6 +111,7 @@ public class AppointmentsView extends JPanel {
         return view.getTreatmentDescription_tf().getText();
     }
 
+
     public void setCustomerId(String id){
          view.getCustomerId_tf().setText(id);
     }
@@ -114,4 +137,41 @@ public class AppointmentsView extends JPanel {
     public void setTreatmentDescription(String treatmentDescription){
         view.getTreatmentDescription_tf().setText(treatmentDescription);
     }
+
+    public void setTreatmentSummary(String summary){
+        view.getTreatmentSummary_tf().setText(summary);
+    }
+
+    public void setRecommendations(String recommendations){
+        view.getRecommendations_tf().setText(recommendations);
+    }
+
+    public void setMedicine(String medicine){
+        view.getMedicines_cb().setSelectedItem(medicine);
+    }
+
+    public void setQuantity(String quantity){
+        view.getQuantity_tf().setText(quantity);
+    }
+
+    public String getTreatmentSummary(){
+        return view.getTreatmentSummary_tf().getText();
+    }
+
+    public String getRecommendations(){
+        return view.getRecommendations_tf().getText();
+    }
+
+    public String getMedicine(){
+        return (String)view.getMedicines_cb().getSelectedItem();
+    }
+
+    public String getQuantity(){
+        return view.getQuantity_tf().getText();
+    }
+
+
+
+
+
 }
