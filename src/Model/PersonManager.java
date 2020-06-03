@@ -90,15 +90,25 @@ public class PersonManager {
 
     public boolean searchPetForCustomer(String customerId, String petId) {
         for (Person person : persons) {
-            if (person instanceof Customer && searchById(customerId))
+            if (person instanceof Customer && person.getId().equals(customerId)) {
                 if (((Customer) person).searchPetById(petId))
                     return true;
+            }
         }
         return false;
     }
 
     public Customer getCustomerByRowIndex(int row) {
         return (Customer) getArrayListPersons().get(row);
+    }
+
+    public Customer getCustomerById(String id){
+        for(Person person:persons) {
+            if (person.getId().equals(id))
+                return (Customer) person;
+        }
+        return null;
+
     }
 
     public void addPetToList(Customer customer, Pet pet) {

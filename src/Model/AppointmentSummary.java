@@ -7,6 +7,9 @@ public class AppointmentSummary implements Serializable {
     private String treatmentSummary,recommendations, medicines;
 
     public AppointmentSummary() {
+        this.medicines = "";
+        this.treatmentSummary = "";
+        this.recommendations = "";
     }
 
     public AppointmentSummary(String treatmentSummary, String recommendations, String medicine) {

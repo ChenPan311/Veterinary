@@ -1,5 +1,7 @@
 package View.Panels;
 
+import View.DigitalClock;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -28,6 +30,9 @@ public class MainMenu extends JPanel {
 
         gbc.gridy=2;
         add(addPet,gbc);
+
+        gbc.gridy=3;
+        add(new DigitalClock(),gbc);
     }
 
     public JButton getAddCustomer() {

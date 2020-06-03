@@ -73,7 +73,9 @@ public class Appointment implements Serializable {
     }
 
     public void setSummary(AppointmentSummary summary) {
-        this.summary = summary;
+        this.summary.setTreatmentSummary(summary.getTreatmentSummary());
+        this.summary.setRecommendations(summary.getRecommendations());
+        this.summary.setMedicines(summary.getMedicines());
     }
 
     @Override

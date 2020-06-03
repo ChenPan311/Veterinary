@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.AppointmentsController;
+import Controller.MainController;
 import Controller.MedicineController;
 import Controller.PersonsController;
 import Exceptions.PersonAlreadyExistException;
@@ -22,11 +23,13 @@ public class Test {
 
         CustomersAppointmentsModelView model = new CustomersAppointmentsModelView(personManager, appointmentManager,medicineManager);
 
-        PersonsController controller = new PersonsController(frame.getPersonsView(), personManager);
+        PersonsController personsController = new PersonsController(frame.getPersonsView(), personManager);
         MedicineController medicineController = new MedicineController(frame.getMedicineView(), medicineManager);
         AppointmentsController appointmentsController = new AppointmentsController(frame.getAppointmentsView(), model);
 
-        frame.setSize(700, 500);
+        MainController mainController = new MainController(frame,personsController,medicineController,appointmentsController);
+
+        frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 

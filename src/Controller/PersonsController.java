@@ -2,23 +2,29 @@ package Controller;
 
 import Exceptions.PersonAlreadyExistException;
 import Exceptions.PersonNotExistException;
-import Model.*;
+import Model.Customer;
+import Model.Person;
+import Model.PersonManager;
 import Model.TablesModels.PersonTableModel;
 import View.Dialogs.AddPetToCustomerDialog;
 import View.PersonsView;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
 
-public class PersonsController {
+public class PersonsController extends Observable implements Observer {
     private PersonsView view;
     private PersonManager model;
 
     public PersonsController(PersonsView view, PersonManager model) {
         this.view = view;
         this.model = model;
+        addObserver(view);
         view.getTablePanel().setPersonsData(model.getPersons());
 
         view.getView().addNewCustomerListener(new ActionListener() {
@@ -132,10 +138,10 @@ public class PersonsController {
             public void actionPerformed(ActionEvent e) {
                 int rowSelected = view.getTablePanel().getTable().getSelectedRow();
                 if ( rowSelected != -1) {
-                    AddPetToCustomerDialog view = new AddPetToCustomerDialog();
-                    Customer customer=model.getCustomerByRowIndex(rowSelected);
-                    view.getTablePanel().setPetDataForCustomer(model.getCustomerByRowIndex(rowSelected).getPetList());
-                    new AddPetToCustomerController(model,view,customer);
+                    AddPetToCustomerDialog viewp = new AddPetToCustomerDialog();
+                    Customer customer=model.getCustomerById(view.getId());
+                    viewp.getTablePanel().setPetDataForCustomer(customer.getPetList());
+                    new AddPetToCustomerController(model,viewp,customer);
                 }
                 else JOptionPane.showMessageDialog(view, "Select Customer First!");
             }
@@ -144,5 +150,9 @@ public class PersonsController {
 
     }
 
-
+    @Override
+    public void update(Observable o, Object arg) {
+        setChanged();
+        notifyObservers();
+    }
 }

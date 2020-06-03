@@ -17,14 +17,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
-public class AppointmentsController{
+public class AppointmentsController extends Observable implements Observer {
     private AppointmentsView view;
     private CustomersAppointmentsModelView model;
 
     public AppointmentsController(AppointmentsView view, CustomersAppointmentsModelView model) {
         this.view = view;
         this.model = model;
+        addObserver(view);
         view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
         view.getView().setMedicines((HashMap<Medicine, Integer>) model.getMedicineManager().getMedicinesAndQuantity());
 
@@ -43,6 +46,7 @@ public class AppointmentsController{
                                 appointment.getDate().setHour(view.getTimeFromDatePicker());
                                 appointment.setTreatment(view.getTreatment());
                                 appointment.setTreatmentDescription(view.getTreatmentDescription());
+                                appointment.setSummary(new AppointmentSummary());
                                 try {
                                     model.getAppointmentManager().addAppointment(appointment);
                                     view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
@@ -192,4 +196,9 @@ public class AppointmentsController{
         });
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        setChanged();
+        notifyObservers();
+    }
 }

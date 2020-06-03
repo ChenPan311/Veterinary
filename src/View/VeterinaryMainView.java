@@ -1,12 +1,13 @@
 package View;
 
-import Model.Appointment;
 import View.Panels.MainMenu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 public class VeterinaryMainView extends JFrame {
     private MainMenu mainMenu;
@@ -41,6 +42,7 @@ public class VeterinaryMainView extends JFrame {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, CUSTOMER);
 
+
             }
         });
 
@@ -49,7 +51,6 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, APPOINTMENT);
-
             }
         });
 
@@ -58,11 +59,10 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, MEDICINE);
-
             }
         });
-
     }
+
 
     public void addCustomerAddingListener(ActionListener actionListener) {
         mainMenu.getAddCustomer().addActionListener(actionListener);
@@ -87,4 +87,5 @@ public class VeterinaryMainView extends JFrame {
     public AppointmentsView getAppointmentsView() {
         return appointmentsView;
     }
+
 }

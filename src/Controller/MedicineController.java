@@ -14,13 +14,14 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MedicineController {
+public class MedicineController extends Observable implements Observer {
     private MedicineManager model;
     private MedicinesView view;
 
-    public MedicineController(MedicinesView view,MedicineManager model) {
+    public MedicineController(MedicinesView view, MedicineManager model) {
         this.model = model;
         this.view = view;
+        addObserver(view);
         view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
         view.addMedicineToInventory(new ActionListener() {
             @Override
@@ -34,6 +35,7 @@ public class MedicineController {
                         model.addMedicine(medicine, Integer.parseInt(view.getQuantity()));
                         view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
                         view.getTablePanel().refresh();
+
                         JOptionPane.showMessageDialog(view, medicine.getName() + " Added");
                     } else JOptionPane.showMessageDialog(view, "Medicine Already Exist!");
                 } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
@@ -49,10 +51,10 @@ public class MedicineController {
                     for (Medicine medicine : model.getMedicinesAndQuantity().keySet()) {
                         if (medicine.getId().equals(id)) {
                             model.removeMedicine(medicine);
+                            view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
+                            view.getTablePanel().refresh();
                             break;
                         }
-                        view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
-                        view.getTablePanel().refresh();
                     }
                 }
             }
@@ -110,5 +112,19 @@ public class MedicineController {
         });
     }
 
+    public MedicineManager getModel() {
+        return model;
+    }
+
+    public MedicinesView getView() {
+        return view;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
+        setChanged();
+        notifyObservers();
+    }
 }
 

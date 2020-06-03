@@ -8,8 +8,10 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.MouseListener;
+import java.util.Observable;
+import java.util.Observer;
 
-public class PersonsView extends JPanel {
+public class PersonsView extends JPanel implements Observer {
     private TablePanel tablePanel;
     private RegisterCustomerView view;
 
@@ -62,4 +64,9 @@ public class PersonsView extends JPanel {
     public void setAddress(String address){view.getAddress_tf().setText(address);}
     public void setPhoneNumber(String phoneNumber){view.getPhoneNumber_tf().setText(phoneNumber);}
     public void setEmail(String email){view.getEmail_tf().setText(email);}
+
+    @Override
+    public void update(Observable o, Object arg) {
+        tablePanel.refresh();
+    }
 }

@@ -1,5 +1,6 @@
 package View;
 
+import Model.MedicineManager;
 import Model.TablesModels.MedicineTableModel;
 import View.Panels.TablePanel;
 
