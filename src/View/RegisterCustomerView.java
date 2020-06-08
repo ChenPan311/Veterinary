@@ -92,6 +92,7 @@ public class RegisterCustomerView extends JPanel {
         gbc.gridy = 9;
         add(addPetBtn, gbc);
 
+
     }
 
     public JTextField getName_tf() {

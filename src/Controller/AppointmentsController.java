@@ -42,8 +42,8 @@ public class AppointmentsController extends Observable implements Observer {
                                 appointment.setCustomerId(view.getCustomerId());
                                 appointment.setPetId(view.getPetId());
                                 appointment.setVetId(view.getVetId());
-                                appointment.getDate().setDay(view.getDateFromDatePicker());
-                                appointment.getDate().setHour(view.getTimeFromDatePicker());
+                                appointment.setDay(view.getDateFromDatePicker());
+                                appointment.setHour(view.getTimeFromDatePicker());
                                 appointment.setTreatment(view.getTreatment());
                                 appointment.setTreatmentDescription(view.getTreatmentDescription());
                                 appointment.setSummary(new AppointmentSummary());
@@ -93,8 +93,8 @@ public class AppointmentsController extends Observable implements Observer {
                             appointment.setPetId(view.getPetId());
                         }
                         appointment.setVetId(view.getVetId());
-                        appointment.getDate().setDay(view.getDateFromDatePicker());
-                        appointment.getDate().setHour(view.getTimeFromDatePicker());
+                        appointment.setDay(view.getDateFromDatePicker());
+                        appointment.setHour(view.getTimeFromDatePicker());
                         appointment.setTreatment(view.getTreatment());
                         appointment.setTreatmentDescription(view.getTreatmentDescription());
                         try {

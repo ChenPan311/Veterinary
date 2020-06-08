@@ -103,6 +103,22 @@ public class AppointmentManager implements AppointmentManageInterface {
         return new HashSet<>(appointments);
     }
 
+    public Set<Appointment> getSetAppointmentsForCustomer(String id) {
+        HashSet<Appointment> appointmentsForCus = new HashSet<>();
+        for (Appointment appointment : appointments) {
+            if (appointment.getCustomerId().equals(id))
+                appointmentsForCus.add(appointment);
+        }
+        return new HashSet<>(appointmentsForCus);
+    }
+
+    public Appointment getAppointmentByAppointment(Appointment appointment){
+        for(Appointment appointment1 : appointments){
+            if (appointment1.equals(appointment))
+                return appointment1;
+        }
+        return null;
+    }
 
 }
 

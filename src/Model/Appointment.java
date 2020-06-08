@@ -20,8 +20,20 @@ public class Appointment implements Serializable {
         this.summary = summary;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return date.getDay();
+    }
+
+    public String getTime() {
+        return date.getHour();
+    }
+
+    public void setDay(String day){
+        this.date.setDay(day);
+    }
+
+    public void setHour(String hour){
+        this.date.setHour(hour);
     }
 
     public void setDate(Date date) {
@@ -86,7 +98,8 @@ public class Appointment implements Serializable {
         return getPetId() == that.getPetId() &&
                 getCustomerId() == that.getCustomerId() &&
                 getVetId() == that.getVetId() &&
-                that.getDate().equals(getDate());
+                that.getDate().equals(getDate()) &&
+                that.getTime().equals(getTime());
     }
 
     @Override
@@ -106,4 +119,6 @@ public class Appointment implements Serializable {
                 ", summary=" + summary +
                 '}';
     }
+
+
 }

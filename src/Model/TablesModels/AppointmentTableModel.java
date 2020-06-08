@@ -47,9 +47,9 @@ public class AppointmentTableModel extends AbstractTableModel  {
             case 2:
                 return appointment.getVetId();
             case 3:
-                return appointment.getDate().getDay();
+                return appointment.getDate();
             case 4:
-                return  appointment.getDate().getHour();
+                return  appointment.getTime();
             case 5:
                 return appointment.getTreatment();
             case 6:

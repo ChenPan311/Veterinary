@@ -1,10 +1,8 @@
 package Model;
 
-import Controller.AppointmentsController;
-import Controller.MainController;
-import Controller.MedicineController;
-import Controller.PersonsController;
+import Controller.*;
 import Exceptions.PersonAlreadyExistException;
+import View.CustomerMainView;
 import View.Dialogs.LoginDialog;
 import View.VeterinaryMainView;
 
@@ -17,36 +15,49 @@ public class Test {
     public static void main(String[] args) throws PersonAlreadyExistException {
         VeterinaryMainView frame = new VeterinaryMainView("Veti");
         frame.setVisible(false);
+
+        CustomerMainView customerMainView = new CustomerMainView("Cusi");
+        customerMainView.setVisible(false);
         MedicineManager medicineManager = MedicineManager.singletonMedicineManager();
         PersonManager personManager = PersonManager.singletonPersonManager();
         AppointmentManager appointmentManager = AppointmentManager.singletonAppointmentManager();
 
-        CustomersAppointmentsModelView model = new CustomersAppointmentsModelView(personManager, appointmentManager,medicineManager);
+        CustomersAppointmentsModelView model = new CustomersAppointmentsModelView(personManager, appointmentManager, medicineManager);
 
         PersonsController personsController = new PersonsController(frame.getPersonsView(), personManager);
         MedicineController medicineController = new MedicineController(frame.getMedicineView(), medicineManager);
         AppointmentsController appointmentsController = new AppointmentsController(frame.getAppointmentsView(), model);
 
-        MainController mainController = new MainController(frame,personsController,medicineController,appointmentsController);
+        MainController mainController = new MainController(frame, personsController, medicineController, appointmentsController);
 
         frame.setSize(1000, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        char [] pass = {'1','3','2','4'};
+        char[] pass = {'1', '3', '2', '4'};
         LoginDialog loginDialog = new LoginDialog("Login");
         loginDialog.addSignInListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(loginDialog.getVet_rb().isSelected()){
-                    if(Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) &&loginDialog.getUsername_tf().getText().equals("vet")){
-                        JOptionPane.showMessageDialog(loginDialog,"Success!");
+                if (loginDialog.getVet_rb().isSelected()) {
+                    if (Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) && loginDialog.getUsername_tf().getText().equals("vet")) {
+                        JOptionPane.showMessageDialog(loginDialog, "Success!");
                         frame.setLocationRelativeTo(null);
                         loginDialog.dispose();
                         frame.setVisible(true);
-                    }else JOptionPane.showMessageDialog(loginDialog,"Wrong Username or Password");
+                    } else JOptionPane.showMessageDialog(loginDialog, "Wrong Username or Password");
+                } else {
+                    if (Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) && loginDialog.getUsername_tf().getText().equals("cus")) {
+                        JOptionPane.showMessageDialog(loginDialog, "Success!");
+                        CustomerMainController customerMainController = new CustomerMainController(customerMainView,model,model.getPersonManager().getCustomerById("315877563"));
+                        customerMainView.setLocationRelativeTo(null);
+                        loginDialog.dispose();
+                        customerMainView.setVisible(true);
+
+                    }
                 }
             }
         });
     }
 }
+
