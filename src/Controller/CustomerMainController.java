@@ -5,7 +5,7 @@ import Exceptions.ApponitmentAlreadyExistsException;
 import Model.Appointment;
 import Model.AppointmentSummary;
 import Model.Customer;
-import Model.CustomersAppointmentsModelView;
+import Model.CustomersMedicinesAppointmentsModelView;
 import View.CustomerMainView;
 
 import javax.swing.*;
@@ -14,11 +14,11 @@ import java.awt.event.ActionListener;
 
 public class CustomerMainController {
     CustomerMainView view;
-    CustomersAppointmentsModelView model;
+    CustomersMedicinesAppointmentsModelView model;
     Customer customer;
 
 
-    public CustomerMainController(CustomerMainView view, CustomersAppointmentsModelView model, Customer customer) {
+    public CustomerMainController(CustomerMainView view, CustomersMedicinesAppointmentsModelView model, Customer customer) {
         this.view = view;
         this.model = model;
         this.customer = customer;

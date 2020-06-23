@@ -30,48 +30,14 @@ public class PersonsController extends Observable implements Observer {
         view.getView().addNewCustomerListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (view.getView().validateFields()) {
-                    if (model.searchById(view.getId())) {
-                        JOptionPane.showMessageDialog(view, "Customer Already Exist!");
-                    } else {
-                        Customer customer = new Customer();
-                        customer.setId(view.getId());
-                        customer.setName(view.getName());
-                        customer.setAddress(view.getAddress());
-                        customer.setPhoneNumber(view.getPhoneNumber());
-                        customer.setEmail(view.getEmail());
-                        customer.setCustomerNumber(model.getRandom().nextInt(1024));
-                        try {
-                            model.addPerson(customer);
-                        } catch (PersonAlreadyExistException ex) {
-                            ex.printStackTrace();
-                        }
-                        view.getView().clearFields();
-                        view.getTablePanel().setPersonsData(model.getPersons());
-                        view.getTablePanel().refresh();
-                        JOptionPane.showMessageDialog(view, "Success");
-                    }
-                } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
+                addNewCustomer();
             }
-        });
+        }) ;
 
         view.getView().deleteCustomerListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (view.getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = view.getTablePanel().getTable().getSelectedRow();
-                    String id = (String) view.getTablePanel().getTable().getValueAt(row, 0);
-                    for(Person person:model.getPersons())
-                        if(person.getId().equals(id)) {
-                            try {
-                                model.removePerson(person);
-                            } catch (PersonNotExistException ex) {
-                                ex.printStackTrace();
-                            }
-                        }
-                    view.getTablePanel().setPersonsData(model.getPersons());
-                    view.getTablePanel().refresh();
-                }
+                deleteCustomer();
             }
         });
 
@@ -114,21 +80,7 @@ public class PersonsController extends Observable implements Observer {
         view.getView().updateCustomerListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (view.getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = view.getTablePanel().getTable().getSelectedRow();
-                    Customer customer = model.getCustomerByRowIndex(row);
-                    if (view.getView().validateFields()) {
-                        customer.setId(view.getId());
-                        customer.setName(view.getName());
-                        customer.setPhoneNumber(view.getPhoneNumber());
-                        customer.setEmail(view.getEmail());
-                        customer.setAddress(view.getAddress());
-                        model.updatePerson(customer);
-                        view.getTablePanel().setPersonsData(model.getPersons());
-                        view.getTablePanel().refresh();
-                        JOptionPane.showMessageDialog(view, "Updated!");
-                    } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
-                }
+                updateCustomer();
             }
 
         });
@@ -154,5 +106,65 @@ public class PersonsController extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         setChanged();
         notifyObservers();
+    }
+
+    public void addNewCustomer(){
+        if (view.getView().validateFields()) {
+            if (model.searchById(view.getId())) {
+                JOptionPane.showMessageDialog(view, "Customer Already Exist!");
+            } else {
+                Customer customer = new Customer();
+                customer.setId(view.getId());
+                customer.setName(view.getName());
+                customer.setAddress(view.getAddress());
+                customer.setPhoneNumber(view.getPhoneNumber());
+                customer.setEmail(view.getEmail());
+                customer.setCustomerNumber(model.getRandom().nextInt(1024));
+                try {
+                    model.addPerson(customer);
+                } catch (PersonAlreadyExistException ex) {
+                    ex.printStackTrace();
+                }
+                view.getView().clearFields();
+                view.getTablePanel().setPersonsData(model.getPersons());
+                view.getTablePanel().refresh();
+                JOptionPane.showMessageDialog(view, "Success");
+            }
+        } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
+    }
+
+    public void deleteCustomer(){
+        if (view.getTablePanel().getTable().getSelectedRow() != -1) {
+            int row = view.getTablePanel().getTable().getSelectedRow();
+            String id = (String) view.getTablePanel().getTable().getValueAt(row, 0);
+            for(Person person:model.getPersons())
+                if(person.getId().equals(id)) {
+                    try {
+                        model.removePerson(person);
+                    } catch (PersonNotExistException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            view.getTablePanel().setPersonsData(model.getPersons());
+            view.getTablePanel().refresh();
+        }
+    }
+
+    public void updateCustomer(){
+        if (view.getTablePanel().getTable().getSelectedRow() != -1) {
+            int row = view.getTablePanel().getTable().getSelectedRow();
+            Customer customer = model.getCustomerByRowIndex(row);
+            if (view.getView().validateFields()) {
+                customer.setId(view.getId());
+                customer.setName(view.getName());
+                customer.setPhoneNumber(view.getPhoneNumber());
+                customer.setEmail(view.getEmail());
+                customer.setAddress(view.getAddress());
+                model.updatePerson(customer);
+                view.getTablePanel().setPersonsData(model.getPersons());
+                view.getTablePanel().refresh();
+                JOptionPane.showMessageDialog(view, "Updated!");
+            } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
+        }
     }
 }

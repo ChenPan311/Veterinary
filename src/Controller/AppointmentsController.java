@@ -6,7 +6,7 @@ import Exceptions.MedicineNotExistException;
 import Exceptions.MedicineQuantityInsufficient;
 import Model.Appointment;
 import Model.AppointmentSummary;
-import Model.CustomersAppointmentsModelView;
+import Model.CustomersMedicinesAppointmentsModelView;
 import Model.Medicine;
 import Model.TablesModels.AppointmentTableModel;
 import View.AppointmentsView;
@@ -22,9 +22,9 @@ import java.util.Observer;
 
 public class AppointmentsController extends Observable implements Observer {
     private AppointmentsView view;
-    private CustomersAppointmentsModelView model;
+    private CustomersMedicinesAppointmentsModelView model;
 
-    public AppointmentsController(AppointmentsView view, CustomersAppointmentsModelView model) {
+    public AppointmentsController(AppointmentsView view, CustomersMedicinesAppointmentsModelView model) {
         this.view = view;
         this.model = model;
         addObserver(view);

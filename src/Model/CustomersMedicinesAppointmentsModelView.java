@@ -2,15 +2,15 @@ package Model;
 
 import View.MedicinesView;
 
-public class CustomersAppointmentsModelView {
+public class CustomersMedicinesAppointmentsModelView {
     private PersonManager personManager;
     private AppointmentManager appointmentManager;
     private MedicineManager medicineManager;
 
-    public CustomersAppointmentsModelView(PersonManager personManager, AppointmentManager appointmentManager, MedicineManager medicineManager) {
-        this.personManager = personManager;
-        this.appointmentManager = appointmentManager;
-        this.medicineManager = medicineManager;
+    public CustomersMedicinesAppointmentsModelView(Veterinary veterinary) {
+        this.personManager = veterinary.getPersonManager();
+        this.appointmentManager = veterinary.getAppointmentManager();
+        this.medicineManager = veterinary.getMedicineManager();
     }
 
     public PersonManager getPersonManager() {

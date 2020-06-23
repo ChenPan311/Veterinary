@@ -43,10 +43,6 @@ public class AppointmentSummary implements Serializable {
         this.recommendations = recommendations;
     }
 
-    public void addMedicines(String medicinesToAdd ){ // add list of medicines
-        this.medicines = medicinesToAdd;
-    }
-
 
     @Override
     public String toString() {   // need to print also the medicine list
