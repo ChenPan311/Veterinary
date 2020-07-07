@@ -35,20 +35,20 @@ public class Veterinary {
     }
 
     public static void main(String[] args) {
-        Veterinary veterinary = new Veterinary("Veterinary");
-        VeterinaryMainView frame = new VeterinaryMainView(veterinary.clinicName);
+//        Veterinary veterinary = new Veterinary("Veterinary");
+        VeterinaryMainView frame = new VeterinaryMainView("veterinary");
         frame.setVisible(false);
 
         CustomerMainView customerMainView = new CustomerMainView("Cusi");
         customerMainView.setVisible(false);
 
-        veterinary.medicineManager = MedicineManager.singletonMedicineManager();
-        veterinary.personManager = PersonManager.singletonPersonManager();
-        veterinary.appointmentManager = AppointmentManager.singletonAppointmentManager();
+//        veterinary.medicineManager = MedicineManager.singletonMedicineManager();
+//        veterinary.personManager = PersonManager.singletonPersonManager();
+//        veterinary.appointmentManager = AppointmentManager.singletonAppointmentManager();
 
-        CustomersMedicinesAppointmentsModelView model = new CustomersMedicinesAppointmentsModelView(veterinary);
+        CustomersMedicinesAppointmentsModelView model = new CustomersMedicinesAppointmentsModelView();
 
-        PersonsController personsController = new PersonsController(frame.getPersonsView(), model.getPersonManager());
+        PersonsController personsController = PersonsController.getInstance(frame.getPersonsView());
         MedicineController medicineController = new MedicineController(frame.getMedicineView(), model.getMedicineManager());
         AppointmentsController appointmentsController = new AppointmentsController(frame.getAppointmentsView(), model);
 

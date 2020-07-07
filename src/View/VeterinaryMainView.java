@@ -1,5 +1,7 @@
 package View;
 
+import Controller.PersonsController;
+import Model.PersonManager;
 import View.Panels.MainMenu;
 
 import javax.swing.*;

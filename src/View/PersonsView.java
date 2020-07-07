@@ -1,12 +1,18 @@
 package View;
 
+import Controller.PersonsController;
 import Model.Customer;
+import Model.Person;
+import Model.PersonManager;
 import Model.TablesModels.PersonTableModel;
+import Model.Veterinary;
 import View.Panels.TablePanel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -14,10 +20,13 @@ import java.util.Observer;
 public class PersonsView extends JPanel implements Observer {
     private TablePanel tablePanel;
     private RegisterCustomerView view;
+    private PersonsController controller;
 
     public PersonsView() {
         view = new RegisterCustomerView();
         tablePanel=new TablePanel(new PersonTableModel());
+        controller = PersonsController.getInstance(this);
+
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -39,6 +48,8 @@ public class PersonsView extends JPanel implements Observer {
         add(view,gbc);
 
         setBackground(Color.ORANGE);
+        addCustomer();
+        deleteCustomer();
     }
 
     public TablePanel getTablePanel() {
@@ -47,6 +58,24 @@ public class PersonsView extends JPanel implements Observer {
 
     public RegisterCustomerView getView() {
         return view;
+    }
+
+    private void addCustomer(){
+        view.getAddBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addNewCustomer();
+            }
+        });
+    }
+
+    private void deleteCustomer(){
+        view.getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.deleteCustomer();
+            }
+        });
     }
 
     public void addSelectedRowListener(MouseListener mouseListener){

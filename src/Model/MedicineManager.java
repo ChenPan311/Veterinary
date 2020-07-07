@@ -10,16 +10,18 @@ import java.util.*;
 public class MedicineManager implements MedicineManagerInterface {
     private Map<Medicine,Integer> medicinesAndQuantity;
     private static MedicineManager medicineManager=null;
-    private static final String fileName="medicines.dat";
+    private String fileName;
 
-    private MedicineManager() {
+    private MedicineManager(String fileName) {
+        this.fileName = fileName;
         this.medicinesAndQuantity = new HashMap<>();
         readMedicinesFromFile();
     }
 
-    public static MedicineManager singletonMedicineManager(){
+
+    public static MedicineManager singletonMedicineManager(String fileName){
         if(medicineManager==null) {
-            medicineManager=new MedicineManager();
+            medicineManager=new MedicineManager(fileName);
         }
         return medicineManager;
     }
