@@ -1,32 +1,29 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AppointmentSummary {
-    private ArrayList<Medicine> medicines;
-    private String treatmentSummary,recommendations;
+public class AppointmentSummary implements Serializable {
+    private String treatmentSummary,recommendations, medicines;
 
     public AppointmentSummary() {
+        this.medicines = "";
+        this.treatmentSummary = "";
+        this.recommendations = "";
     }
 
-    public AppointmentSummary(String treatmentSummary, String recommendations) {
-        this.medicines =new ArrayList<>();
+    public AppointmentSummary(String treatmentSummary, String recommendations, String medicine) {
+        this.medicines = medicine;
         this.treatmentSummary = treatmentSummary;
         this.recommendations = recommendations;
     }
 
 
-    public AppointmentSummary(ArrayList<Medicine> medicines, String treatmentSummary, String recommendations) {
-        this.medicines = medicines;
-        this.treatmentSummary = treatmentSummary;
-        this.recommendations = recommendations;
-    }
-
-    public ArrayList<Medicine> getMedicines() {
+    public String getMedicines() {
         return medicines;
     }
 
-    public void setMedicines(ArrayList<Medicine> medicines) {
+    public void setMedicines(String medicines) {
         this.medicines = medicines;
     }
 
@@ -45,13 +42,6 @@ public class AppointmentSummary {
     public void setRecommendations(String recommendations) {
         this.recommendations = recommendations;
     }
-
-    public void addMedicines(ArrayList<Medicine> medicinesToAdd ){ // add list of medicines
-        this.medicines.addAll(medicinesToAdd);
-    }
-    public void addMedicine(Medicine medicine ){
-        this.medicines.add(medicine);
-    } // add one medicine
 
 
     @Override

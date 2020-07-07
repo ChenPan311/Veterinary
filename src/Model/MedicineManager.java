@@ -1,14 +1,49 @@
 package Model;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import Exceptions.MedicineNotExistException;
+import Exceptions.MedicineQuantityInsufficient;
+import Model.InterfaceModels.MedicineManagerInterface;
 
-public class MedicineManager {
-    private HashMap<Medicine,Integer> medicinesAndQuantity;
+import java.io.*;
+import java.util.*;
 
-    public MedicineManager() {
+public class MedicineManager implements MedicineManagerInterface {
+    private Map<Medicine,Integer> medicinesAndQuantity;
+    private static MedicineManager medicineManager=null;
+    private static final String fileName="medicines.dat";
+
+    private MedicineManager() {
         this.medicinesAndQuantity = new HashMap<>();
+        readMedicinesFromFile();
+    }
+
+    public static MedicineManager singletonMedicineManager(){
+        if(medicineManager==null) {
+            medicineManager=new MedicineManager();
+        }
+        return medicineManager;
+    }
+
+    private void readMedicinesFromFile() {
+        File file = new File(fileName);
+        if (file.length() == 0) {
+            return;
+        }
+        try (InputStream fileInputStream = new FileInputStream(fileName);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+            medicinesAndQuantity = (Map<Medicine,Integer>) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeMedicineToFile(){
+        try (OutputStream fileOutputStream = new FileOutputStream(fileName);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
+            objectOutputStream.writeObject(medicinesAndQuantity);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addMedicine(Medicine medicine,int quantity){ // either add new medicine or add quantity to existing medicine
@@ -18,20 +53,38 @@ public class MedicineManager {
         else{
             medicinesAndQuantity.put(medicine,quantity);
         }
+        writeMedicineToFile();
     }
+
     public int getMedicineQuantity(Medicine medicine){
         return medicinesAndQuantity.getOrDefault(medicine,0);
     }
 
-    public void decreaseQuantityFromMedicineStock(Medicine medicine,int quantity) throws MedicineNotExistException,MedicineQuantityInsufficient{
+    public void removeMedicine(Medicine medicine){
+        medicinesAndQuantity.remove(medicine);
+        writeMedicineToFile();
+
+    }
+
+
+    public void decreaseQuantityFromMedicineStock(Medicine medicine,int quantity) throws MedicineNotExistException, MedicineQuantityInsufficient {
         if(medicinesAndQuantity.containsKey(medicine)){
-            if(getMedicineQuantity(medicine)>=quantity)
-                medicinesAndQuantity.put(medicine,medicinesAndQuantity.get(medicine)-quantity);
+            if(getMedicineQuantity(medicine)>=quantity) {
+                medicinesAndQuantity.put(medicine, medicinesAndQuantity.get(medicine) - quantity);
+                writeMedicineToFile();
+            }
             else
                 throw new MedicineQuantityInsufficient("Quantity insufficient Current quantity of "+medicine.getName()+" is "+getMedicineQuantity(medicine));
         }
         else
             throw new MedicineNotExistException("Medicine id:"+ "medicine.getId()"+" is not in the stock");
+    }
+
+    public List<Medicine> getMedicineList(){
+        return new ArrayList<Medicine>(medicinesAndQuantity.keySet());
+    }
+    public List<Integer> getQuantityList(){
+        return new ArrayList<Integer>(medicinesAndQuantity.values());
     }
 
     @Override
@@ -46,8 +99,8 @@ public class MedicineManager {
         }
 
 
-    public HashMap<Medicine, Integer> getMedicinesAndQuantity() {
-        return medicinesAndQuantity;
+    public Map<Medicine, Integer> getMedicinesAndQuantity() {
+        return new HashMap<>(medicinesAndQuantity);
     }
 
     public void setMedicinesAndQuantity(HashMap<Medicine, Integer> medicinesAndQuantity) {
@@ -61,6 +114,5 @@ public class MedicineManager {
         }
         return false;
     }
-
 
 }

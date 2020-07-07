@@ -1,20 +1,24 @@
 package Model.TablesModels;
 
+import Model.Appointment;
 import Model.Customer;
 import Model.Person;
 import Model.Vet;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PersonTableModel extends AbstractTableModel {
-    private List<Person> persons;
-    private String [] colNames={"Id","Name", "Phone Number","Email","Address","Customer Number","Licence"};
+    private Set<Person> persons = new HashSet<>();
+    private String[] colNames = {"Id", "Name", "Phone Number", "Email", "Address", "Customer Number", "Licence"};
 
     public PersonTableModel() {
     }
 
-    public void setData(List<Person> persons) {
+    public void setData(Set<Person> persons) {
         this.persons = persons;
     }
 
@@ -35,7 +39,8 @@ public class PersonTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Person person = persons.get(rowIndex);
+        ArrayList<Person> personsArrayList = new ArrayList<Person>(persons);
+        Person person = personsArrayList.get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return person.getId();
@@ -59,4 +64,5 @@ public class PersonTableModel extends AbstractTableModel {
         return null;
 
     }
+
 }

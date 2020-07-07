@@ -3,15 +3,18 @@ package View.Panels;
 import Model.Appointment;
 import Model.Medicine;
 import Model.Person;
+import Model.Pet;
 import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.MedicineTableModel;
 import Model.TablesModels.PersonTableModel;
+import Model.TablesModels.PetTableModel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.awt.event.MouseListener;
+import java.awt.image.AreaAveragingScaleFilter;
+import java.util.*;
 
 public class TablePanel extends JPanel {
     private JTable table;
@@ -25,26 +28,42 @@ public class TablePanel extends JPanel {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
-    public void setPersonsData(ArrayList<Person> persons) {
+    public JTable getTable() {
+        return table;
+    }
+
+    public AbstractTableModel getTableModel() {
+        return tableModel;
+    }
+
+    public void setPersonsData(Set<Person> persons) {
         ((PersonTableModel) tableModel).setData(persons);
 
     }
 
-    public void setAppointmentsData(ArrayList<Appointment> appointments) {
+    public void setAppointmentsData(Set<Appointment> appointments) {
         ((AppointmentTableModel) tableModel).setData(appointments);
 
     }
 
-    public void setMedicineData(HashMap<Medicine,Integer> medicines){
+    public void setMedicineData(Map<Medicine,Integer> medicines){
         ((MedicineTableModel)tableModel).setData(medicines);
 
+    }
+
+    public void setPetDataForCustomer(ArrayList<Pet> pets){
+        ((PetTableModel)tableModel).setData(pets);
     }
 
     public void refresh() {
         tableModel.fireTableDataChanged();
 
+
     }
 
+    public void addSelectedRowListener(MouseListener mouseListener){
+        table.addMouseListener(mouseListener);
+    }
 
 
 }

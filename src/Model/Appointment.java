@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Appointment {
+public class Appointment implements Serializable {
     private Date date = new Date();
     private String treatment,treatmentDescription,petId,customerId,vetId;
     private AppointmentSummary summary = new AppointmentSummary();
@@ -19,8 +20,20 @@ public class Appointment {
         this.summary = summary;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return date.getDay();
+    }
+
+    public String getTime() {
+        return date.getHour();
+    }
+
+    public void setDay(String day){
+        this.date.setDay(day);
+    }
+
+    public void setHour(String hour){
+        this.date.setHour(hour);
     }
 
     public void setDate(Date date) {
@@ -72,7 +85,9 @@ public class Appointment {
     }
 
     public void setSummary(AppointmentSummary summary) {
-        this.summary = summary;
+        this.summary.setTreatmentSummary(summary.getTreatmentSummary());
+        this.summary.setRecommendations(summary.getRecommendations());
+        this.summary.setMedicines(summary.getMedicines());
     }
 
     @Override
@@ -80,10 +95,11 @@ public class Appointment {
         if (this == o) return true;
         if (!(o instanceof Appointment)) return false;
         Appointment that = (Appointment) o;
-        return getPetId() == that.getPetId() &&
-                getCustomerId() == that.getCustomerId() &&
-                getVetId() == that.getVetId() &&
-                that.getDate().equals(getDate());
+        return getPetId().equals(that.getPetId()) &&
+                getCustomerId().equals(that.getCustomerId()) &&
+                getVetId().equals(that.getVetId()) &&
+                that.getDate().equals(getDate()) &&
+                that.getTime().equals(getTime());
     }
 
     @Override
@@ -103,4 +119,6 @@ public class Appointment {
                 ", summary=" + summary +
                 '}';
     }
+
+
 }

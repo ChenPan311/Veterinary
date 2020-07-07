@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person implements Serializable {
     private String id,name,phoneNumber,email,address;
 
     public Person() {
@@ -74,7 +75,12 @@ public abstract class Person {
         if (this == o) return true;
         if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        return getId() == person.getId();
+        return getId().equals(person.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     // missing methods from class diagram

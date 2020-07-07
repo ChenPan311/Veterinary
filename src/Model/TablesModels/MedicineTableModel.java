@@ -6,15 +6,16 @@ import javax.swing.table.AbstractTableModel;
 import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MedicineTableModel extends AbstractTableModel {
-    private HashMap<Medicine,Integer> medicines;
+    private Map<Medicine,Integer> medicines;
     private String[] colNames={"Medicine Id","Name","Type","Quantity"};
 
     public MedicineTableModel() {
     }
 
-    public void setData(HashMap<Medicine,Integer> medicines){
+    public void setData(Map<Medicine,Integer> medicines){
         this.medicines=medicines;
 
     }

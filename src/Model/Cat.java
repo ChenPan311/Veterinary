@@ -7,8 +7,8 @@ public class Cat extends Pet {
     public Cat() {
     }
 
-    public Cat(String petId, String ownerId, String name, String dateOfBirth, String color, String gender, double weight, String breed, Boolean isCastrated) {
-        super(petId, ownerId, name, dateOfBirth, color, gender, weight);
+    public Cat(String petId, String name, String dateOfBirth, String color, String gender, double weight, String breed, Boolean isCastrated) {
+        super(petId, name, dateOfBirth, color, gender, weight);
         this.breed = breed;
         this.isCastrated = isCastrated;
     }

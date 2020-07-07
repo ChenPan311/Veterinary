@@ -7,8 +7,8 @@ public class Other extends Pet {
     public Other() {
     }
 
-    public Other(String petId, String ownerId, String name, String dateOfBirth, String color, String gender, double weight, String typeOfPet, String info) {
-        super(petId, ownerId, name, dateOfBirth, color, gender, weight);
+    public Other(String petId, String name, String dateOfBirth, String color, String gender, double weight, String typeOfPet, String info) {
+        super(petId, name, dateOfBirth, color, gender, weight);
         this.typeOfPet = typeOfPet;
         this.info = info;
     }

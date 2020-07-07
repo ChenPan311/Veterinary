@@ -11,11 +11,12 @@ public class Customer extends Person {
     private ArrayList<Pet> petList;
 
     public Customer() {
+        petList = new ArrayList<>();
     }
 
     public Customer(String name, String phoneNumber, String email, String address, String id) {
         super(name, phoneNumber, email, address, id);
-        petList=new ArrayList<>();
+        petList = new ArrayList<>();
     }
 
     public int getCustomerNumber() {
@@ -33,16 +34,30 @@ public class Customer extends Person {
     public void setPetList(ArrayList<Pet> petList) {
         this.petList = petList;
     }
-    public void addPetToList(Pet pet){
+
+    public void addPetToList(Pet pet) {
         petList.add(pet);
     }
 
-    public boolean searchPetById(String id){
-        for(Pet pet:petList) {
+    public void removePetFromList(int index) {
+        petList.remove(index);
+    }
+
+    public void updatePetFromList(Pet pet, int index) {
+        Pet oldPet = petList.get(index);
+        oldPet = pet;
+    }
+
+    public boolean searchPetById(String id) {
+        for (Pet pet : petList) {
             if (pet.getPetId().equals(id))
                 return true;
         }
         return false;
+    }
+
+    public Pet getPetFromList(int index) {
+        return petList.get(index);
     }
     // missing methods from class diagram
 
