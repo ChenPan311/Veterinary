@@ -10,6 +10,8 @@ public class RegisterCustomerView extends JPanel {
     private JButton addBtn, deleteBtn, updateBtn, clearBtn, addPetBtn;
 
     public RegisterCustomerView() {
+
+
         name_tv = new JLabel("Name:");
         phoneNumber_tv = new JLabel("Phone Number:");
         email_tv = new JLabel("Email:");
@@ -135,6 +137,13 @@ public class RegisterCustomerView extends JPanel {
         this.id_tf = id_tf;
     }
 
+    public JButton getAddBtn() {
+        return addBtn;
+    }
+
+    public JButton getDeleteBtn(){
+        return deleteBtn;
+    }
 
     public void addNewCustomerListener(ActionListener actionListener) {
         addBtn.addActionListener(actionListener);

@@ -18,28 +18,36 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class PersonsController extends Observable implements Observer {
+    private static PersonsController personsController;
     private PersonsView view;
     private PersonManager model;
 
-    public PersonsController(PersonsView view, PersonManager model) {
+public static PersonsController getInstance(PersonsView view){
+    if(personsController==null){
+        personsController = new PersonsController(view);
+    }
+    return personsController;
+}
+
+    private PersonsController(PersonsView view) {
         this.view = view;
-        this.model = model;
-        addObserver(view);
+        this.model = PersonManager.singletonPersonManager();
+        //addObserver(view);
         view.getTablePanel().setPersonsData(model.getPersons());
 
-        view.getView().addNewCustomerListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addNewCustomer();
-            }
-        }) ;
+//        view.getView().addNewCustomerListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                addNewCustomer();
+//            }
+//        }) ;
 
-        view.getView().deleteCustomerListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteCustomer();
-            }
-        });
+//        view.getView().deleteCustomerListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                deleteCustomer();
+//            }
+//        });
 
         view.getView().clearFieldsListener(new ActionListener() {
             @Override

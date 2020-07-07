@@ -7,10 +7,10 @@ public class CustomersMedicinesAppointmentsModelView {
     private AppointmentManager appointmentManager;
     private MedicineManager medicineManager;
 
-    public CustomersMedicinesAppointmentsModelView(Veterinary veterinary) {
-        this.personManager = veterinary.getPersonManager();
-        this.appointmentManager = veterinary.getAppointmentManager();
-        this.medicineManager = veterinary.getMedicineManager();
+    public CustomersMedicinesAppointmentsModelView() {
+        this.personManager = PersonManager.singletonPersonManager();
+        this.appointmentManager = AppointmentManager.singletonAppointmentManager();
+        this.medicineManager = MedicineManager.singletonMedicineManager("medicines.dat");
     }
 
     public PersonManager getPersonManager() {

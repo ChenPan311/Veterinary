@@ -1,5 +1,8 @@
 package View;
 
+import Controller.AppointmentsController;
+import Model.AppointmentManager;
+import Model.CustomersMedicinesAppointmentsModelView;
 import Model.Medicine;
 import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.PersonTableModel;
@@ -17,11 +20,13 @@ import java.util.Observer;
 public class AppointmentsView extends JPanel implements Observer {
     private TablePanel tablePanel;
     private AddAppointmentView view;
+    private AppointmentsController controller;
 
 
     public AppointmentsView() {
         view = new AddAppointmentView();
         tablePanel = new TablePanel(new AppointmentTableModel());
+
 
 
         setLayout(new GridBagLayout());
