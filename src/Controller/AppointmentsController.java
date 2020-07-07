@@ -51,10 +51,10 @@ public class AppointmentsController extends Observable implements Observer {
                                     model.getAppointmentManager().addAppointment(appointment);
                                     view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
                                     view.getTablePanel().refresh();
+                                    JOptionPane.showMessageDialog(view, "Added");
                                 } catch (ApponitmentAlreadyExistsException ex) {
-                                    ex.printStackTrace();
+                                    JOptionPane.showMessageDialog(view, "That Date And Time Is Busy ");
                                 }
-                                JOptionPane.showMessageDialog(view, "Added");
                             } else JOptionPane.showMessageDialog(view, "There Is No Such Vet With That Id!");
                         } else JOptionPane.showMessageDialog(view, "There Is No Such Pet For That Customer!");
                     } else JOptionPane.showMessageDialog(view, "There Is No Such Customer With That Id!");

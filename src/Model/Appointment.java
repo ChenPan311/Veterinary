@@ -95,9 +95,9 @@ public class Appointment implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Appointment)) return false;
         Appointment that = (Appointment) o;
-        return getPetId() == that.getPetId() &&
-                getCustomerId() == that.getCustomerId() &&
-                getVetId() == that.getVetId() &&
+        return getPetId().equals(that.getPetId()) &&
+                getCustomerId().equals(that.getCustomerId()) &&
+                getVetId().equals(that.getVetId()) &&
                 that.getDate().equals(getDate()) &&
                 that.getTime().equals(getTime());
     }

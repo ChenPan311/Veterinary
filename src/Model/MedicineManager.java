@@ -7,12 +7,12 @@ import Model.InterfaceModels.MedicineManagerInterface;
 import java.io.*;
 import java.util.*;
 
-public class MedicineManager implements MedicineManagerInterface,Observer {
+public class MedicineManager implements MedicineManagerInterface {
     private Map<Medicine,Integer> medicinesAndQuantity;
     private static MedicineManager medicineManager=null;
     private static final String fileName="medicines.dat";
 
-    public MedicineManager() {
+    private MedicineManager() {
         this.medicinesAndQuantity = new HashMap<>();
         readMedicinesFromFile();
     }
@@ -115,8 +115,4 @@ public class MedicineManager implements MedicineManagerInterface,Observer {
         return false;
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-
-    }
 }

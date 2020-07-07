@@ -102,12 +102,6 @@ public class PersonsController extends Observable implements Observer {
 
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-        setChanged();
-        notifyObservers();
-    }
-
     public void addNewCustomer(){
         if (view.getView().validateFields()) {
             if (model.searchById(view.getId())) {
@@ -166,5 +160,11 @@ public class PersonsController extends Observable implements Observer {
                 JOptionPane.showMessageDialog(view, "Updated!");
             } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
         }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setChanged();
+        notifyObservers();
     }
 }

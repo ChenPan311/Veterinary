@@ -16,7 +16,7 @@ public class PersonManager {
     private static PersonManager personManager;
     private final String fileName = "persons3";
 
-    public PersonManager() {
+    private PersonManager() {
         persons = new HashSet<>();
         readPersonsFromFile();
     }

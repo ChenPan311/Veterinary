@@ -13,41 +13,19 @@ class PersonManagerTest {
     Customer customer1 = new Customer("a", "020321", "fsds3", "Fsafasfa", "1234");
 
     @Test
-    void addPerson() throws PersonAlreadyExistException {
-        personManager.addPerson(customer);
-        assertEquals(1,personManager.getPersons().size());
-        personManager.addPerson(customer1);
-        assertEquals(2,personManager.getPersons().size());
-    }
-
-    @Test
-    void removePerson() throws PersonNotExistException {
-        personManager.removePerson(customer);
-        assertEquals(1,personManager.getPersons().size());
-    }
-
-    @Test
     void searchById() {
-        personManager.searchById(customer.getId());
+
+        assertTrue(personManager.searchById("315877563"));
+        assertFalse(personManager.searchById("3333"));
     }
 
     @Test
     void searchPetForCustomer() {
-        Dog dog = new Dog("1","a","22/11/12","Ye","male",32.2,"lab","Big",false,false);
-        customer1.addPetToList(dog);
-        personManager.searchPetForCustomer(customer1.getId(),dog.getPetId());
+        assertTrue(personManager.searchPetForCustomer("315877563","22"));
+        assertFalse(personManager.searchPetForCustomer("315877563","13233"));
     }
 
 
-    @Test
-    void addPetToList() {
-        assertEquals(1,customer1.getPetList().size());
-    }
-
-    @Test
-    void removePetFromList() {
-        customer1.removePetFromList(0);
-    }
 
 
 }
