@@ -2,48 +2,59 @@ package Controller;
 
 import View.VeterinaryMainView;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Observable;
-import java.util.Observer;
 
 public class MainController extends Observable {
-    VeterinaryMainView view;
-    PersonsController personsController;
-    MedicineController medicineController;
-    AppointmentsController appointmentsController;
+    private static MainController mainController;
+    private VeterinaryMainView view;
+    private PersonsController personsController;
+    private MedicineController medicineController;
+    private AppointmentsController appointmentsController;
 
-    public MainController(VeterinaryMainView view, PersonsController personsController, MedicineController medicineController, AppointmentsController appointmentsController) {
+    public static MainController getInstance(VeterinaryMainView view){
+        if(mainController==null){
+            mainController = new MainController(view);
+        }
+        return mainController;
+    }
+
+    private MainController(VeterinaryMainView view) {
         this.view = view;
-        this.personsController = personsController;
-        this.medicineController = medicineController;
-        this.appointmentsController = appointmentsController;
+        this.personsController = PersonsController.getInstance(view.getPersonsView());
+        this.medicineController = MedicineController.getInstance(view.getMedicineView());
+        this.appointmentsController = AppointmentsController.getInstance(view.getAppointmentsView());
         addObserver(personsController);
         addObserver(medicineController);
         addObserver(appointmentsController);
 
-        view.addCustomerAddingListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setChanged();
-                notifyObservers();
-            }
-        });
-
-        view.addMedicineAddingListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setChanged();
-                notifyObservers();
-            }
-        });
-
-        view.addPetAddingListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setChanged();
-                notifyObservers();
-            }
-        });
+//        view.addCustomerAddingListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                setChanged();
+//                notifyObservers();
+//            }
+//        });
+//
+//        view.addMedicineAddingListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                setChanged();
+//                notifyObservers();
+//            }
+//        });
+//
+//        view.addPetAddingListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                setChanged();
+//                notifyObservers();
+//            }
+//        });
     }
+
+    public void update(){
+        setChanged();
+        notifyObservers();
+    }
+
 }

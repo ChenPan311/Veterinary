@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MainController;
 import Controller.PersonsController;
 import Model.PersonManager;
 import View.Panels.MainMenu;
@@ -20,6 +21,7 @@ public class VeterinaryMainView extends JFrame {
     static final String CUSTOMER="Customers";
     static final String APPOINTMENT="Appointments";
     static final String MEDICINE="Medicines";
+    private MainController controller;
 
     public VeterinaryMainView(String title) throws HeadlessException {
         super(title);
@@ -38,13 +40,14 @@ public class VeterinaryMainView extends JFrame {
 
         add(panel,BorderLayout.CENTER);
 
+        controller = MainController.getInstance(this);
+
         mainMenu.getAddCustomer().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, CUSTOMER);
-
-
+                controller.update();
             }
         });
 
@@ -53,6 +56,7 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, APPOINTMENT);
+                controller.update();
             }
         });
 
@@ -61,22 +65,23 @@ public class VeterinaryMainView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (panel.getLayout());
                 cl.show(panel, MEDICINE);
+                controller.update();
             }
         });
     }
 
 
-    public void addCustomerAddingListener(ActionListener actionListener) {
-        mainMenu.getAddCustomer().addActionListener(actionListener);
-    }
-
-    public void addMedicineAddingListener(ActionListener actionListener) {
-        mainMenu.getAddMedicine().addActionListener(actionListener);
-    }
-
-    public void addPetAddingListener(ActionListener actionListener) {
-        mainMenu.getAddPet().addActionListener(actionListener);
-    }
+//    public void addCustomerAddingListener(ActionListener actionListener) {
+//        mainMenu.getAddCustomer().addActionListener(actionListener);
+//    }
+//
+//    public void addMedicineAddingListener(ActionListener actionListener) {
+//        mainMenu.getAddMedicine().addActionListener(actionListener);
+//    }
+//
+//    public void addPetAddingListener(ActionListener actionListener) {
+//        mainMenu.getAddPet().addActionListener(actionListener);
+//    }
 
     public MedicinesView getMedicineView() {
         return medicineView;

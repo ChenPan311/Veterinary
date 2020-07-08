@@ -207,6 +207,22 @@ public class AddAppointmentView extends JPanel {
         return addBtn;
     }
 
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public JButton getUpdateBtn() {
+        return updateBtn;
+    }
+
+    public JButton getAddSummaryBtn() {
+        return addSummaryBtn;
+    }
+
+    public JButton getDeleteSummaryBtn() {
+        return deleteSummaryBtn;
+    }
+
     public boolean validateFields(){
         return !(customerId_tf.getText().equals("")||
                 petId_tf.getText().equals("")||

@@ -145,6 +145,16 @@ public class RegisterCustomerView extends JPanel {
         return deleteBtn;
     }
 
+    public JButton getUpdateBtn(){return  updateBtn; }
+
+    public JButton getClearBtn() {
+        return clearBtn;
+    }
+
+    public JButton getAddPetBtn() {
+        return addPetBtn;
+    }
+
     public void addNewCustomerListener(ActionListener actionListener) {
         addBtn.addActionListener(actionListener);
     }

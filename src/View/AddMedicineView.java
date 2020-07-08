@@ -105,5 +105,13 @@ public class AddMedicineView extends JPanel {
     public JButton getAddBtn() {
         return addBtn;
     }
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
+
+    public JButton getUpdateBtn() {
+        return updateBtn;
+    }
 }
 

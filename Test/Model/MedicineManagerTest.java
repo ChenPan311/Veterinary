@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MedicineManagerTest {
-    //MedicineManager medicineManager = MedicineManager.singletonMedicineManager("medicinesTest.dat");
+    
     MedicineManager medicineManager;
     Medicine medicine = new Medicine("9","fsfdsfs","anti");
 
@@ -22,15 +22,10 @@ class MedicineManagerTest {
     }
 
 
-/*    @After
-    public void tearDownMethod() {
-        System.out.println("tearDownMethod");
-        medicineManager = new LogicClass();
-    }*/
 
     @Test
     void findMedicineId() {
-        medicineManager.addMedicine(medicine,10);
+
         assertTrue(medicineManager.findMedicineId("9"));
         assertFalse(medicineManager.findMedicineId("12"));
     }

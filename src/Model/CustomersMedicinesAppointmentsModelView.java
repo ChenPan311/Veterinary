@@ -1,7 +1,5 @@
 package Model;
 
-import View.MedicinesView;
-
 public class CustomersMedicinesAppointmentsModelView {
     private PersonManager personManager;
     private AppointmentManager appointmentManager;

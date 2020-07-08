@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MedicineController;
 import Model.MedicineManager;
 import Model.TablesModels.MedicineTableModel;
 import View.Panels.TablePanel;
@@ -7,7 +8,9 @@ import View.Panels.TablePanel;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -15,10 +18,12 @@ import java.util.Observer;
 public class MedicinesView extends JPanel implements Observer {
     private TablePanel tablePanel;
     private AddMedicineView view;
+    private MedicineController controller;
 
     public MedicinesView() {
         tablePanel=new TablePanel(new MedicineTableModel());
         view=new AddMedicineView();
+        controller = MedicineController.getInstance(this);
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,6 +45,10 @@ public class MedicinesView extends JPanel implements Observer {
         add(view,gbc);
 
         setBackground(Color.ORANGE);
+        addMedicineToInventory();
+        deleteMedicineFromInventory();
+        updateMedicineInInventory();
+        mouseClicked();
     }
 
     public TablePanel getTablePanel() {
@@ -50,20 +59,76 @@ public class MedicinesView extends JPanel implements Observer {
         return view;
     }
 
-    public void addSelectedRowListener(MouseListener mouseListener){
-        tablePanel.getTable().addMouseListener(mouseListener);
+//    public void addSelectedRowListener(MouseListener mouseListener){
+//        tablePanel.getTable().addMouseListener(mouseListener);
+//    }
+//
+//    public void addMedicineToInventory(ActionListener actionListener) {
+//        view.addMedicineToInventory(actionListener);
+//    }
+//
+//    public void deleteMedicineFromInventory(ActionListener actionListener){
+//        view.deleteMedicineFromInventory(actionListener);
+//    }
+//
+//    public void updateMedicineInInventory(ActionListener actionListener){
+//        view.updateMedicineInInventory(actionListener);
+//    }
+
+    public void addMedicineToInventory(){
+        view.getAddBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addMedicineToInventory();
+            }
+        });
     }
 
-    public void addMedicineToInventory(ActionListener actionListener) {
-        view.addMedicineToInventory(actionListener);
+    public void deleteMedicineFromInventory(){
+        view.getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.deleteMedicineFromInventory();
+            }
+        });
     }
 
-    public void deleteMedicineFromInventory(ActionListener actionListener){
-        view.deleteMedicineFromInventory(actionListener);
+    public void updateMedicineInInventory(){
+        view.getUpdateBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updateMedicineInInventory();
+            }
+        });
     }
 
-    public void updateMedicineInInventory(ActionListener actionListener){
-        view.updateMedicineInInventory(actionListener);
+    public void mouseClicked(){
+        tablePanel.addSelectedRowListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                controller.mouseClicked();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
     public String getId(){

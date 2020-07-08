@@ -13,6 +13,7 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Observable;
 import java.util.Observer;
@@ -50,6 +51,12 @@ public class PersonsView extends JPanel implements Observer {
         setBackground(Color.ORANGE);
         addCustomer();
         deleteCustomer();
+        updateCustomer();
+        clearFields();
+        addPetToCustomer();
+        mouseClicked();
+
+
     }
 
     public TablePanel getTablePanel() {
@@ -74,6 +81,62 @@ public class PersonsView extends JPanel implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.deleteCustomer();
+            }
+        });
+    }
+
+    private void updateCustomer(){
+        view.getUpdateBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updateCustomer();
+            }
+        });
+    }
+
+    private void clearFields(){
+        view.getClearBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clearFields();
+            }
+        });
+    }
+
+    private void addPetToCustomer(){
+        view.getAddPetBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addPetToCustomer();
+            }
+        });
+    }
+
+    public void mouseClicked(){
+        tablePanel.addSelectedRowListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                controller.mouseClickedOnTable();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
     }
