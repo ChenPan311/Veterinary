@@ -53,7 +53,7 @@ public class Medicine implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Medicine)) return false;
         Medicine medicine = (Medicine) o;
-        return getId() == medicine.getId();
+        return getId().equals(medicine.getId());
     }
 
     @Override
