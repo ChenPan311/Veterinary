@@ -13,10 +13,12 @@ import java.util.Set;
 public class AppointmentManager implements AppointmentManageInterface {
     private static AppointmentManager appointmentManager;
     private Set<Appointment> appointments;
-    private String fileName;
 
-    private AppointmentManager(String fileName) {
-        this.fileName = fileName;
+    private  String fileName;
+
+            private AppointmentManager(String fileName) {
+                this.fileName = fileName;
+
         appointments = new HashSet<>();
         readAppointmentsFromFile();
     }

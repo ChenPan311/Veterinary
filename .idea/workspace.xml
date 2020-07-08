@@ -2,40 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d68178c-2a09-4d72-a890-83474b14611b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_junit_jupiter_junit_jupiter_5_4_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/Model/MedicineManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Model/MedicineManagerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointments2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/appointments2.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medicines.dat" beforeDir="false" afterPath="$PROJECT_DIR$/medicines.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MedicineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedicineController.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/medicinesTest.dat" beforeDir="false" afterPath="$PROJECT_DIR$/medicinesTest.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/model.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/model/META-INF/model.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons3" beforeDir="false" afterPath="$PROJECT_DIR$/persons3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PersonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/AppointmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AppointmentManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/CustomersMedicinesAppointmentsModelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CustomersMedicinesAppointmentsModelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Medicine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Medicine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/PersonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PersonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Veterinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Veterinary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AddAppointmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddAppointmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AddMedicineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddMedicineView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/CustomerMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/CustomerMainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MedicinesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MedicinesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PersonsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PersonsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/DigitalClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/DigitalClock.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="231" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="JavaFXApplication" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -43,6 +41,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bXclYkAvffHbAsrC6lr84T2uS6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -63,6 +64,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -73,7 +75,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Veterinary">
+
+  <component name="RunManager" selected="JUnit.CustomerTest.removePetFromList">
     <configuration name="Test" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Test" />
       <module name="model" />
@@ -100,8 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Veterinary" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Model.Veterinary" />
+    <configuration name="AppointmentManagerTest.getAppointmentByAppointment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="model" />
       <extension name="coverage">
         <pattern>
@@ -109,6 +111,41 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.AppointmentManagerTest" />
+      <option name="METHOD_NAME" value="getAppointmentByAppointment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppointmentManagerTest.removeAppointment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.AppointmentManagerTest" />
+      <option name="METHOD_NAME" value="removeAppointment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.CustomerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,7 +166,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MedicineManagerTest.findMedicineId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerTest.removePetFromList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="model" />
       <extension name="coverage">
         <pattern>
@@ -138,14 +175,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.MedicineManagerTest" />
-      <option name="METHOD_NAME" value="findMedicineId" />
+      <option name="MAIN_CLASS_NAME" value="Model.CustomerTest" />
+      <option name="METHOD_NAME" value="removePetFromList" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerTest.searchPetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="model" />
       <extension name="coverage">
         <pattern>
@@ -154,39 +191,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.PersonManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonManagerTest.addPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="model" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.PersonManagerTest" />
-      <option name="METHOD_NAME" value="addPerson" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonManagerTest.removePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="model" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.PersonManagerTest" />
-      <option name="METHOD_NAME" value="removePerson" />
+      <option name="MAIN_CLASS_NAME" value="Model.CustomerTest" />
+      <option name="METHOD_NAME" value="searchPetById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,11 +200,13 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Veterinary" />
-        <item itemvalue="JUnit.MedicineManagerTest.findMedicineId" />
-        <item itemvalue="JUnit.PersonManagerTest" />
-        <item itemvalue="JUnit.PersonManagerTest.removePerson" />
-        <item itemvalue="JUnit.PersonManagerTest.addPerson" />
+
+        <item itemvalue="JUnit.CustomerTest.removePetFromList" />
+        <item itemvalue="JUnit.CustomerTest.searchPetById" />
+        <item itemvalue="JUnit.CustomerTest" />
+        <item itemvalue="JUnit.AppointmentManagerTest.removeAppointment" />
+        <item itemvalue="JUnit.AppointmentManagerTest.getAppointmentByAppointment" />
+
       </list>
     </recent_temporary>
   </component>
@@ -220,10 +228,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#Intentions/0.0.1280.680@0.0.1280.680" timestamp="1592249532957" />
-    <state x="233" y="0" key="#Project_Structure" timestamp="1592401069331">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="280" y="0" key="#Project_Structure" timestamp="1594144079673">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="233" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1592401069331" />
+    <state x="280" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1594144079673" />
     <state x="371" y="96" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1589558126366">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -236,23 +245,34 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.680@0.0.1280.680" timestamp="1592429460426" />
-    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser" timestamp="1594189353599">
-      <screen x="0" y="0" width="1280" height="680" />
+
+    <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1594150370382">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1594189353599" />
-    <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589133167282" />
+    <state x="755" y="9" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1594136021169" />
+    <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1594150370382" />
+
     <state x="371" y="65" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1592250169160">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="65" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1592250169160" />
-    <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589548046318">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="588" y="279" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1594144198668">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1589548046318" />
+    <state x="588" y="279" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1594144198668" />
+    <state x="317" y="45" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1594144188967">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="317" y="45" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1536.824@0.0.1536.824" timestamp="1594144188967" />
     <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591603035920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1591603035920" />
+    <state x="537" y="342" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1594144165625">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="537" y="342" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1594144165625" />
     <state x="438" y="226" width="432" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592408384696">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -269,59 +289,71 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590588271849" />
-    <state width="1237" height="167" key="GridCell.Tab.0.bottom" timestamp="1594189073350">
-      <screen x="0" y="0" width="1280" height="680" />
+
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1594193706114">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="167" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594189073350" />
-    <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="167" key="GridCell.Tab.0.center" timestamp="1594189073350">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="164" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594140681526" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594193706114" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1594193706113">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="167" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594189073350" />
-    <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="167" key="GridCell.Tab.0.left" timestamp="1594189073350">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="164" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594140681525" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594193706113" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1594193706113">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="167" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594189073350" />
-    <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="167" key="GridCell.Tab.0.right" timestamp="1594189073350">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="164" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594140681525" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594193706113" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1594193706114">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="167" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594189073350" />
-    <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="205" key="GridCell.Tab.1.bottom" timestamp="1594188702905">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="164" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594140681525" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594193706114" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1594191791719">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="205" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594188702905" />
-    <state width="1237" height="205" key="GridCell.Tab.1.center" timestamp="1594188702905">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="205" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592767941228" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594191791719" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1594191791719">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="205" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1594188702905" />
-    <state width="1237" height="205" key="GridCell.Tab.1.left" timestamp="1594188702905">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="205" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1592767941228" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1594191791719" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1594191791718">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="205" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1594188702905" />
-    <state width="1237" height="205" key="GridCell.Tab.1.right" timestamp="1594188702905">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1237" height="205" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1592767941228" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1594191791718" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1594191791719">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1237" height="205" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1594188702905" />
+    <state width="1237" height="205" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1592767941228" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1594191791719" />
+
     <state x="389" y="52" key="RollbackChangesDialog" timestamp="1590096765850">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="52" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590096765850" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1594141496813">
-      <screen x="0" y="0" width="1280" height="680" />
+
+    <state x="145" y="0" key="SettingsEditor" timestamp="1594146614768">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1594141496813" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1592250137980" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1594146614768" />
+
     <state x="398" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1590471994571">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="398" y="197" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1590471994571" />
     <state x="477" y="239" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588863187739" />
-    <state x="376" y="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1594141495691">
-      <screen x="0" y="0" width="1280" height="680" />
+
+    <state x="451" y="281" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1594146608188">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="376" y="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680@0.0.1280.680" timestamp="1594141495691" />
+    <state x="376" y="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.680@0.0.1280.680" timestamp="1592249571256" />
+    <state x="451" y="281" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1594146608188" />
+
     <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589884055663">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -330,21 +362,89 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="412" y="15" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1592919679793" />
-    <state width="650" height="131" key="javadoc.popup.new" timestamp="1594140763572">
-      <screen x="0" y="0" width="1280" height="680" />
+
+    <state width="780" height="159" key="javadoc.popup.new" timestamp="1594193004422">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="650" height="131" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1594140763572" />
+    <state width="650" height="131" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1594135010934" />
+    <state width="780" height="159" key="javadoc.popup.new/0.0.1536.824@0.0.1536.824" timestamp="1594193004422" />
+
     <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1589874462200">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1589874462200" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1594191820718">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1594191820718" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591636683023">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1591636683023" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Test/Model/PersonManagerTest.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="persons.toArray()[1]" />
+      </configuration>
+    </watches-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Veterinary$MedicineManagerTest_findMedicineId.ic" NAME="MedicineManagerTest.findMedicineId Coverage Results" MODIFIED="1594144507824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$AppointmentManagerTest_removeAppointment.ic" NAME="AppointmentManagerTest.removeAppointment Coverage Results" MODIFIED="1594192158181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$PersonManagerTest_searchPetForCustomer.ic" NAME="PersonManagerTest.searchPetForCustomer Coverage Results" MODIFIED="1594153896412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$PersonManagerTest.ic" NAME="PersonManagerTest Coverage Results" MODIFIED="1594150111563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$CustomerTest.ic" NAME="CustomerTest Coverage Results" MODIFIED="1594193394685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$CustomerTest_removePetFromList.ic" NAME="CustomerTest.removePetFromList Coverage Results" MODIFIED="1594193705994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$Veterinary.ic" NAME="Veterinary Coverage Results" MODIFIED="1594189896077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/model$Test.ic" NAME="Test Coverage Results" MODIFIED="1589783432091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$CustomerTest_searchPetById.ic" NAME="CustomerTest.searchPetById Coverage Results" MODIFIED="1594193512403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$PersonManagerTest_searchById.ic" NAME="PersonManagerTest.searchById Coverage Results" MODIFIED="1594150834393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$PersonManagerTest_updatePerson.ic" NAME="PersonManagerTest.updatePerson Coverage Results" MODIFIED="1594156351021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$MedicineManagerTest_removeMedicine.ic" NAME="MedicineManagerTest.removeMedicine Coverage Results" MODIFIED="1594147349089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$AppointmentManagerTest_getAppointmentByAppointment.ic" NAME="AppointmentManagerTest.getAppointmentByAppointment Coverage Results" MODIFIED="1594191824792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$MedicineManagerTest_removeMedicine__1_.ic" NAME="MedicineManagerTest.removeMedicine (1) Coverage Results" MODIFIED="1594147803033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$MedicineManagerTest_decreaseQuantityFromMedicineStock.ic" NAME="MedicineManagerTest.decreaseQuantityFromMedicineStock Coverage Results" MODIFIED="1594150503207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Veterinary$MedicineManagerTest.ic" NAME="MedicineManagerTest Coverage Results" MODIFIED="1594149291683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Model.*</FILTER>
     </SUITE>
   </component>

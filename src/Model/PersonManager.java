@@ -14,10 +14,10 @@ public class PersonManager {
     private Random random = new Random();
     private Set<Person> persons;
     private static PersonManager personManager;
-    private String fileName;
+    private  String fileName;
 
     private PersonManager(String fileName) {
-        this.fileName=fileName;
+        this.fileName = fileName;
         persons = new HashSet<>();
         readPersonsFromFile();
     }
