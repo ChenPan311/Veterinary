@@ -146,31 +146,6 @@ public class AppointmentsView extends JPanel implements Observer {
 
 
 
-//    public void addSelectedRowListener(MouseListener mouseListener) {
-//        tablePanel.getTable().addMouseListener(mouseListener);
-//    }
-//
-//    public void addAppointmentListener(ActionListener actionListener) {
-//        view.addAppointmentListener(actionListener);
-//    }
-//
-//    public void deleteAppointmentListener(ActionListener actionListener) {
-//        view.deleteAppointmentListener(actionListener);
-//    }
-//
-//    public void updateAppointmentListener(ActionListener actionListener) {
-//        view.updateAppointmentListener(actionListener);
-//    }
-//
-//    public void addAppointmentSummaryListener(ActionListener actionListener) {
-//        view.addAppointmentSummaryListener(actionListener);
-//    }
-//
-//    public void deleteAppointmentSummaryListener(ActionListener actionListener) {
-//        view.deleteAppointmentSummaryListener(actionListener);
-//    }
-
-
     public String getCustomerId() {
         return view.getCustomerId_tf().getText();
     }

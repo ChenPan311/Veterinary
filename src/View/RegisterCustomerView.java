@@ -155,26 +155,6 @@ public class RegisterCustomerView extends JPanel {
         return addPetBtn;
     }
 
-    public void addNewCustomerListener(ActionListener actionListener) {
-        addBtn.addActionListener(actionListener);
-    }
-
-    public void deleteCustomerListener(ActionListener actionListener) {
-        deleteBtn.addActionListener(actionListener);
-    }
-
-    public void updateCustomerListener(ActionListener actionListener) {
-        updateBtn.addActionListener(actionListener);
-    }
-
-    public void petManageOfCustomerListener(ActionListener actionListener) {
-        addPetBtn.addActionListener(actionListener);
-    }
-
-    public void clearFieldsListener(ActionListener actionListener) {
-        clearBtn.addActionListener(actionListener);
-    }
-
     public Boolean validateFields() {
         return !(getAddress_tf().getText().equals("") ||
                 getEmail_tf().getText().equals("") ||

@@ -59,21 +59,6 @@ public class MedicinesView extends JPanel implements Observer {
         return view;
     }
 
-//    public void addSelectedRowListener(MouseListener mouseListener){
-//        tablePanel.getTable().addMouseListener(mouseListener);
-//    }
-//
-//    public void addMedicineToInventory(ActionListener actionListener) {
-//        view.addMedicineToInventory(actionListener);
-//    }
-//
-//    public void deleteMedicineFromInventory(ActionListener actionListener){
-//        view.deleteMedicineFromInventory(actionListener);
-//    }
-//
-//    public void updateMedicineInInventory(ActionListener actionListener){
-//        view.updateMedicineInInventory(actionListener);
-//    }
 
     public void addMedicineToInventory(){
         view.getAddBtn().addActionListener(new ActionListener() {

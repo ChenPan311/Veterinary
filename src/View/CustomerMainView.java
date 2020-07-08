@@ -1,11 +1,14 @@
 package View;
 
+import Controller.CustomerMainController;
+import Model.Customer;
 import Model.TablesModels.AppointmentTableModel;
 import View.Panels.TablePanel;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CustomerMainView extends JFrame {
@@ -22,7 +25,9 @@ public class CustomerMainView extends JFrame {
     private TablePanel tablePanel;
     private JPanel appointmentDetails;
 
-    public CustomerMainView(String title) {
+    private CustomerMainController customerMainController;
+
+    public CustomerMainView(String title, Customer customer) {
         super(title);
         menuCustomer = new JPanel();
 
@@ -196,6 +201,13 @@ public class CustomerMainView extends JFrame {
         add(appointmentsView, BorderLayout.CENTER);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        customerMainController=new CustomerMainController(this,customer);
+
+        setCustomerData();
+        addAppointment();
+        deleteAppointment();
+        updateCustomer();
     }
 
     public TablePanel getTablePanel() {
@@ -324,13 +336,52 @@ public class CustomerMainView extends JFrame {
         updateCustomerBtn.addActionListener(actionListener);
     }
 
-    public boolean validateFields(){
+    public void addAppointment(){
+        getAddBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerMainController.addAppointment();
+            }
+        });
+    }
+
+    public void deleteAppointment(){
+        getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerMainController.deleteAppointment();
+            }
+        });
+    }
+
+    public void updateCustomer(){
+        getUpdateCustomerBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerMainController.updateCustomer();
+            }
+        });
+    }
+
+    public void setCustomerData(){
+        customerMainController.setCustomerData();
+    }
+
+    public boolean validateAppointmentFields(){
         return !(petId_tf.getText().equals("")||
                 vetId_tf.getText().equals("")||
                 dateTimePicker.getDatePicker().getText().equals("")||
                 dateTimePicker.getTimePicker().getText().equals("")||
                 treatment_tf.getText().equals("")||
                 treatmentDescription_tf.getText().equals(""));
+    }
+
+    public boolean validateCustomerFields(){
+        return!(getName().equals("") ||
+                getId().equals("")||
+                getAddress().equals("")||
+                getEmail().equals("")||
+                getPhoneNumber().equals(""));
     }
 }
 

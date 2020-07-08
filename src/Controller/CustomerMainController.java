@@ -2,26 +2,30 @@ package Controller;
 
 import Exceptions.AppointmentNotExistException;
 import Exceptions.ApponitmentAlreadyExistsException;
-import Model.Appointment;
-import Model.AppointmentSummary;
-import Model.Customer;
-import Model.CustomersMedicinesAppointmentsModelView;
+import Model.*;
 import View.CustomerMainView;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class CustomerMainController {
-    CustomerMainView view;
-    CustomersMedicinesAppointmentsModelView model;
-    Customer customer;
+    //private static CustomerMainController customerMainController;
+    private CustomerMainView view;
+    private CustomersMedicinesAppointmentsModelView model;
+    private Customer customer;
 
+//    public static CustomerMainController getInstance(CustomerMainView view){
+//        if(customerMainController == null){
+//            customerMainController = new CustomerMainController(view);
+//        }
+//        return customerMainController;
+//    }
 
-    public CustomerMainController(CustomerMainView view, CustomersMedicinesAppointmentsModelView model, Customer customer) {
+    public CustomerMainController(CustomerMainView view,Customer customer) {
         this.view = view;
-        this.model = model;
-        this.customer = customer;
+        this.model = new CustomersMedicinesAppointmentsModelView();
+        this.customer=customer;
+        //this.model = new CustomersMedicinesAppointmentsModelView();
+//        this.customer = model.getPersonManager().getCustomerById(view.getId());
 //        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointmentsForCustomer(customer.getId()));
 //        view.setId(customer.getId());
 //        view.setAddress(customer.getAddress());
@@ -101,7 +105,7 @@ public class CustomerMainController {
     }
 
     public void addAppointment(){
-        if (view.validateFields()) {
+        if (view.validateAppointmentFields()) {
             if (model.getPersonManager().searchPetForCustomer(customer.getId(), view.getPetId())) {
                 if (model.getPersonManager().searchById(view.getVetId())) {
                     Appointment appointment = new Appointment();
@@ -147,15 +151,13 @@ public class CustomerMainController {
     }
 
     public void updateCustomer(){
-        if (view.validateFields()) {
+        if (view.validateCustomerFields()) {
             customer.setId(view.getId());
             customer.setName(view.getName());
             customer.setPhoneNumber(view.getPhoneNumber());
             customer.setEmail(view.getEmail());
             customer.setAddress(view.getAddress());
             model.getPersonManager().updatePerson(customer);
-            view.getTablePanel().setPersonsData(model.getPersonManager().getPersons());
-            view.getTablePanel().refresh();
             JOptionPane.showMessageDialog(view, "Updated!");
         } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
     }

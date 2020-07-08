@@ -1,5 +1,7 @@
 package View.Dialogs;
 
+import Controller.AddPetToCustomerController;
+import Model.Customer;
 import Model.Pet;
 import Model.TablesModels.PetTableModel;
 import View.Panels.CatPanel;
@@ -9,9 +11,7 @@ import View.Panels.TablePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class AddPetToCustomerDialog extends JDialog {
@@ -25,14 +25,15 @@ public class AddPetToCustomerDialog extends JDialog {
     final static String DOG_PANEL = "Dog";
     final static String CAT_PANEL = "Cat";
     final static String OTHER_PANEL = "Other";
+    private AddPetToCustomerController controller;
 
-    public AddPetToCustomerDialog() {
-        create();
+    public AddPetToCustomerDialog(Customer customer) {
+        create(customer);
         setBackground(Color.ORANGE);
         this.setVisible(true);
     }
 
-    private void create() {
+    private void create(Customer customer) {
 
         String[] petOptions = {DOG_PANEL, CAT_PANEL, OTHER_PANEL};
         petChooser_cb = new JComboBox<String>(petOptions);
@@ -97,6 +98,12 @@ public class AddPetToCustomerDialog extends JDialog {
         setSize(new Dimension(900,600));
         this.setTitle("Add Pet To Customer");
         this.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+
+        controller=new AddPetToCustomerController(this,customer);
+        addPetToCustomer();
+        deletePetFromCustomer();
+        updatePet();
+        selectedRow();
     }
 
     public JComboBox<String> getPetChooser_cb() {
@@ -131,19 +138,75 @@ public class AddPetToCustomerDialog extends JDialog {
         return tablePanel;
     }
 
-    public void addPetToCustomerListener(ActionListener actionListener) {
-        addBtn.addActionListener(actionListener);
+
+    public JButton getAddBtn() {
+        return addBtn;
     }
 
-    public void deletePetFromCustomerListener(ActionListener actionListener) {
-        deleteBtn.addActionListener(actionListener);
+    public JButton getDeleteBtn() {
+        return deleteBtn;
     }
 
-    public void updatePetOfCustomerListener(ActionListener actionListener) {
-        updateBtn.addActionListener(actionListener);
+    public JButton getUpdateBtn() {
+        return updateBtn;
     }
 
+    public void addPetToCustomer(){
+        getAddBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addPetToCustomer();
+            }
+        });
+    }
 
+    public void deletePetFromCustomer(){
+        getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.deletePetFromCustomer();
+            }
+        });
+    }
+
+    public void updatePet(){
+        getUpdateBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updatePetOfCustomer();
+            }
+        });
+    }
+
+    public void selectedRow(){
+        getTablePanel().addSelectedRowListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                controller.addSelectedRow();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
+    }
 
     public Boolean validateFields() {
         String string = (String) petChooser_cb.getSelectedItem();

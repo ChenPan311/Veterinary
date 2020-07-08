@@ -1,16 +1,12 @@
 package View;
 
 import Controller.MainController;
-import Controller.PersonsController;
-import Model.PersonManager;
 import View.Panels.MainMenu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observable;
-import java.util.Observer;
 
 public class VeterinaryMainView extends JFrame {
     private MainMenu mainMenu;
