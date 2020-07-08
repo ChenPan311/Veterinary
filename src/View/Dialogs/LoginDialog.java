@@ -1,5 +1,8 @@
 package View.Dialogs;
 
+import Controller.AddPetToCustomerController;
+import Model.Customer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -11,7 +14,6 @@ public class LoginDialog extends JFrame {
     private JRadioButton customer_rb, vet_rb;
     private ButtonGroup identity;
     private JPanel identityPanel;
-
 
 
     public LoginDialog(String title) {
@@ -60,6 +62,8 @@ public class LoginDialog extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+
+
     }
 
     public JTextField getUsername_tf() {

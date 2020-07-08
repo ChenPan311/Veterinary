@@ -70,17 +70,6 @@ public class AddMedicineView extends JPanel {
         add(updateBtn, gbc);
     }
 
-    public void addMedicineToInventory(ActionListener actionListener) {
-        addBtn.addActionListener(actionListener);
-    }
-
-    public void deleteMedicineFromInventory(ActionListener actionListener){
-        deleteBtn.addActionListener(actionListener);
-    }
-
-    public void updateMedicineInInventory(ActionListener actionListener){
-        updateBtn.addActionListener(actionListener);
-    }
 
     public Boolean validateFields() {
         return !(id_tf.getText().equals("")||name_tf.getText().equals("")||quantity_tf.getText().equals(""));

@@ -28,82 +28,7 @@ public static PersonsController getInstance(PersonsView view){
     private PersonsController(PersonsView view) {
         this.view = view;
         this.model = PersonManager.singletonPersonManager("persons3");
-        //addObserver(view);
         view.getTablePanel().setPersonsData(model.getPersons());
-
-//        view.getView().addNewCustomerListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                addNewCustomer();
-//            }
-//        }) ;
-
-//        view.getView().deleteCustomerListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                deleteCustomer();
-//            }
-//        });
-
-//        view.getView().clearFieldsListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                view.getView().clearFields();
-//            }
-//        });
-
-//        view.getTablePanel().addSelectedRowListener(new MouseListener() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                PersonTableModel model = (PersonTableModel) view.getTablePanel().getTable().getModel();
-//                int selectedRowIndex = view.getTablePanel().getTable().getSelectedRow();
-//                view.setId(model.getValueAt(selectedRowIndex, 0).toString());
-//                view.setName(model.getValueAt(selectedRowIndex, 1).toString());
-//                view.setPhoneNumber(model.getValueAt(selectedRowIndex, 2).toString());
-//                view.setEmail(model.getValueAt(selectedRowIndex, 3).toString());
-//                view.setAddress(model.getValueAt(selectedRowIndex, 4).toString());
-//            }
-//
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//            }
-//
-//            @Override
-//            public void mouseReleased(MouseEvent e) {
-//            }
-//
-//            @Override
-//            public void mouseEntered(MouseEvent e) {
-//            }
-//
-//            @Override
-//            public void mouseExited(MouseEvent e) {
-//            }
-//        });
-
-//        view.getView().updateCustomerListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                updateCustomer();
-//            }
-//
-//        });
-
-//        view.getView().petManageOfCustomerListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int rowSelected = view.getTablePanel().getTable().getSelectedRow();
-//                if ( rowSelected != -1) {
-//                    AddPetToCustomerDialog viewp = new AddPetToCustomerDialog();
-//                    Customer customer=model.getCustomerById(view.getId());
-//                    viewp.getTablePanel().setPetDataForCustomer(customer.getPetList());
-//                    new AddPetToCustomerController(model,viewp,customer);
-//                }
-//                else JOptionPane.showMessageDialog(view, "Select Customer First!");
-//            }
-//        });
-
-
     }
 
     public void addNewCustomer(){
@@ -183,10 +108,10 @@ public static PersonsController getInstance(PersonsView view){
     public void addPetToCustomer(){
         int rowSelected = view.getTablePanel().getTable().getSelectedRow();
         if ( rowSelected != -1) {
-            AddPetToCustomerDialog viewp = new AddPetToCustomerDialog();
             Customer customer=model.getCustomerById(view.getId());
+            AddPetToCustomerDialog viewp = new AddPetToCustomerDialog(customer);
             viewp.getTablePanel().setPetDataForCustomer(customer.getPetList());
-            new AddPetToCustomerController(model,viewp,customer);
+            new AddPetToCustomerController(viewp,customer);
         }
         else JOptionPane.showMessageDialog(view, "Select Customer First!");
     }

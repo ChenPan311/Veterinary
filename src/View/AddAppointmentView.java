@@ -239,27 +239,6 @@ public class AddAppointmentView extends JPanel {
                 quantity_tf.getText().equals(""));
     }
 
-    public void addAppointmentListener(ActionListener actionListener){
-        addBtn.addActionListener(actionListener);
-    }
-
-    public void deleteAppointmentListener(ActionListener actionListener){
-        deleteBtn.addActionListener(actionListener);
-    }
-
-    public void updateAppointmentListener(ActionListener actionListener){
-        updateBtn.addActionListener(actionListener);
-    }
-
-    public void addAppointmentSummaryListener(ActionListener actionListener){
-        addSummaryBtn.addActionListener(actionListener);
-    }
-
-    public void deleteAppointmentSummaryListener(ActionListener actionListener){
-        deleteSummaryBtn.addActionListener(actionListener);
-    }
-
-
 
     public void setMedicines(HashMap<Medicine, Integer> medicinesSet){
         int size = medicinesSet.size();

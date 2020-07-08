@@ -26,30 +26,6 @@ public class MainController extends Observable {
         addObserver(personsController);
         addObserver(medicineController);
         addObserver(appointmentsController);
-
-//        view.addCustomerAddingListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                setChanged();
-//                notifyObservers();
-//            }
-//        });
-//
-//        view.addMedicineAddingListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                setChanged();
-//                notifyObservers();
-//            }
-//        });
-//
-//        view.addPetAddingListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                setChanged();
-//                notifyObservers();
-//            }
-//        });
     }
 
     public void update(){

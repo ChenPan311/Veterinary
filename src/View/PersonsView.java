@@ -49,6 +49,7 @@ public class PersonsView extends JPanel implements Observer {
         add(view,gbc);
 
         setBackground(Color.ORANGE);
+
         addCustomer();
         deleteCustomer();
         updateCustomer();
