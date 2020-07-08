@@ -300,6 +300,17 @@ public class CustomerMainView extends JFrame {
     }
 
 
+    public JButton getUpdateCustomerBtn() {
+        return updateCustomerBtn;
+    }
+
+    public JButton getAddBtn() {
+        return addBtn;
+    }
+
+    public JButton getDeleteBtn() {
+        return deleteBtn;
+    }
 
     public void addAppointmentListener(ActionListener actionListener){
         addBtn.addActionListener(actionListener);

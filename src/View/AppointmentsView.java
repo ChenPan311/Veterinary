@@ -11,7 +11,9 @@ import View.Panels.TablePanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.HashMap;
 import java.util.Observable;
@@ -26,6 +28,7 @@ public class AppointmentsView extends JPanel implements Observer {
     public AppointmentsView() {
         view = new AddAppointmentView();
         tablePanel = new TablePanel(new AppointmentTableModel());
+        controller = AppointmentsController.getInstance(this);
 
 
 
@@ -50,6 +53,13 @@ public class AppointmentsView extends JPanel implements Observer {
 
 
         setBackground(Color.ORANGE);
+
+        addAppointment();
+        deleteAppointment();
+        updateAppointment();
+        addAppointmentSummary();
+        deleteAppointmentSummary();
+        addSelectedRow();
     }
 
     public TablePanel getTablePanel() {
@@ -60,29 +70,105 @@ public class AppointmentsView extends JPanel implements Observer {
         return view;
     }
 
-    public void addSelectedRowListener(MouseListener mouseListener) {
-        tablePanel.getTable().addMouseListener(mouseListener);
+    public void addAppointment(){
+        view.getAddBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addAppointment();
+            }
+        });
     }
 
-    public void addAppointmentListener(ActionListener actionListener) {
-        view.addAppointmentListener(actionListener);
+    public void deleteAppointment(){
+        view.getDeleteBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.deleteAppointment();
+            }
+        });
     }
 
-    public void deleteAppointmentListener(ActionListener actionListener) {
-        view.deleteAppointmentListener(actionListener);
+    public void updateAppointment(){
+        view.getUpdateBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.updateAppointment();
+            }
+        });
     }
 
-    public void updateAppointmentListener(ActionListener actionListener) {
-        view.updateAppointmentListener(actionListener);
+    public void addAppointmentSummary(){
+        view.getAddSummaryBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addAppointmentSummary();
+            }
+        });
     }
 
-    public void addAppointmentSummaryListener(ActionListener actionListener) {
-        view.addAppointmentSummaryListener(actionListener);
+    public void deleteAppointmentSummary(){
+        view.getDeleteSummaryBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.deleteAppointmentSummary();
+            }
+        });
     }
 
-    public void deleteAppointmentSummaryListener(ActionListener actionListener) {
-        view.deleteAppointmentSummaryListener(actionListener);
+    public void addSelectedRow(){
+        tablePanel.addSelectedRowListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                controller.addSelectedRow();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
+
+
+
+//    public void addSelectedRowListener(MouseListener mouseListener) {
+//        tablePanel.getTable().addMouseListener(mouseListener);
+//    }
+//
+//    public void addAppointmentListener(ActionListener actionListener) {
+//        view.addAppointmentListener(actionListener);
+//    }
+//
+//    public void deleteAppointmentListener(ActionListener actionListener) {
+//        view.deleteAppointmentListener(actionListener);
+//    }
+//
+//    public void updateAppointmentListener(ActionListener actionListener) {
+//        view.updateAppointmentListener(actionListener);
+//    }
+//
+//    public void addAppointmentSummaryListener(ActionListener actionListener) {
+//        view.addAppointmentSummaryListener(actionListener);
+//    }
+//
+//    public void deleteAppointmentSummaryListener(ActionListener actionListener) {
+//        view.deleteAppointmentSummaryListener(actionListener);
+//    }
 
 
     public String getCustomerId() {

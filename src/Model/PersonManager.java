@@ -14,16 +14,17 @@ public class PersonManager {
     private Random random = new Random();
     private Set<Person> persons;
     private static PersonManager personManager;
-    private final String fileName = "persons3";
+    private String fileName;
 
-    private PersonManager() {
+    private PersonManager(String fileName) {
+        this.fileName=fileName;
         persons = new HashSet<>();
         readPersonsFromFile();
     }
 
-    public static PersonManager singletonPersonManager() {
+    public static PersonManager singletonPersonManager(String fileName) {
         if (personManager == null)
-            personManager = new PersonManager();
+            personManager = new PersonManager(fileName);
         return personManager;
 
     }

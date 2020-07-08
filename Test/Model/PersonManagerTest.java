@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PersonManagerTest {
-    PersonManager personManager = PersonManager.singletonPersonManager();
+    PersonManager personManager = PersonManager.singletonPersonManager("personsTest");
     Customer customer = new Customer("a", "020321", "fsds3", "Fsafasfa", "123");
     Customer customer1 = new Customer("a", "020321", "fsds3", "Fsafasfa", "1234");
 

@@ -13,16 +13,17 @@ import java.util.Set;
 public class AppointmentManager implements AppointmentManageInterface {
     private static AppointmentManager appointmentManager;
     private Set<Appointment> appointments;
-    private final String fileName = "appointments2.dat";
+    private String fileName;
 
-    private AppointmentManager() {
+    private AppointmentManager(String fileName) {
+        this.fileName = fileName;
         appointments = new HashSet<>();
         readAppointmentsFromFile();
     }
 
-    public static AppointmentManager singletonAppointmentManager() {
+    public static AppointmentManager singletonAppointmentManager(String fileName) {
         if (appointmentManager == null)
-            appointmentManager = new AppointmentManager();
+            appointmentManager = new AppointmentManager(fileName);
         return appointmentManager;
 
     }
@@ -112,8 +113,8 @@ public class AppointmentManager implements AppointmentManageInterface {
         return new HashSet<>(appointmentsForCus);
     }
 
-    public Appointment getAppointmentByAppointment(Appointment appointment){
-        for(Appointment appointment1 : appointments){
+    public Appointment getAppointmentByAppointment(Appointment appointment) {
+        for (Appointment appointment1 : appointments) {
             if (appointment1.equals(appointment))
                 return appointment1;
         }
