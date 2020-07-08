@@ -3,24 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7d68178c-2a09-4d72-a890-83474b14611b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persons3" beforeDir="false" afterPath="$PROJECT_DIR$/persons3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MedicineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedicineController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PersonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Veterinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Veterinary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AddAppointmentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddAppointmentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AddMedicineView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AddMedicineView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/AppointmentsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/CustomerMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/CustomerMainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Dialogs/AddPetToCustomerDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Dialogs/AddPetToCustomerDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Dialogs/LoginDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Dialogs/LoginDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/MedicinesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MedicinesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/PersonsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/PersonsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RegisterCustomerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/VeterinaryMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointmentManagerTst.dat" beforeDir="false" afterPath="$PROJECT_DIR$/appointmentManagerTst.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +54,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Veterinary">
+  <component name="RunManager" selected="JUnit.PersonManagerTest">
     <configuration name="Test" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Test" />
       <module name="model" />
@@ -110,6 +94,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppointmentManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.AppointmentManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.CustomerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerTest.getCustomerNumber" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="model" />
       <extension name="coverage">
@@ -126,7 +140,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MedicineManagerTest.findMedicineId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MedicineManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="model" />
       <extension name="coverage">
         <pattern>
@@ -136,8 +150,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Model" />
       <option name="MAIN_CLASS_NAME" value="Model.MedicineManagerTest" />
-      <option name="METHOD_NAME" value="findMedicineId" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,45 +170,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonManagerTest.addPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="model" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.PersonManagerTest" />
-      <option name="METHOD_NAME" value="addPerson" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonManagerTest.removePerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="model" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Model" />
-      <option name="MAIN_CLASS_NAME" value="Model.PersonManagerTest" />
-      <option name="METHOD_NAME" value="removePerson" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Veterinary" />
-        <item itemvalue="JUnit.MedicineManagerTest.findMedicineId" />
         <item itemvalue="JUnit.PersonManagerTest" />
-        <item itemvalue="JUnit.PersonManagerTest.removePerson" />
-        <item itemvalue="JUnit.PersonManagerTest.addPerson" />
+        <item itemvalue="JUnit.MedicineManagerTest" />
+        <item itemvalue="JUnit.CustomerTest" />
+        <item itemvalue="JUnit.AppointmentManagerTest" />
+        <item itemvalue="Application.Veterinary" />
       </list>
     </recent_temporary>
   </component>
