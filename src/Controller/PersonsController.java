@@ -31,7 +31,7 @@ public static PersonsController getInstance(PersonsView view){
 
     private PersonsController(PersonsView view) {
         this.view = view;
-        this.model = PersonManager.singletonPersonManager();
+        this.model = PersonManager.singletonPersonManager("persons3");
         //addObserver(view);
         view.getTablePanel().setPersonsData(model.getPersons());
 

@@ -8,8 +8,8 @@ public class CustomersMedicinesAppointmentsModelView {
     private MedicineManager medicineManager;
 
     public CustomersMedicinesAppointmentsModelView() {
-        this.personManager = PersonManager.singletonPersonManager();
-        this.appointmentManager = AppointmentManager.singletonAppointmentManager();
+        this.personManager = PersonManager.singletonPersonManager("persons3");
+        this.appointmentManager = AppointmentManager.singletonAppointmentManager("appointments2.dat");
         this.medicineManager = MedicineManager.singletonMedicineManager("medicines.dat");
     }
 
