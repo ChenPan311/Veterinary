@@ -83,5 +83,4 @@ public abstract class Person implements Serializable {
         return Objects.hash(id);
     }
 
-    // missing methods from class diagram
 }

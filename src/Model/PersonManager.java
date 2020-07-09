@@ -141,5 +141,4 @@ public class PersonManager {
         }
     }
 
-    // missing methods from class diagram
 }
