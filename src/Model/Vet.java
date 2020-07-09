@@ -15,5 +15,5 @@ public class Vet extends Person {
     public void setLicence(String licence) {
         this.licence = licence;
     }
-    // missing methods from class diagram
+
 }

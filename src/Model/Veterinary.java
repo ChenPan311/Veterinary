@@ -34,7 +34,6 @@ public class Veterinary {
                     if (loginDialog.getCustomer_rb().isSelected()) {
                         if (Arrays.equals(loginDialog.getPassword_pf().getPassword(), pass) && !loginDialog.getUsername_tf().getText().equals("")) {
                             JOptionPane.showMessageDialog(loginDialog, "Success!");
-//                            CustomerMainController customerMainController = CustomerMainController.getInstance(customerMainView);
                             Customer customer = PersonManager.singletonPersonManager("persons3").getCustomerById(loginDialog.getUsername_tf().getText());
                             CustomerMainView customerMainView = new CustomerMainView("Customer",customer);
                             customerMainView.setSize(1000, 600);

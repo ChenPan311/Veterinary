@@ -45,7 +45,7 @@ public class AppointmentSummary implements Serializable {
 
 
     @Override
-    public String toString() {   // need to print also the medicine list
+    public String toString() {
         return "AppointmentSummary{" +
                 ", treatmentSummary='" + treatmentSummary + '\'' +
                 ", recommendations='" + recommendations + '\'' +

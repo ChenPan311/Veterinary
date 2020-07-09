@@ -13,16 +13,10 @@ import java.awt.event.MouseListener;
 import java.util.Objects;
 
 public class AddPetToCustomerController {
-    //private static AddPetToCustomerController controller;
     private AddPetToCustomerDialog view;
     private PersonManager model;
     private Customer customer;
 
-//    public static AddPetToCustomerController getInstance(AddPetToCustomerDialog view){
-//        if(controller==null){
-//            controller=new AddPetToCustomerController(model,);
-//        }
-//    }
 
     public AddPetToCustomerController(AddPetToCustomerDialog view, Customer customer) {
         this.view = view;

@@ -1,10 +1,6 @@
 package Model;
 
-import View.RegisterCustomerView;
-
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Customer extends Person {
     private int customerNumber;

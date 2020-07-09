@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="model:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7d68178c-2a09-4d72-a890-83474b14611b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/model_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Model/PersonManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointmentManagerTst.dat" beforeDir="false" afterPath="$PROJECT_DIR$/appointmentManagerTst.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/Model/MedicineManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/Model/MedicineManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddPetToCustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CustomerMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/AppointmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AppointmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/AppointmentSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AppointmentSummary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/PersonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PersonManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Vet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Vet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Veterinary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Veterinary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +57,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -54,7 +70,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonManagerTest">
+  <component name="RunManager" selected="Application.Veterinary">
     <configuration name="Test" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Model.Test" />
       <module name="model" />
@@ -172,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PersonManagerTest" />
+        <item itemvalue="Application.Veterinary" />
         <item itemvalue="JUnit.MedicineManagerTest" />
+        <item itemvalue="JUnit.PersonManagerTest" />
         <item itemvalue="JUnit.CustomerTest" />
         <item itemvalue="JUnit.AppointmentManagerTest" />
-        <item itemvalue="Application.Veterinary" />
       </list>
     </recent_temporary>
   </component>
@@ -223,6 +239,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="65" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1592250169160" />
+    <state x="370" y="131" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1594218107825">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="370" y="131" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1594218107825" />
     <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589548046318">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -231,6 +251,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="321" y="77" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1280.680@0.0.1280.680" timestamp="1591603035920" />
+    <state x="321" y="265" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1594218592909">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="321" y="265" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1594218592909" />
     <state x="438" y="226" width="432" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592408384696">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -247,25 +271,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590588271849" />
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1594206574215">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1594220909040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594206574215" />
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
     <state width="1493" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1594206574214">
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1594220909040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594206574214" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
     <state width="1493" height="205" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1594206574214">
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1594220909040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594206574214" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
     <state width="1493" height="205" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
-    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1594206574215">
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1594220909040">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594206574215" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
     <state width="1493" height="205" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589833319691" />
     <state width="1237" height="205" key="GridCell.Tab.1.bottom" timestamp="1594202660532">
       <screen x="0" y="0" width="1280" height="680" />
@@ -287,10 +311,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="52" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1590096765850" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1594141496813">
+    <state x="121" y="0" key="SettingsEditor" timestamp="1594218254981">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1594141496813" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1594218254981" />
     <state x="398" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1590471994571">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
