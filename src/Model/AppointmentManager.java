@@ -96,7 +96,7 @@ public class AppointmentManager implements AppointmentManageInterface {
     }
 
     public ArrayList<Appointment> getArrayAppointments() {
-        return new ArrayList<Appointment>(appointments);
+        return new ArrayList<>(appointments);
     }
 
     public Set<Appointment> getSetAppointments() {
