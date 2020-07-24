@@ -13,11 +13,12 @@ public class AppointmentManager implements AppointmentManageInterface {
     private static AppointmentManager appointmentManager;
     private Set<Appointment> appointments;
     private String fileName;
+    private FileManager<Appointment> fileManager;
 
     private AppointmentManager(String fileName) {
         this.fileName = fileName;
-        appointments = new HashSet<>();
-        readAppointmentsFromFile();
+        fileManager=new FileManager<>(fileName);
+        appointments=fileManager.readFromFile();
     }
 
     public static AppointmentManager singletonAppointmentManager(String fileName) {
@@ -27,27 +28,10 @@ public class AppointmentManager implements AppointmentManageInterface {
 
     }
 
-    private void readAppointmentsFromFile() {
-        File file = new File(fileName);
-        if (file.length() == 0) {
-            return;
-        }
-        try (InputStream fileInputStream = new FileInputStream(fileName);
-             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-            appointments = (Set<Appointment>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
 
-    }
 
     private void writeAppointmentToFile() {
-        try (OutputStream fileOutputStream = new FileOutputStream(fileName);
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-            objectOutputStream.writeObject(appointments);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fileManager.writeToFile(appointments);
     }
 
 

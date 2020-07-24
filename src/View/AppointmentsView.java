@@ -21,6 +21,7 @@ import java.util.*;
 
 public class AppointmentsView extends JPanel implements Observer {
     private TablePanel tablePanel;
+    private JTable table;
     private AddAppointmentView view;
     private AppointmentsController controller;
 
@@ -28,6 +29,7 @@ public class AppointmentsView extends JPanel implements Observer {
     public AppointmentsView() {
         view = new AddAppointmentView();
         tablePanel = new TablePanel(new AppointmentTableModel());
+        table=tablePanel.getTable();
         controller = AppointmentsController.getInstance(this);
 
 
@@ -54,7 +56,7 @@ public class AppointmentsView extends JPanel implements Observer {
 
         setBackground(Color.ORANGE);
 
-        getTablePanel().setAppointmentsData(controller.getSetAppointments());
+        tablePanel.setAppointmentsData(controller.getSetAppointments());
         getView().setMedicines((HashMap<Medicine, Integer>) controller.getMedicinesAndQuantity());
 
         addAppointment();
@@ -92,8 +94,8 @@ public class AppointmentsView extends JPanel implements Observer {
                                 appointment.setSummary(new AppointmentSummary());
                                 try {
                                     controller.addAppointment(appointment);
-                                    getTablePanel().setAppointmentsData(controller.getSetAppointments());
-                                    getTablePanel().refresh();
+                                    tablePanel.setAppointmentsData(controller.getSetAppointments());
+                                    tablePanel.refresh();
                                     JOptionPane.showMessageDialog(view, "Added");
                                 } catch (ApponitmentAlreadyExistsException ex) {
                                     JOptionPane.showMessageDialog(view, "That Date And Time Is Busy ");
@@ -110,13 +112,13 @@ public class AppointmentsView extends JPanel implements Observer {
         view.getDeleteBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = getTablePanel().getTable().getSelectedRow();
+                if (table.getSelectedRow() != -1) {
+                    int row = table.getSelectedRow();
                     Appointment appointment =controller.getArrayAppointments().get(row);
                     try {
                         controller.deleteAppointment(appointment);
-                        getTablePanel().setAppointmentsData(controller.getSetAppointments());
-                        getTablePanel().refresh();
+                        tablePanel.setAppointmentsData(controller.getSetAppointments());
+                        tablePanel.refresh();
                     } catch (AppointmentNotExistException ex) {
                         ex.printStackTrace();
                     }
@@ -130,8 +132,8 @@ public class AppointmentsView extends JPanel implements Observer {
         view.getUpdateBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = getTablePanel().getTable().getSelectedRow();
+                if (table.getSelectedRow() != -1) {
+                    int row = table.getSelectedRow();
                     Appointment appointment =controller.getArrayAppointments().get(row);
                     if (getView().validateFields()) {
                         appointment.setCustomerId(getCustomerId());
@@ -150,8 +152,8 @@ public class AppointmentsView extends JPanel implements Observer {
                         } catch (ApponitmentAlreadyExistsException ex) {
                             ex.printStackTrace();
                         }
-                        getTablePanel().setAppointmentsData(controller.getSetAppointments());
-                        getTablePanel().refresh();
+                        tablePanel.setAppointmentsData(controller.getSetAppointments());
+                        tablePanel.refresh();
                         JOptionPane.showMessageDialog(view, "Updated!");
                     } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
                 }
@@ -163,8 +165,8 @@ public class AppointmentsView extends JPanel implements Observer {
         view.getAddSummaryBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = getTablePanel().getTable().getSelectedRow();
+                if (table.getSelectedRow() != -1) {
+                    int row =table.getSelectedRow();
                     Appointment appointment = controller.getArrayAppointments().get(row);
                     if (getView().validateSummaryFields()) {
                         AppointmentSummary appointmentSummary = new AppointmentSummary();
@@ -178,8 +180,8 @@ public class AppointmentsView extends JPanel implements Observer {
                                     try {
                                         controller.decreaseQuantityFromMedicineStock(medicine, Integer.parseInt(getQuantity()));
                                         controller.addAppointmentSummary(appointment, appointmentSummary);
-                                        getTablePanel().setAppointmentsData(controller.getSetAppointments());
-                                        getTablePanel().refresh();
+                                        tablePanel.setAppointmentsData(controller.getSetAppointments());
+                                        tablePanel.refresh();
                                         JOptionPane.showMessageDialog(view, "Added!");
                                         break;
                                     } catch (MedicineNotExistException | MedicineQuantityInsufficient medicineNotExistException) {
@@ -199,12 +201,12 @@ public class AppointmentsView extends JPanel implements Observer {
         view.getDeleteSummaryBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (getTablePanel().getTable().getSelectedRow() != -1) {
-                    int row = getTablePanel().getTable().getSelectedRow();
+                if (table.getSelectedRow() != -1) {
+                    int row = table.getSelectedRow();
                     Appointment appointment = controller.getArrayAppointments().get(row);
                     controller.deleteAppointmentSummary(appointment);
-                    getTablePanel().setAppointmentsData(controller.getSetAppointments());
-                    getTablePanel().refresh();
+                    tablePanel.setAppointmentsData(controller.getSetAppointments());
+                    tablePanel.refresh();
                 }
             }
         });
@@ -214,17 +216,17 @@ public class AppointmentsView extends JPanel implements Observer {
         tablePanel.addSelectedRowListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int selectedRowIndex =getTablePanel().getTable().getSelectedRow();
-                setCustomerId(getTablePanel().getTable().getValueAt(selectedRowIndex, 0).toString());
-                setPetId(getTablePanel().getTable().getValueAt(selectedRowIndex, 1).toString());
-                setVetId(getTablePanel().getTable().getValueAt(selectedRowIndex, 2).toString());
-                setDateFromDatePicker(getTablePanel().getTable().getValueAt(selectedRowIndex, 3).toString());
-                setTimeFromDatePicker(getTablePanel().getTable().getValueAt(selectedRowIndex, 4).toString());
-                setTreatment(getTablePanel().getTable().getValueAt(selectedRowIndex, 5).toString());
-                setTreatmentDescription(getTablePanel().getTable().getValueAt(selectedRowIndex, 6).toString());
-                setTreatmentSummary(getTablePanel().getTable().getValueAt(selectedRowIndex, 7).toString());
-                setRecommendations(getTablePanel().getTable().getValueAt(selectedRowIndex, 8).toString());
-                setMedicine(getTablePanel().getTable().getValueAt(selectedRowIndex, 9).toString());
+                int selectedRowIndex =table.getSelectedRow();
+                setCustomerId(table.getValueAt(selectedRowIndex, 0).toString());
+                setPetId(table.getValueAt(selectedRowIndex, 1).toString());
+                setVetId(table.getValueAt(selectedRowIndex, 2).toString());
+                setDateFromDatePicker(table.getValueAt(selectedRowIndex, 3).toString());
+                setTimeFromDatePicker(table.getValueAt(selectedRowIndex, 4).toString());
+                setTreatment(table.getValueAt(selectedRowIndex, 5).toString());
+                setTreatmentDescription(table.getValueAt(selectedRowIndex, 6).toString());
+                setTreatmentSummary(table.getValueAt(selectedRowIndex, 7).toString());
+                setRecommendations(table.getValueAt(selectedRowIndex, 8).toString());
+                setMedicine(table.getValueAt(selectedRowIndex, 9).toString());
             }
 
             @Override

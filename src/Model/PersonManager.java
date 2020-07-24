@@ -15,11 +15,12 @@ public class PersonManager {
     private Set<Person> persons;
     private static PersonManager personManager;
     private String fileName;
+    private FileManager<Person> fileManager;
 
     private PersonManager(String fileName) {
         this.fileName=fileName;
-        persons = new HashSet<>();
-        readPersonsFromFile();
+        fileManager=new FileManager<>(fileName);
+        persons =fileManager.readFromFile();
     }
 
     public static PersonManager singletonPersonManager(String fileName) {
@@ -29,26 +30,8 @@ public class PersonManager {
 
     }
 
-    private void readPersonsFromFile() {
-        File file = new File(fileName);
-        if (file.length() == 0) {
-            return;
-        }
-        try (InputStream fileInputStream = new FileInputStream(fileName);
-             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
-            persons = (Set<Person>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void writePersonToFile() {
-        try (OutputStream fileOutputStream = new FileOutputStream(fileName);
-             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-            objectOutputStream.writeObject(persons);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       fileManager.writeToFile(persons);
     }
 
     public void addPerson(Person person) throws PersonAlreadyExistException {
