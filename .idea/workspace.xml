@@ -8,12 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7d68178c-2a09-4d72-a890-83474b14611b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointments2.dat" beforeDir="false" afterPath="$PROJECT_DIR$/appointments2.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/medicines.dat" beforeDir="false" afterPath="$PROJECT_DIR$/medicines.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/persons3" beforeDir="false" afterPath="$PROJECT_DIR$/persons3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AppointmentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/AppointmentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AppointmentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MedicineController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedicineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Medicine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Medicine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/MedicineManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/MedicineManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/AppointmentsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/AppointmentsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/MedicinesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/MedicinesView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,26 +266,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1590588271849" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1594672072756">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1595621969031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1594672072756" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1594672072756">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595621969031" />
+    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1595621969030">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1594672072756" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1594672072756">
+    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595621969030" />
+    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1595621969030">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1594672072756" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1594672072756">
+    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595621969030" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1595621969031">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1594220909040" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1594672072756" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595621969031" />
     <state width="1237" height="205" key="GridCell.Tab.1.bottom" timestamp="1594202660532">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -329,10 +331,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="650" height="131" key="javadoc.popup.new/0.0.1280.680@0.0.1280.680" timestamp="1594140763572" />
-    <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1589874462200">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="418" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1595619144137">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1589874462200" />
+    <state x="418" y="0" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1595619144137" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591636683023">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

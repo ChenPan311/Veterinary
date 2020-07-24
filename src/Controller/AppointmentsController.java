@@ -30,8 +30,8 @@ public class AppointmentsController extends Observable implements Observer {
         this.view = view;
         this.model = new CustomersMedicinesAppointmentsModelView();
         addObserver(view);
-        view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
-        view.getView().setMedicines((HashMap<Medicine, Integer>) model.getMedicineManager().getMedicinesAndQuantity());
+       // view.getTablePanel().setAppointmentsData(model.getAppointmentManager().getSetAppointments());
+       // view.getView().setMedicines((HashMap<Medicine, Integer>) model.getMedicineManager().getMedicinesAndQuantity());
     }
 
     public void addAppointment(Appointment appointment) throws ApponitmentAlreadyExistsException {

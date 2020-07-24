@@ -54,6 +54,9 @@ public class AppointmentsView extends JPanel implements Observer {
 
         setBackground(Color.ORANGE);
 
+        getTablePanel().setAppointmentsData(controller.getSetAppointments());
+        getView().setMedicines((HashMap<Medicine, Integer>) controller.getMedicinesAndQuantity());
+
         addAppointment();
         deleteAppointment();
         updateAppointment();

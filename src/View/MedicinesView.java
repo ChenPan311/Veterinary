@@ -1,6 +1,7 @@
 package View;
 
 import Controller.MedicineController;
+import Model.Medicine;
 import Model.MedicineManager;
 import Model.TablesModels.MedicineTableModel;
 import View.Panels.TablePanel;
@@ -45,6 +46,9 @@ public class MedicinesView extends JPanel implements Observer {
         add(view,gbc);
 
         setBackground(Color.ORANGE);
+
+        tablePanel.setMedicineData(controller.getMedicinesAndQuantity());
+
         addMedicineToInventory();
         deleteMedicineFromInventory();
         updateMedicineInInventory();
@@ -64,7 +68,14 @@ public class MedicinesView extends JPanel implements Observer {
         view.getAddBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.addMedicineToInventory();
+                if (view.validateFields()) {
+                    if (!controller.findMedicineId(getId())) {
+                        controller.addMedicine(getId(),getName(),getType(), Integer.parseInt(getQuantity()));
+                        tablePanel.setMedicineData(controller.getMedicinesAndQuantity());
+                        tablePanel.refresh();
+                        JOptionPane.showMessageDialog(view, getName() + " Added");
+                    } else JOptionPane.showMessageDialog(view, "Medicine Already Exist!");
+                } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
             }
         });
     }
@@ -73,8 +84,18 @@ public class MedicinesView extends JPanel implements Observer {
         view.getDeleteBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.deleteMedicineFromInventory();
+                JTable table = tablePanel.getTable();
+                if (table.getSelectedRow() != -1) {
+                    int row = table.getSelectedRow();
+                    String id = (String) table.getValueAt(row, 0);
+                    if (controller.removeMedicine(id)) {
+                        tablePanel.setMedicineData(controller.getMedicinesAndQuantity());
+                        tablePanel.refresh();
+
+                    }
+                }
             }
+
         });
     }
 
@@ -82,7 +103,17 @@ public class MedicinesView extends JPanel implements Observer {
         view.getUpdateBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.updateMedicineInInventory();
+                if (tablePanel.getTable().getSelectedRow() != -1) {
+                    if (getView().validateFields()) {
+                       if(controller.updateMedicine(getId(),getName(),getType(), Integer.parseInt(getQuantity()))) {
+                           tablePanel.setMedicineData(controller.getMedicinesAndQuantity());
+                           tablePanel.refresh();
+                           JOptionPane.showMessageDialog(view, "Updated!");
+                       } else JOptionPane.showMessageDialog(view, "Can't Update this medicine!");
+
+                    } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
+                }
+
             }
         });
     }
@@ -91,7 +122,12 @@ public class MedicinesView extends JPanel implements Observer {
         tablePanel.addSelectedRowListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                controller.mouseClicked();
+                MedicineTableModel model = (MedicineTableModel) tablePanel.getTable().getModel();
+                int selectedRowIndex = tablePanel.getTable().getSelectedRow();
+                setId(model.getValueAt(selectedRowIndex, 0).toString());
+                setName(model.getValueAt(selectedRowIndex, 1).toString());
+                setType(model.getValueAt(selectedRowIndex, 2).toString());
+                setQuantity(model.getValueAt(selectedRowIndex, 3).toString());
             }
 
             @Override

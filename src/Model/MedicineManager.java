@@ -57,6 +57,17 @@ public class MedicineManager implements MedicineManagerInterface {
         }
         writeMedicineToFile();
     }
+    public boolean updateMedicine(Medicine medicine,int quantity){
+        for(Medicine med : medicinesAndQuantity.keySet()){
+            if(med.equals(medicine)){ // only check their ids
+                medicinesAndQuantity.remove(med);
+                medicinesAndQuantity.put(medicine,quantity);
+                writeMedicineToFile();
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int getMedicineQuantity(Medicine medicine){
         return medicinesAndQuantity.getOrDefault(medicine,0);
