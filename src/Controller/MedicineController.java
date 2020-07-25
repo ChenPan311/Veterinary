@@ -39,7 +39,7 @@ public class MedicineController extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
+ //       view.getTablePanel().setMedicineData(model.getMedicinesAndQuantity());
         setChanged();
         notifyObservers();
     }

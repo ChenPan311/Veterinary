@@ -6,7 +6,6 @@ import java.util.Set;
 
 public class FileManager<T> {
     private String fileName;
-  //  private Set<T> dataSet;
 
     public FileManager(String fileName) {
         this.fileName = fileName;

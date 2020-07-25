@@ -6,6 +6,7 @@ import Exceptions.ApponitmentAlreadyExistsException;
 import Exceptions.MedicineNotExistException;
 import Exceptions.MedicineQuantityInsufficient;
 import Model.*;
+import Model.Date;
 import Model.TablesModels.AppointmentTableModel;
 import Model.TablesModels.PersonTableModel;
 import View.Dialogs.AddAppointmentSummary;
@@ -83,19 +84,9 @@ public class AppointmentsView extends JPanel implements Observer {
                     if (controller.searchById(getCustomerId())) {
                         if (controller.searchPetForCustomer(getCustomerId(),getPetId())) {
                             if (controller.searchById(getVetId())) {
-                                Appointment appointment = new Appointment();
-                                appointment.setCustomerId(getCustomerId());
-                                appointment.setPetId(getPetId());
-                                appointment.setVetId(getVetId());
-                                appointment.setDay(getDateFromDatePicker());
-                                appointment.setHour(getTimeFromDatePicker());
-                                appointment.setTreatment(getTreatment());
-                                appointment.setTreatmentDescription(getTreatmentDescription());
-                                appointment.setSummary(new AppointmentSummary());
                                 try {
-                                    controller.addAppointment(appointment);
-                                    tablePanel.setAppointmentsData(controller.getSetAppointments());
-                                    tablePanel.refresh();
+                                    controller.addAppointment(createDate(),getPetId(),getCustomerId(),getVetId(),getTreatment(),getTreatmentDescription(),new AppointmentSummary());
+                                    refreshTablePanel();
                                     JOptionPane.showMessageDialog(view, "Added");
                                 } catch (ApponitmentAlreadyExistsException ex) {
                                     JOptionPane.showMessageDialog(view, "That Date And Time Is Busy ");
@@ -114,11 +105,9 @@ public class AppointmentsView extends JPanel implements Observer {
             public void actionPerformed(ActionEvent e) {
                 if (table.getSelectedRow() != -1) {
                     int row = table.getSelectedRow();
-                    Appointment appointment =controller.getArrayAppointments().get(row);
                     try {
-                        controller.deleteAppointment(appointment);
-                        tablePanel.setAppointmentsData(controller.getSetAppointments());
-                        tablePanel.refresh();
+                        controller.deleteAppointment(row);
+                        refreshTablePanel();
                     } catch (AppointmentNotExistException ex) {
                         ex.printStackTrace();
                     }
@@ -133,27 +122,16 @@ public class AppointmentsView extends JPanel implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (table.getSelectedRow() != -1) {
-                    int row = table.getSelectedRow();
-                    Appointment appointment =controller.getArrayAppointments().get(row);
                     if (getView().validateFields()) {
-                        appointment.setCustomerId(getCustomerId());
-                        if (controller.searchPetForCustomer(appointment.getCustomerId(), getPetId())) {
-                            appointment.setPetId(getPetId());
-                        }
-                        appointment.setVetId(getVetId());
-                        appointment.setDay(getDateFromDatePicker());
-                        appointment.setHour(getTimeFromDatePicker());
-                        appointment.setTreatment(getTreatment());
-                        appointment.setTreatmentDescription(getTreatmentDescription());
+                        int row = table.getSelectedRow();
                         try {
-                            controller.updateAppointment(appointment);
+                            controller.updateAppointment(row,createDate(),getPetId(),getCustomerId(),getVetId(),getTreatment(),getTreatmentDescription(),new AppointmentSummary());
                         } catch (AppointmentNotExistException ex) {
                             ex.printStackTrace();
                         } catch (ApponitmentAlreadyExistsException ex) {
                             ex.printStackTrace();
                         }
-                        tablePanel.setAppointmentsData(controller.getSetAppointments());
-                        tablePanel.refresh();
+                        refreshTablePanel();
                         JOptionPane.showMessageDialog(view, "Updated!");
                     } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
                 }
@@ -173,26 +151,16 @@ public class AppointmentsView extends JPanel implements Observer {
                         appointmentSummary.setTreatmentSummary(getTreatmentSummary());
                         appointmentSummary.setRecommendations(getRecommendations());
                         appointmentSummary.setMedicines(getMedicine());
-                        Map<Medicine,Integer> medicines=controller.getMedicinesAndQuantity();
-                        for (Medicine medicine :medicines.keySet()) {
-                            if (medicine.getName().equals(getMedicine()))
-                                if (medicines.get(medicine) - Integer.parseInt(getQuantity()) >= 0) {
-                                    try {
-                                        controller.decreaseQuantityFromMedicineStock(medicine, Integer.parseInt(getQuantity()));
-                                        controller.addAppointmentSummary(appointment, appointmentSummary);
-                                        tablePanel.setAppointmentsData(controller.getSetAppointments());
-                                        tablePanel.refresh();
-                                        JOptionPane.showMessageDialog(view, "Added!");
-                                        break;
-                                    } catch (MedicineNotExistException | MedicineQuantityInsufficient medicineNotExistException) {
-                                        medicineNotExistException.printStackTrace();
-                                    }
-                                } else JOptionPane.showMessageDialog(view, "Quantity Insufficient");
-
+                        try {
+                                controller.addAppointmentSummary(appointment, appointmentSummary,getMedicine(),Integer.parseInt(getQuantity()));
+                                refreshTablePanel();
+                                JOptionPane.showMessageDialog(view, "Added!");
+                        } catch (MedicineNotExistException | MedicineQuantityInsufficient medicineNotExistException) {
+                            JOptionPane.showMessageDialog(view, "Quantity Insufficient");
                         }
                     } else JOptionPane.showMessageDialog(view, "Fill All Fields!");
-
                 }
+
             }
         });
     }
@@ -205,8 +173,7 @@ public class AppointmentsView extends JPanel implements Observer {
                     int row = table.getSelectedRow();
                     Appointment appointment = controller.getArrayAppointments().get(row);
                     controller.deleteAppointmentSummary(appointment);
-                    tablePanel.setAppointmentsData(controller.getSetAppointments());
-                    tablePanel.refresh();
+                    refreshTablePanel();
                 }
             }
         });
@@ -251,7 +218,16 @@ public class AppointmentsView extends JPanel implements Observer {
         });
     }
 
-
+    private Date createDate(){
+        Date date =new Date();
+        date.setDay(getDateFromDatePicker());
+        date.setHour(getTimeFromDatePicker());
+        return date;
+    }
+    private void  refreshTablePanel(){
+        tablePanel.setAppointmentsData(controller.getSetAppointments());
+        tablePanel.refresh();
+    }
 
     public String getCustomerId() {
         return view.getCustomerId_tf().getText();
