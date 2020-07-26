@@ -67,17 +67,6 @@ public class VeterinaryMainView extends JFrame {
     }
 
 
-//    public void addCustomerAddingListener(ActionListener actionListener) {
-//        mainMenu.getAddCustomer().addActionListener(actionListener);
-//    }
-//
-//    public void addMedicineAddingListener(ActionListener actionListener) {
-//        mainMenu.getAddMedicine().addActionListener(actionListener);
-//    }
-//
-//    public void addPetAddingListener(ActionListener actionListener) {
-//        mainMenu.getAddPet().addActionListener(actionListener);
-//    }
 
     public MedicinesView getMedicineView() {
         return medicineView;
