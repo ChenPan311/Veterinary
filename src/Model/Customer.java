@@ -55,7 +55,7 @@ public class Customer extends Person {
     public Pet getPetFromList(int index) {
         return petList.get(index);
     }
-    // missing methods from class diagram
+
 
 
 }

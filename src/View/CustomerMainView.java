@@ -1,6 +1,10 @@
 package View;
 
 import Controller.CustomerMainController;
+import Exceptions.AppointmentNotExistException;
+import Exceptions.ApponitmentAlreadyExistsException;
+import Model.Appointment;
+import Model.AppointmentSummary;
 import Model.Customer;
 import Model.TablesModels.AppointmentTableModel;
 import View.Panels.TablePanel;
@@ -202,10 +206,10 @@ public class CustomerMainView extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        customerMainController=new CustomerMainController(this,customer);
+        customerMainController = new CustomerMainController(customer);
 
         setCustomerData();
-        addAppointment();
+        addAppointment(customer);
         deleteAppointment();
         updateCustomer();
     }
@@ -324,63 +328,116 @@ public class CustomerMainView extends JFrame {
         return deleteBtn;
     }
 
-    public void addAppointmentListener(ActionListener actionListener){
+    public void addAppointmentListener(ActionListener actionListener) {
         addBtn.addActionListener(actionListener);
     }
 
-    public void deleteAppointmentListener(ActionListener actionListener){
+    public void deleteAppointmentListener(ActionListener actionListener) {
         deleteBtn.addActionListener(actionListener);
     }
 
-    public void updateCustomerData(ActionListener actionListener){
+    public void updateCustomerData(ActionListener actionListener) {
         updateCustomerBtn.addActionListener(actionListener);
     }
 
-    public void addAppointment(){
+    public void addAppointment(Customer customer) {
         getAddBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                customerMainController.addAppointment();
+                if (validateAppointmentFields()) {
+                    if (customer.searchPetById(getPetId())) {
+                        if (customerMainController.getVet(getVetId())) {
+                            Appointment appointment = new Appointment();
+                            appointment.setCustomerId(customer.getId());
+                            appointment.setPetId(getPetId());
+                            appointment.setVetId(getVetId());
+                            appointment.setDay(getDatePicker());
+                            appointment.setHour(getTimePicker());
+                            appointment.setTreatment(getTreatment());
+                            appointment.setTreatmentDescription(getTreatmentDescription());
+                            appointment.setSummary(new AppointmentSummary());
+                            try {
+                                customerMainController.addAppointment(appointment);
+                                getTablePanel().setAppointmentsData(customerMainController.getSetAppointmentsForCustomer(customer.getId()));
+                                getTablePanel().refresh();
+                            } catch (ApponitmentAlreadyExistsException ex) {
+                                ex.printStackTrace();
+                            }
+                            JOptionPane.showMessageDialog(CustomerMainView.this, "Added");
+                        } else
+                            JOptionPane.showMessageDialog(CustomerMainView.this, "There Is No Such Vet With That Id!");
+                    } else
+                        JOptionPane.showMessageDialog(CustomerMainView.this, "There Is No Such Pet For That Customer!");
+                } else JOptionPane.showMessageDialog(CustomerMainView.this, "Fill All Fields!");
             }
         });
     }
 
-    public void deleteAppointment(){
+    public void deleteAppointment() {
         getDeleteBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                customerMainController.deleteAppointment();
+                if (getTablePanel().getTable().getSelectedRow() != -1) {
+                    int row = getTablePanel().getTable().getSelectedRow();
+                    Appointment appointment = new Appointment();
+                    appointment.setCustomerId(getTablePanel().getTable().getValueAt(row, 0).toString());
+                    appointment.setPetId(getTablePanel().getTable().getValueAt(row, 1).toString());
+                    appointment.setVetId(getTablePanel().getTable().getValueAt(row, 2).toString());
+                    appointment.setDay(getTablePanel().getTable().getValueAt(row, 3).toString());
+                    appointment.setHour(getTablePanel().getTable().getValueAt(row, 4).toString());
+                    Appointment appointmentToDelete = customerMainController.getAppointmentByAppointment(appointment);
+                    try {
+                        customerMainController.deleteAppointment(appointmentToDelete);
+                        getTablePanel().setAppointmentsData(customerMainController.getSetAppointmentsForCustomer(getId()));
+                        getTablePanel().refresh();
+                    } catch (AppointmentNotExistException ex) {
+                        ex.printStackTrace();
+                    }
+                }
             }
         });
     }
 
-    public void updateCustomer(){
+    public void updateCustomer() {
         getUpdateCustomerBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                customerMainController.updateCustomer();
+                if (validateCustomerFields()) {
+                    customerMainController.getCustomer().setId(getId());
+                    customerMainController.getCustomer().setName(getName());
+                    customerMainController.getCustomer().setPhoneNumber(getPhoneNumber());
+                    customerMainController.getCustomer().setEmail(getEmail());
+                    customerMainController.getCustomer().setAddress(getAddress());
+                    customerMainController.updateCustomer(customerMainController.getCustomer());
+                    JOptionPane.showMessageDialog(CustomerMainView.this, "Updated!");
+                } else JOptionPane.showMessageDialog(CustomerMainView.this, "Fill All Fields!");
             }
         });
     }
 
-    public void setCustomerData(){
-        customerMainController.setCustomerData();
+    public void setCustomerData() {
+        getTablePanel().setAppointmentsData(customerMainController.getSetAppointmentsForCustomer(customerMainController.getCustomer().getId()));
+        setId(customerMainController.getCustomer().getId());
+        setAddress(customerMainController.getCustomer().getAddress());
+        setEmail(customerMainController.getCustomer().getEmail());
+        setName(customerMainController.getCustomer().getName());
+        setPhoneNumber(customerMainController.getCustomer().getPhoneNumber());
     }
 
-    public boolean validateAppointmentFields(){
-        return !(petId_tf.getText().equals("")||
-                vetId_tf.getText().equals("")||
-                dateTimePicker.getDatePicker().getText().equals("")||
-                dateTimePicker.getTimePicker().getText().equals("")||
-                treatment_tf.getText().equals("")||
+    public boolean validateAppointmentFields() {
+        return !(petId_tf.getText().equals("") ||
+                vetId_tf.getText().equals("") ||
+                dateTimePicker.getDatePicker().getText().equals("") ||
+                dateTimePicker.getTimePicker().getText().equals("") ||
+                treatment_tf.getText().equals("") ||
                 treatmentDescription_tf.getText().equals(""));
     }
 
-    public boolean validateCustomerFields(){
-        return!(getName().equals("") ||
-                getId().equals("")||
-                getAddress().equals("")||
-                getEmail().equals("")||
+    public boolean validateCustomerFields() {
+        return !(getName().equals("") ||
+                getId().equals("") ||
+                getAddress().equals("") ||
+                getEmail().equals("") ||
                 getPhoneNumber().equals(""));
     }
 }

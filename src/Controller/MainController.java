@@ -20,7 +20,7 @@ public class MainController extends Observable {
 
     private MainController(VeterinaryMainView view) {
         this.view = view;
-        this.personsController = PersonsController.getInstance(view.getPersonsView());
+        this.personsController = PersonsController.getInstance();
         this.medicineController = MedicineController.getInstance(view.getMedicineView());
         this.appointmentsController = AppointmentsController.getInstance(view.getAppointmentsView());
         addObserver(personsController);
