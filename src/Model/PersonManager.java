@@ -1,10 +1,9 @@
 package Model;
 
 
-import Exceptions.PersonAlreadyExistException;
-import Exceptions.PersonNotExistException;
+import exceptions.PersonAlreadyExistException;
+import exceptions.PersonNotExistException;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;

@@ -1,8 +1,8 @@
 package Model;
 
-import Exceptions.MedicineNotExistException;
-import Exceptions.MedicineQuantityInsufficient;
-import Model.InterfaceModels.MedicineManagerInterface;
+import exceptions.MedicineNotExistException;
+import exceptions.MedicineQuantityInsufficient;
+import Model.interfaceModels.MedicineManagerInterface;
 
 import java.io.*;
 import java.util.*;

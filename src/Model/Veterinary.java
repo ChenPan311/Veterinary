@@ -1,9 +1,8 @@
 package Model;
 
-import Controller.*;
-import View.CustomerMainView;
-import View.Dialogs.LoginDialog;
-import View.VeterinaryMainView;
+import view.CustomerMainView;
+import view.dialogs.LoginDialog;
+import view.VeterinaryMainView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

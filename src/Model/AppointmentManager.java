@@ -1,10 +1,9 @@
 package Model;
 
-import Exceptions.AppointmentNotExistException;
-import Exceptions.ApponitmentAlreadyExistsException;
-import Model.InterfaceModels.AppointmentManageInterface;
+import exceptions.AppointmentNotExistException;
+import exceptions.ApponitmentAlreadyExistsException;
+import Model.interfaceModels.AppointmentManageInterface;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;

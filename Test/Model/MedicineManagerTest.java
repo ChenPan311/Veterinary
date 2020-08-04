@@ -1,7 +1,7 @@
 package Model;
 
-import Exceptions.MedicineNotExistException;
-import Exceptions.MedicineQuantityInsufficient;
+import exceptions.MedicineNotExistException;
+import exceptions.MedicineQuantityInsufficient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

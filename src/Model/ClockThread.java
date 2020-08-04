@@ -1,6 +1,6 @@
 package Model;
 
-import View.DigitalClock;
+import view.DigitalClock;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

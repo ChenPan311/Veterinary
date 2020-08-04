@@ -1,8 +1,7 @@
 package Model;
 
-import Exceptions.AppointmentNotExistException;
-import Exceptions.ApponitmentAlreadyExistsException;
-import Exceptions.MedicineQuantityInsufficient;
+import exceptions.AppointmentNotExistException;
+import exceptions.ApponitmentAlreadyExistsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
